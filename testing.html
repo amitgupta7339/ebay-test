@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .nav { margin: 0; }
+  .nav > li.dropdown.open { position: static; }
+  .nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; }
+  .dropdown-menu>li { display: table-cell; height: 300px;}
+  .dropdown-toggle::after{
+    display: none;
+  }
+  nav li > a {
+    font-size:11px;
+  }
+  li:hover {
+    background-color: white;
+  }
+  #one {
+    color: #333333;
+    text-align: left;
+    float: left;
+    list-style-type:none;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li><a href="#">following</a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Today</b> <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" >
+               <div class="row">
+                  <div class="col-sm-4" >
+                    <a href="#"><b>Today's Featured Collections</b></a>
+                    <hr>
+                    <div class="row">
+                       <div class="col-sm-6" >
+                         1
+                       </div>
+                       <div class="col-sm-6">
+                       <ul id= "one">
+                        <li><a  href="#">Do More on The Go</a></li>
+                         <li><a  href="#">Stay Connected</a></li>
+                         <li><a  href="#">Power Up</a></li>
+                         <li><a  href="#">Irressistibly You</a></li>
+                         <li><a href="#">Find your Sound</a></li>
+                         <li><a href="#">Trendy and Ethnic</a></li>
+                       </ul>
+                     </div>
+                    </div>
+                    <div class="row">
+                       <div class="col-sm-3" >
+                         2
+                       </div>
+                       <div class="col-sm-3" >
+                         3
+                       </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-4">
+                     <a href="#"><b>Today's Trending Collections</b></a>
+                     <hr>
+                  </div>
+
+                  <div class="col-sm-4">
+                    <b>My Collections</b>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+       </li>
+      </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Deals <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories</b>
+                    <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Mobile Phones</a></li>
+                      <li><a id="one" href="#">Laptops</a></li>
+                      <li><a id="one" href="#">Refurbished</a></li>
+                    </ul>
+                  <!--  <p><a id="one" href="#">Mobile Phones</a></p><br \><br \>
+                    <p><a id="one" href="#">Laptops</a></p><br \>
+                    <p><a id="one" href="#">Refurbished</a></p>-->
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Televisions & Home Entertainment</a></li>
+                      <li><a id="one" href="#">Tablets & Accessories</a></li>
+                      <li><a id="one" href="#">Watches</a></li>
+                      <li><a id="one" href="#">Beauty & Cosmetics</a></li>
+                      <li><a id="one" href="#">Fitness & Sports</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-sm-8">
+                    <a href="#"><img alt="Deals" src="image/Deals_770x270_5April_11.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mobile & Accessories<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories.</b>
+                    <hr>
+                    <a href="#">Page 1-1</a><br \>
+                    <a href="#">Page 1-2</a><br \>
+                    <a href="#">Page 1-3</a><br \>
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                  </div>
+
+                  <div class="col-sm-8">
+                    <a href="#"><img alt="Mobile & Accessories" src="image/MobileAcc_770x270_5April_11.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Laptops & Tablets <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories.</b>
+                    <hr>
+                    <p><a href="#">Page 1-1</a></p>
+                    <p><a href="#">Page 1-2</a></p>
+                    <p><a href="#">Page 1-3</a></p>
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                  </div>
+
+                  <div class="col-sm-8">
+                    <a href="#"><img alt="Laptops & Tablets" src="image/LappyTab_770x270_5April_11.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Fashion <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories.</b>
+                    <hr>
+                    <p><a href="#">Page 1-1</a></p>
+                    <p><a href="#">Page 1-2</a></p>
+                    <p><a href="#">Page 1-3</a></p>
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                  </div>
+
+                  <div class="col-sm-8">
+                    <a href="#"><img alt="Fashion" src="image/Fashion_770x270_5April_11.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Home & Living<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories.</b>
+                    <hr>
+                    <p><a href="#">Page 1-1</a></p>
+                    <p><a href="#">Page 1-2</a></p>
+                    <p><a href="#">Page 1-3</a></p>
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                  </div>
+
+                  <div class="col-sm-8">
+                  <a href="#"><img alt="Home & Living" src="image/HomeLiving_770x270_5April_11.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cameras <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories.</b>
+                    <hr>
+                    <p><a href="#">Page 1-1</a></p>
+                    <p><a href="#">Page 1-2</a></p>
+                    <p><a href="#">Page 1-3</a></p>
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                  </div>
+
+                  <div class="col-sm-8">
+                    <a href="#"><img alt="Cameras" src="image/Cameras_770x270_5April_22.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Televisions <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories.</b>
+                    <hr>
+                    <p><a href="#">Page 1-1</a></p>
+                    <p><a href="#">Page 1-2</a></p>
+                    <p><a href="#">Page 1-3</a></p>
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                  </div>
+
+                  <div class="col-sm-8">
+                    <a href="#"><img alt="Televisions" src="image/Tvs_770x270_5April_11.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Health & Beauty <span class="caret"></span></a>
+      <ul class="dropdown-menu" >
+       <li style="min-width=1000px;"> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories.</b>
+                    <hr>
+                    <p><a href="#">Page 1-1</a></p>
+                    <p><a href="#">Page 1-2</a></p>
+                    <p><a href="#">Page 1-3</a></p>
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                  </div>
+
+                  <div class="col-sm-8">
+                    <a href="#"><img alt="Health & Beauty" src="image/Health_770_1492683478249.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">All Electronics<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li> <div class="container" style="backgroud-color:grey">
+               <div class="row">
+                  <div class="col-sm-2" >
+                    <b>Top Categories.</b>
+                    <hr>
+                    <p><a href="#">Page 1-1</a></p>
+                    <p><a href="#">Page 1-2</a></p>
+                    <p><a href="#">Page 1-3</a></p>
+                  </div>
+
+                  <div class="col-sm-2" >
+                    <b> More Categories</b>
+                    <hr>
+                  </div>
+
+                  <div class="col-sm-8">
+                    <a href="#"><img alt="All Electronics" src="image/AllElectronics_770x270_5April_11.jpg" ></a>
+                  </div>
+              </div>
+            </div>
+       </li>
+      </ul>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h3>Navbar With Dropdown</h3>
+  <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
+</div>
+</body>
+</html>
