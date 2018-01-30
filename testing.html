@@ -7,6 +7,35 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#phone").hover(function(){
+        document.getElementById('image1').src="image/s-l200.jpg",
+        document.getElementById('image2').src="image/s-l140.jpg",
+        document.getElementById('image3').src="image/s-l1400.jpg"
+      });
+      $("#headphone").hover(function(){
+        document.getElementById('image1').src="image/s-l201.jpg",
+        document.getElementById('image2').src="image/s-l141.jpg",
+        document.getElementById('image3').src="image/s-l1401.jpg"
+      });
+      $("#power").hover(function(){
+        document.getElementById('image1').src="image/s-l202.jpg",
+        document.getElementById('image2').src="image/s-l142.jpg",
+        document.getElementById('image3').src="image/s-l1402.jpg"
+      });
+      $("#speaker").hover(function(){
+        document.getElementById('image1').src="image/s-l204.jpg",
+        document.getElementById('image2').src="image/s-l144.jpg",
+        document.getElementById('image3').src="image/s-l1404.jpg"
+      });
+      $("#trendy").hover(function(){
+        document.getElementById('image1').src="image/s-l205.jpg",
+        document.getElementById('image2').src="image/s-l145.jpg",
+        document.getElementById('image3').src="image/s-l1405.jpg"
+      });
+    });
+  </script>
   <style>
   .myTabs.nav { margin: 0; }
   .myTabs.nav > li.dropdown.open { position: static; }
@@ -43,25 +72,26 @@
                     <hr>
                     <div class="row">
                        <div class="col-sm-6" >
-                         1
+                         <a href="#"><img id="image1" src="image/s-l1400.jpg" style="height:152px;width=130px;display:inline"><a>
                        </div>
                        <div class="col-sm-6">
                        <ul id= "one">
-                        <li><a  href="#">Do More on The Go</a></li>
-                         <li><a  href="#">Stay Connected</a></li>
-                         <li><a  href="#">Power Up</a></li>
+                        <li><a id="phone" href="#">Do More on The Go</a></li>
+                         <li><a id="headphone" href="#">Stay Connected</a></li>
+                         <li><a id="power" href="#">Power Up</a></li>
                          <li><a  href="#">Irressistibly You</a></li>
-                         <li><a href="#">Find your Sound</a></li>
-                         <li><a href="#">Trendy and Ethnic</a></li>
+                         <li><a id="speaker" href="#">Find your Sound</a></li>
+                         <li><a id="trendy" href="#">Trendy and Ethnic</a></li>
                        </ul>
                      </div>
                     </div>
                     <div class="row">
+
                        <div class="col-sm-3" >
-                         2
+                         <a href="#"><img id="image2" style=" height: 50px;" src="image/s-l200.jpg"><a>
                        </div>
                        <div class="col-sm-3" >
-                         3
+                        <a href="#"> <img id="image3" src="image/s-l1400.jpg" style="height:50px"><a>
                        </div>
                     </div>
 
