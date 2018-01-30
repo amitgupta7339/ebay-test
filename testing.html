@@ -8,16 +8,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-  .nav { margin: 0; }
-  .nav > li.dropdown.open { position: static; }
-  .nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; }
-  .dropdown-menu>li { display: table-cell; height: 300px;}
-  .dropdown-toggle::after{
-    display: none;
-  }
-  nav li > a {
-    font-size:11px;
-  }
+  .myTabs.nav { margin: 0; }
+  .myTabs.nav > li.dropdown.open { position: static; }
+  .myTabs.nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; }
+  .myTabs.dropdown-menu>li { display: table-cell; height: 300px;}
+  nav li a {
+      font-size:13px;
+    }
   li:hover {
     background-color: white;
   }
@@ -28,14 +25,16 @@
     list-style-type:none;
     margin-bottom: 10px;
   }
+
 </style>
 </head>
 <body>
-<nav class="navbar navbar-default">
+  <!-- amit -->
+<nav class="navbar navbar-default" style="margin:0px" >
   <div class="container">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav myTabs">
       <li><a href="#">following</a>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Today</b> <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Today</b> </a>
       <ul class="dropdown-menu">
        <li> <div class="container" >
                <div class="row">
@@ -82,7 +81,7 @@
        </li>
       </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Deals <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Deals <span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
                <div class="row">
@@ -119,21 +118,30 @@
        </li>
       </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mobile & Accessories<span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mobile & Accessories<span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
                <div class="row">
                   <div class="col-sm-2" >
                     <b>Top Categories.</b>
                     <hr>
-                    <a href="#">Page 1-1</a><br \>
-                    <a href="#">Page 1-2</a><br \>
-                    <a href="#">Page 1-3</a><br \>
+                    <ul id="one">
+                      <li><a id="one" href="#">Mobile Phones</a></li>
+                      <li><a id="one" href="#">Mobile Accessories</a></li>
+                      <li><a id="one" href="#">Refurbished Mobiles </a></li>
+                    </ul>
                   </div>
 
-                  <div class="col-sm-2" >
+                 <div class="col-sm-2" >
                     <b> More Categories</b>
                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Cases & Covers</a></li>
+                      <li><a id="one" href="#">Power Bank</a></li>
+                      <li><a id="one" href="#">Headsets and Earphones</a></li>
+                      <li><a id="one" href="#">smart Watch</a></li>
+                      <li><a id="one" href="#">Bluetooth Devices  </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-8">
@@ -144,21 +152,30 @@
        </li>
       </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Laptops & Tablets <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Laptops & Tablets <span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
                <div class="row">
                   <div class="col-sm-2" >
                     <b>Top Categories.</b>
                     <hr>
-                    <p><a href="#">Page 1-1</a></p>
-                    <p><a href="#">Page 1-2</a></p>
-                    <p><a href="#">Page 1-3</a></p>
+                    <ul id="one">
+                      <li><a id="one" href="#">iPads & Tablets</a></li>
+                      <li><a id="one" href="#">Laptops</a></li>
+                      <li><a id="one" href="#">Computer Peripherals </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-2" >
                     <b> More Categories</b>
                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Printers/Scanners & Cartridges</a></li>
+                      <li><a id="one" href="#">USB Modem, Router & Networking</a></li>
+                      <li><a id="one" href="#">LCD / TFT Monitors</a></li>
+                      <li><a id="one" href="#">Keyboard & Mouse</a></li>
+                      <li><a id="one" href="#">Speakers, Webcams & Multimedi</a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-8">
@@ -169,21 +186,30 @@
        </li>
       </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Fashion <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Fashion <span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
                <div class="row">
                   <div class="col-sm-2" >
                     <b>Top Categories.</b>
                     <hr>
-                    <p><a href="#">Page 1-1</a></p>
-                    <p><a href="#">Page 1-2</a></p>
-                    <p><a href="#">Page 1-3</a></p>
+                    <ul id="one">
+                      <li><a id="one" href="#">Women's Clothing & Acc.</a></li>
+                      <li><a id="one" href="#">Men's Clothing & Acc.</a></li>
+                      <li><a id="one" href="#">Watches </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-2" >
                     <b> More Categories</b>
                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Shoes</a></li>
+                      <li><a id="one" href="#">Jewellery</a></li>
+                      <li><a id="one" href="#">Baby & Mom's</a></li>
+                      <li><a id="one" href="#">Lingerie & Sleepwear</a></li>
+                      <li><a id="one" href="#">Bags & Luggage</a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-8">
@@ -194,21 +220,30 @@
        </li>
       </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Home & Living<span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Home & Living<span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
                <div class="row">
                   <div class="col-sm-2" >
                     <b>Top Categories.</b>
                     <hr>
-                    <p><a href="#">Page 1-1</a></p>
-                    <p><a href="#">Page 1-2</a></p>
-                    <p><a href="#">Page 1-3</a></p>
+                    <ul id="one">
+                      <li><a id="one" href="#">Home Décor</a></li>
+                      <li><a id="one" href="#">Furniture</a></li>
+                      <li><a id="one" href="#">Kitchen & Dining </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-2" >
                     <b> More Categories</b>
                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Home Furnishing</a></li>
+                      <li><a id="one" href="#">Tools & Hardware</a></li>
+                      <li><a id="one" href="#">Lighting & Fans</a></li>
+                      <li><a id="one" href="#">Decals, Stickers & Vinyl Art</a></li>
+                      <li><a id="one" href="#">Housekeeping & Organization</a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-8">
@@ -219,21 +254,30 @@
        </li>
       </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cameras <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cameras <span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
                <div class="row">
                   <div class="col-sm-2" >
                     <b>Top Categories.</b>
                     <hr>
-                    <p><a href="#">Page 1-1</a></p>
-                    <p><a href="#">Page 1-2</a></p>
-                    <p><a href="#">Page 1-3</a></p>
+                    <ul id="one">
+                      <li><a id="one" href="#">Digital Cameras</a></li>
+                      <li><a id="one" href="#">Camera Lenses</a></li>
+                      <li><a id="one" href="#">Digital Photo Frames </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-2" >
                     <b> More Categories</b>
                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Camcorders</a></li>
+                      <li><a id="one" href="#">Camera & Camcorder Accessories</a></li>
+                      <li><a id="one" href="#">Binoculars</a></li>
+                      <li><a id="one" href="#">Telescopes</a></li>
+                      <li><a id="one" href="#">Tripods & Heads  </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-8">
@@ -244,21 +288,30 @@
        </li>
       </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Televisions <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Televisions <span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
                <div class="row">
                   <div class="col-sm-2" >
                     <b>Top Categories.</b>
                     <hr>
-                    <p><a href="#">Page 1-1</a></p>
-                    <p><a href="#">Page 1-2</a></p>
-                    <p><a href="#">Page 1-3</a></p>
+                    <ul id="one">
+                      <li><a id="one" href="#">LED Televisions</a></li>
+                      <li><a id="one" href="#">4K/UHD Televisions</a></li>
+                      <li><a id="one" href="#">Set Top Boxes </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-2" >
                     <b> More Categories</b>
                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Music Headphones and Earphones</a></li>
+                      <li><a id="one" href="#">Audio Speakers</a></li>
+                      <li><a id="one" href="#">Home Theater Systems</a></li>
+                      <li><a id="one" href="#">DVD, Blu-Ray & Media Players</a></li>
+                      <li><a id="one" href="#">Projectors and Home Cinemas   </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-8">
@@ -270,21 +323,30 @@
       </ul>
       </li>
 
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Health & Beauty <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Health & Beauty <span class=""></span></a>
       <ul class="dropdown-menu" >
        <li style="min-width=1000px;"> <div class="container" style="backgroud-color:grey">
                <div class="row">
                   <div class="col-sm-2" >
                     <b>Top Categories.</b>
-                    <hr>
-                    <p><a href="#">Page 1-1</a></p>
-                    <p><a href="#">Page 1-2</a></p>
-                    <p><a href="#">Page 1-3</a></p>
+                   <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Perfumes</a></li>
+                      <li><a id="one" href="#">Personal Care Devices</a></li>
+                      <li><a id="one" href="#">Fitness & Sports </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-2" >
                     <b> More Categories</b>
                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Health Care & Instruments</a></li>
+                      <li><a id="one" href="#">Hair Care</a></li>
+                      <li><a id="one" href="#">Bath & Body</a></li>
+                      <li><a id="one" href="#">Cards & Vouchers</a></li>
+                      <li><a id="one" href="#">Sexual Wellness   </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-8">
@@ -296,21 +358,30 @@
       </ul>
       </li>
 
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">All Electronics<span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">All Electronics<span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
                <div class="row">
                   <div class="col-sm-2" >
                     <b>Top Categories.</b>
-                    <hr>
-                    <p><a href="#">Page 1-1</a></p>
-                    <p><a href="#">Page 1-2</a></p>
-                    <p><a href="#">Page 1-3</a></p>
+                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Kitchen & Small Home Appliances</a></li>
+                      <li><a id="one" href="#">Large Appliances</a></li>
+                      <li><a id="one" href="#">Home Security Systems </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-2" >
                     <b> More Categories</b>
                     <hr>
+                    <ul id="one">
+                      <li><a id="one" href="#">Hard Disk Drives</a></li>
+                      <li><a id="one" href="#">Memory Cards & Readers</a></li>
+                      <li><a id="one" href="#">Pen Drives</a></li>
+                      <li><a id="one" href="#">Software & Antivirus</a></li>
+                      <li><a id="one" href="#">Automotive    </a></li>
+                    </ul>
                   </div>
 
                   <div class="col-sm-8">
@@ -325,10 +396,9 @@
     </ul>
   </div>
 </nav>
-
+</div>
 <div class="container">
   <h3>Navbar With Dropdown</h3>
   <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
-</div>
 </body>
 </html>
