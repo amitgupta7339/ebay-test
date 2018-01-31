@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--toady tab script  -->
   <script>
     $(document).ready(function(){
-      $("#phone").hover(function(){
+      $("#aphone").hover(function(){
         document.getElementById('image1').src="image/s-l200.jpg",
         document.getElementById('image2').src="image/s-l140.jpg",
         document.getElementById('image3').src="image/s-l1400.jpg"
@@ -24,6 +25,11 @@
         document.getElementById('image2').src="image/s-l142.jpg",
         document.getElementById('image3').src="image/s-l1402.jpg"
       });
+      $("#Irressistibly").hover(function(){
+        document.getElementById('image1').src="image/s-l203.jpg",
+        document.getElementById('image2').src="image/s-l143.jpg",
+        document.getElementById('image3').src="image/s-l1403.jpg"
+      });
       $("#speaker").hover(function(){
         document.getElementById('image1').src="image/s-l204.jpg",
         document.getElementById('image2').src="image/s-l144.jpg",
@@ -36,6 +42,7 @@
       });
     });
   </script>
+  <!-- end Today tab script  -->
   <style>
   .myTabs.nav { margin: 0; }
   .myTabs.nav > li.dropdown.open { position: static; }
@@ -58,59 +65,69 @@
 </style>
 </head>
 <body>
-  <!-- amit -->
+  <!-- menu bar code start -->
 <nav class="navbar navbar-default" style="margin:0px" >
   <div class="container">
     <ul class="nav navbar-nav myTabs">
-      <li><a href="#">following</a>
+      <!--start following tab  -->
+      <li><a href="#">following</a></li>
+        <!--end following tab   -->
+        <!--start Today tab   -->
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Today</b> </a>
-      <ul class="dropdown-menu">
-       <li> <div class="container" >
-               <div class="row">
-                  <div class="col-sm-4" >
-                    <a href="#"><b>Today's Featured Collections</b></a>
-                    <hr>
-                    <div class="row">
-                       <div class="col-sm-6" >
-                         <a href="#"><img id="image1" src="image/s-l1400.jpg" style="height:152px;width=130px;display:inline"><a>
+        <ul class="dropdown-menu">
+         <li> <div class="container" >
+                 <div class="row">
+                   <!--start Today's Featured Collections coloumn in Today tab  -->
+                    <div class="col-sm-4" >
+                      <a href="#"><b>Today's Featured Collections</b></a>
+                      <hr>
+                      <div class="row">
+                        <!--start image table in Today tab   -->
+                         <div class="col-sm-6" >
+                           <table style=" border-collapse: separate; border-spacing: 4px;" >
+                             <tr >
+                               <td colspan="2" style="border: 1px solid #CCC" ><a href="#"><img id="image1" src="image/s-l1400.jpg" style="height:150px;width:150px"><a></td>
+                             </tr>
+                             <tr>
+                                <td style="border: 1px solid #CCC;width:50px"><a href="#"><img id="image2" style=" height: 50px;" src="image/s-l200.jpg"><a></td>
+                                <td style="border: 1px solid #CCC;width:50px"><a href="#"> <img id="image3" src="image/s-l1400.jpg" style="height:50px"><a></td>
+                             </tr>
+                           </table>
+                         </div>
+                         <!-- end image table in Today tab -->
+                         <!-- start links in Today tab -->
+                         <div class="col-sm-6">
+                         <ul id= "one">
+                          <li><a id="aphone" href="#">Do More on The Go</a></li>
+                           <li><a id="headphone" href="#">Stay Connected</a></li>
+                           <li><a id="power" href="#">Power Up</a></li>
+                           <li><a id="Irressistibly" href="#">Irressistibly You</a></li>
+                           <li><a id="speaker" href="#">Find your Sound</a></li>
+                           <li><a id="trendy" href="#">Trendy and Ethnic</a></li>
+                         </ul>
                        </div>
-                       <div class="col-sm-6">
-                       <ul id= "one">
-                        <li><a id="phone" href="#">Do More on The Go</a></li>
-                         <li><a id="headphone" href="#">Stay Connected</a></li>
-                         <li><a id="power" href="#">Power Up</a></li>
-                         <li><a  href="#">Irressistibly You</a></li>
-                         <li><a id="speaker" href="#">Find your Sound</a></li>
-                         <li><a id="trendy" href="#">Trendy and Ethnic</a></li>
-                       </ul>
-                     </div>
+                       <!-- end links in Today tab  -->
+                      </div>
                     </div>
-                    <div class="row">
-
-                       <div class="col-sm-3" >
-                         <a href="#"><img id="image2" style=" height: 50px;" src="image/s-l200.jpg"><a>
-                       </div>
-                       <div class="col-sm-3" >
-                        <a href="#"> <img id="image3" src="image/s-l1400.jpg" style="height:50px"><a>
-                       </div>
+                    <!--end Today's Featured Collections coloumn in Today tab  -->
+                    <!--start Today's Trending Collections coloumn in Today tab  -->
+                    <div class="col-sm-4">
+                       <a href="#"><b>Today's Trending Collections</b></a>
+                       <hr>
                     </div>
-
-                  </div>
-
-                  <div class="col-sm-4">
-                     <a href="#"><b>Today's Trending Collections</b></a>
-                     <hr>
-                  </div>
-
-                  <div class="col-sm-4">
-                    <b>My Collections</b>
-                    <hr>
+                    <!--end Today's Trending Collections coloumn in Today tab  -->
+                    <!--start My Collections coloumn in Today tab  -->
+                    <div class="col-sm-4">
+                      <b>My Collections</b>
+                      <hr>
+                    </div>
+                    <!--end My Collections coloumn in Today tab  -->
                   </div>
                 </div>
-              </div>
-       </li>
-      </ul>
+          </li>
+        </ul>
       </li>
+      <!--end Today tab  -->
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Deals <span class=""></span></a>
       <ul class="dropdown-menu">
        <li> <div class="container" style="backgroud-color:grey">
@@ -426,7 +443,7 @@
     </ul>
   </div>
 </nav>
-</div>
+<!-- end menu bar -->
 <div class="container">
   <h3>Navbar With Dropdown</h3>
   <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
