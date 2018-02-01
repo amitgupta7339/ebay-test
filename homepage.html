@@ -41,13 +41,22 @@
         document.getElementById('image3').src="image/s-l1405.jpg"
       });
     });
+    $(document).ready(function () {
+      $('.navbar-nav.myTabs .dropdown').hover(function () {
+              $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+              $(this).toggleClass('open');
+          }, function () {
+              $(this).find('.dropdown-menu').first().stop(true, true).slideUp(1);
+              $(this).toggleClass('open');
+          });
+      });
   </script>
   <!-- end Today tab script  -->
   <style>
   .myTabs.nav { margin: 0; }
   .myTabs.nav > li.dropdown.open { position: static; }
   .myTabs.nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; }
-  .myTabs.dropdown-menu>li { display: table-cell; height: 300px;}
+  .myTabs.dropdown-menu>li { display: table-cell; }
   nav li a {
       font-size:13px;
     }
@@ -98,7 +107,8 @@
       }
 </style>
 </head>
-<body style="background-color:#fff"><nav class="navbar navbar-default navbar-expand-lg" >
+<body style="background-color:#EFEFEF">
+  <nav class="navbar navbar-default navbar-expand-lg" >
   <div class="container">
 
     <!-- logo -->
@@ -245,8 +255,9 @@
         <!--end following tab   -->
         <!--start Today tab   -->
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Today</b> </a>
-        <ul class="dropdown-menu">
-         <li> <div class="container" >
+        <ul class="dropdown-menu ">
+         <li>
+           <div class="container" >
                  <div class="row">
                    <!--start Today's Featured Collections coloumn in Today tab  -->
                     <div class="col-sm-4" >
