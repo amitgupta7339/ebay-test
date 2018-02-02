@@ -49,6 +49,13 @@
               $(this).find('.dropdown-menu').first().stop(true, true).slideUp(1);
               $(this).toggleClass('open');
           });
+          $('.mydrop.dropdown').hover(function () {
+                  $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+                  $(this).toggleClass('open');
+              }, function () {
+                  $(this).find('.dropdown-menu').first().stop(true, true).slideUp(1);
+                  $(this).toggleClass('open');
+              });
       });
   </script>
   <!-- end Today tab script  -->
@@ -60,9 +67,6 @@
   nav li a {
       font-size:13px;
     }
-  li:hover {
-    background-color: white;
-  }
   #one {
     color: #333333;
     text-align: left;
@@ -70,6 +74,10 @@
     list-style-type:none;
     margin-bottom: 10px;
   }
+  #two {
+    color: #333333;
+  }
+ a#two:hover{color:blue;}
 </style>
 <style>
       #gh-f input[type=text]{
@@ -108,6 +116,48 @@
 </style>
 </head>
 <body style="background-color:#EFEFEF">
+ <div class="container-fluid" style="background-color:white" >
+    <div class="row header">
+      <div class="col-sm-5" style="margin-left:80px">
+        <ul style="list-style-type:none; margin:0px; padding:0px">
+          <li style="width:135px; display:table-cell; padding-top:1px;padding-bottom:1px;">Hi!<a href="#"> Sign in</a> or <a href="#">register</a></li>
+          <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
+          <li style="width:30px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Deals</a></li>
+          <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
+          <li style="width:30px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Sell</a></li>
+          <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
+          <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Help & Contact</a></li>
+          <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
+          <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Track My Order</a></li>
+      </ul>
+      </div>
+      <div class="col-sm-2" >
+        <ul style="list-style-type:none; margin:0px; padding:0px">
+        </ul>
+      </div>
+      <div class="col-sm-3" >
+        <ul style="list-style-type:none; margin:0px; padding:0px">
+        <li style="width:80px;display:table-cell;" class="mydrop dropdown ">
+           <a id="two" class="dropdown-toggle" data-toggle="dropdown" href="#">My eBay</a>
+           <ul class="dropdown-menu">
+             <li><a id="two" href="#">Summary</a></li>
+             <li><a id="two" href="#">Recently Viewed</a></li>
+             <li><a id="two" href="#">Bids/Offers</a></li>
+             <li><a id="two" href="#">Watch List</a></li>
+             <li><a id="two" href="#">Purchase History</a></li>
+             <li><a id="two" href="#">Selling</a></li>
+             <li><a id="two" href="#">Saved Searches</a></li>
+             <li><a id="two" href="#">Saved Sellers</a></li>
+             <li><a id="two" href="#">Messages</a></li>
+           </ul>
+         </li>
+         <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="two" href="#">My PaisaPay</a></li>
+         <li style=" display:table-cell;"><span class="glyphicons glyphicons-shopping-cart"></span></li>
+         <li style="width:80px; display:table-cell;"><a href="#"><span class="halflings halflings-bell"></span><a></li>
+       </ul>
+     </div>
+   </div>
+  </div>
   <nav class="navbar navbar-default navbar-expand-lg" >
   <div class="container">
 
@@ -684,8 +734,9 @@
      </div>
    </div>
 </div>
-<div class="container">
-  <h3>Navbar With Dropdown</h3>
-  <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
+<div class="container" style="margin-top:30px;">
+  <img src="image/download.jpeg" style="width:50%;">
+</div>
+
 </body>
 </html>
