@@ -43,19 +43,12 @@
     });
     $(document).ready(function () {
       $('.navbar-nav.myTabs .dropdown').hover(function () {
-              $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+              $(this).find('.dropdown-menu').first().stop(true, true).slideDown(0);
               $(this).toggleClass('open');
           }, function () {
-              $(this).find('.dropdown-menu').first().stop(true, true).slideUp(1);
+              $(this).find('.dropdown-menu').first().stop(true, true).slideUp(0);
               $(this).toggleClass('open');
           });
-          $('.mydrop.dropdown').hover(function () {
-                  $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
-                  $(this).toggleClass('open');
-              }, function () {
-                  $(this).find('.dropdown-menu').first().stop(true, true).slideUp(1);
-                  $(this).toggleClass('open');
-              });
       });
   </script>
   <!-- end Today tab script  -->
