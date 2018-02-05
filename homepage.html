@@ -7,108 +7,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!--toady tab script  -->
-  <script>
-    $(document).ready(function(){
-      $("#aphone").hover(function(){
-        document.getElementById('image1').src="image/s-l200.jpg",
-        document.getElementById('image2').src="image/s-l140.jpg",
-        document.getElementById('image3').src="image/s-l1400.jpg"
-      });
-      $("#headphone").hover(function(){
-        document.getElementById('image1').src="image/s-l201.jpg",
-        document.getElementById('image2').src="image/s-l141.jpg",
-        document.getElementById('image3').src="image/s-l1401.jpg"
-      });
-      $("#power").hover(function(){
-        document.getElementById('image1').src="image/s-l202.jpg",
-        document.getElementById('image2').src="image/s-l142.jpg",
-        document.getElementById('image3').src="image/s-l1402.jpg"
-      });
-      $("#Irressistibly").hover(function(){
-        document.getElementById('image1').src="image/s-l203.jpg",
-        document.getElementById('image2').src="image/s-l143.jpg",
-        document.getElementById('image3').src="image/s-l1403.jpg"
-      });
-      $("#speaker").hover(function(){
-        document.getElementById('image1').src="image/s-l204.jpg",
-        document.getElementById('image2').src="image/s-l144.jpg",
-        document.getElementById('image3').src="image/s-l1404.jpg"
-      });
-      $("#trendy").hover(function(){
-        document.getElementById('image1').src="image/s-l205.jpg",
-        document.getElementById('image2').src="image/s-l145.jpg",
-        document.getElementById('image3').src="image/s-l1405.jpg"
-      });
-    });
-    $(document).ready(function () {
-      $('.navbar-nav.myTabs .dropdown').hover(function () {
-              $(this).find('.dropdown-menu').first().stop(true, true).slideDown(0);
-              $(this).toggleClass('open');
-          }, function () {
-              $(this).find('.dropdown-menu').first().stop(true, true).slideUp(0);
-              $(this).toggleClass('open');
-          });
-      });
-  </script>
-  <!-- end Today tab script  -->
-  <style>
-  .myTabs.nav { margin: 0; }
-  .myTabs.nav > li.dropdown.open { position: static; }
-  .myTabs.nav > li.dropdown.open .dropdown-menu {display:table; width: 100%; text-align: center; left:0; right:0; }
-  .myTabs.dropdown-menu>li { display: table-cell; }
-  nav li a {
-      font-size:13px;
-    }
-  #one {
-    color: #333333;
-    text-align: left;
-    float: left;
-    list-style-type:none;
-    margin-bottom: 10px;
-  }
-  #two {
-    color: #333333;
-  }
- a#two:hover{color:blue;}
-</style>
-<style>
-      #gh-f input[type=text]{
-        width:580px !important;
-      }
-      .dropdown-menu.columns-3 {
-        min-width: 700px;
-      }
-       .XYZ.dropdown-menu li a {
-        padding: 5px 15px;
-        font-weight: 300;
-      }
-      .multi-column-dropdown {
-        list-style: none;
-        margin: 0px;
-        padding: 0px;
-      }
-      .multi-column-dropdown li a {
-        display: block;
-        clear: both;
-        line-height: 1.428571429;
-        color: #333;
-        white-space: normal;
-      }
-      .multi-column-dropdown li a:hover {
-        text-decoration: none;
-        color: #262626;
-        background-color: #999;
-      }
-      @media (max-width: 767px) {
-        .dropdown-menu.multi-column {
-          min-width: 240px !important;
-          overflow-x: hidden;
-        }
-      }
-</style>
+  <!--external script file -->
+  <script src="jquery.js"></script>
+  <!-- end external script file  -->
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 <body style="background-color:#EFEFEF">
+  <!-- sign in bar code  -->
  <div class="container-fluid" style="background-color:white" >
     <div class="row header">
       <div class="col-sm-5" style="margin-left:80px">
@@ -145,15 +50,15 @@
            </ul>
          </li>
          <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="two" href="#">My PaisaPay</a></li>
-         <li style=" display:table-cell;"><span class="glyphicons glyphicons-shopping-cart"></span></li>
-         <li style="width:80px; display:table-cell;"><a href="#"><span class="halflings halflings-bell"></span><a></li>
+         <li style="width:50px; display:table-cell; text-align:right;"><span style="font-size:18px ;" class="glyphicon glyphicon-bell"></span></li>
+         <li style=" width:50px; display:table-cell; text-align:right;" title="your shopping cart is empty"><a id="two" href="#"><span style="font-size:18px;"  class="glyphicon glyphicon-shopping-cart"></span></a></li>
        </ul>
      </div>
    </div>
   </div>
   <nav class="navbar navbar-default navbar-expand-lg" >
   <div class="container">
-
+<!-- end sign in bar code  -->
     <!-- logo -->
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
@@ -162,23 +67,9 @@
     </div>
 
     <ul class="nav navbar-nav">
-
-      <!-- <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size:14px; color=#555; LINE-HEIGHT:15px; font-family:Helvetica; padding-left:0px;">
-          Shop by <br>category <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="#" class="dropdown-item">lorem</a></li>
-          <li><a href="#" class="dropdown-item">lorem2</a></li>
-          <li><a href="#" class="dropdown-item">lorem3</a></li>
-        </ul>
-      </li> -->
-
       <li class="nav-item dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#" style="font-size:14px; color=#555; LINE-HEIGHT:15px; font-family:Helvetica; padding-left:0px;">
-            Shop by <br>category <b class="caret"></b> <!-- <span class="caret"></span> -->
-          </a>
-          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">Three Column <b class="caret"></b></a> -->
+            Shop by <br>category <b class="caret"></b></a>
           <ul class="dropdown-menu multi-column columns-3 XYZ">
             <div class="row">
               <div class="col-sm-4">
@@ -297,7 +188,7 @@
       <li><a href="#">following</a></li>
         <!--end following tab   -->
         <!--start Today tab   -->
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Today</b> </a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="border-bottom: 2px solid #333333;"><b>Today</b> </a>
         <ul class="dropdown-menu ">
          <li>
            <div class="container" >
@@ -365,9 +256,6 @@
                       <li><a id="one" href="#">Laptops</a></li>
                       <li><a id="one" href="#">Refurbished</a></li>
                     </ul>
-                  <!--  <p><a id="one" href="#">Mobile Phones</a></p><br \><br \>
-                    <p><a id="one" href="#">Laptops</a></p><br \>
-                    <p><a id="one" href="#">Refurbished</a></p>-->
                   </div>
 
                   <div class="col-sm-2" >
