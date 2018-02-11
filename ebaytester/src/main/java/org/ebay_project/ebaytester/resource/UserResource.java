@@ -32,7 +32,6 @@ public class UserResource {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String userRegister(User user)
 	{
-		
 		return userService.userRegister(user);
 		
 	}

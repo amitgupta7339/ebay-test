@@ -52,8 +52,8 @@ public class UserService {
 	}
 	
 	public String userRegister(User user)
-	{
-		
+	{if(user.getFirst_name()==null&&user.getLast_name()==null&&user.getUser_email()==null&&user.getUser_password()==null)
+		return null;
 		PreparedStatement preparedstmnt;
 		if(ValidateEmailId(user.getUser_email())==0)
 		{
@@ -77,11 +77,10 @@ public class UserService {
 		}
 		return null;
 	}
-	
 	public int ValidateEmailId(String user_email) {
 		try {
 			
-			PreparedStatement stmt = conn.prepareStatement("Select user_email from user_info where user_email LIKE ?");
+			PreparedStatement stmt = conn.prepareStatement("Select user_email from user_info where user_email = ?");
 			stmt.setString(1, user_email);
 
 			ResultSet rs = stmt.executeQuery();

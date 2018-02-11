@@ -25,7 +25,7 @@
 					<p><a href="register.html">Register</a></p>
 				</div>
 			<div id="form">
-					<form   id="login_form" method="post" action="http://localhost:5224/ebaytester/webapi/user/login" id="user_login_form">
+					<form   id="login_form" id="user_login_form">
 						<input type="text" class="text" placeholder="Email or Username" name="user_email"id="user_email">
 						<input type="password" class="pwd" placeholder="Password" name="user_password" id="user_password">
 						<p id="p1">By signing into eBay.in you consent to eBay sharing your personal information with eBay.in.</p>
@@ -56,8 +56,8 @@
    $('#login').click(function(){
 
      $.ajax({
-       type: $('#login_form').attr('method'),
-       url:  $('#login_form').attr("action"),
+       type: "post",
+       url:  "http://localhost:5224/ebaytester/webapi/user/login",
        data: $('#login_form').serialize(),
        dataType: "JSON",
        success: function(response){
