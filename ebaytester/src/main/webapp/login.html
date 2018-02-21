@@ -26,7 +26,7 @@
 				</div>
 			<div id="form">
 					<form   id="login_form" id="user_login_form">
-						<input type="text" class="text" placeholder="Email or Username" name="user_email"id="user_email">
+						<input type="text" class="text" placeholder="Email or Username" name="user_email" id="user_email">
 						<input type="password" class="pwd" placeholder="Password" name="user_password" id="user_password">
 						<p id="p1">By signing into eBay.in you consent to eBay sharing your personal information with eBay.in.</p>
 						<input id="login" type="submit" value="Sign in" class="submit">
@@ -53,25 +53,30 @@
 			<p>© 2018 eBay India Private Limited. <a href="#">User Agreement</a>,<a href="#">User Privacy Notice</a>,<a href="#">Cookies</a>.</p>
 		</div>
 		<script>
-   $('#login').click(function(){
+		$('#login').click(function(){
 
-     $.ajax({
-       type: "post",
-       url:  "http://localhost:5224/ebaytester/webapi/user/login",
-       data: $('#login_form').serialize(),
-       dataType: "JSON",
-       success: function(response){
-         if(response!=null)
-         {
-           window.location="http://localhost:5224/ebaytester/home.html";
-         }
-         else {
-             alert("enter correct password and username");
-         }
-       }
-     });
-   return false;
- });
-</script> 
+		     $.ajax({
+		       type: "post",
+		       url:  "http://localhost:5224/ebaytester/webapi/user/login",
+		       data: $('#login_form').serialize(),
+		       dataType: "JSON",
+		       success: function(response){
+		         if(response!=null)
+		         { localStorage.clear();
+		           localStorage.fName=response.user_fname;
+		           localStorage.lName=response.user_lname;
+		           localStorage.email=response.user_email;
+		           localStorage.user_PINCODE=9999;
+		           window.location="http://localhost:5224/ebaytester/home.html";
+		         }
+		         else 
+		              {
+		                alert("enter correct password and username");
+		              }
+		       }
+		     });
+		   return false;
+		 });
+		</script>
 	</body>
 </html>

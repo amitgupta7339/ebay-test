@@ -29,8 +29,8 @@ public class UserResource {
 	@POST
 	@Path("/register")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public String userRegister(User user)
+	@Produces(MediaType.APPLICATION_JSON)
+	public User userRegister(User user)
 	{
 		return userService.userRegister(user);
 		

@@ -9,6 +9,47 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!--external script file -->
   <script src="myjquery.js"></script>
+  <script >
+  $(document).ready(function(){
+	    if(localStorage.fName!=null){
+	        document.getElementById('signin_top_bar').innerHTML="Hi!"+localStorage.fName,
+	        $('#user_info').width(80),
+	        document.getElementById('user_name').innerHTML=localStorage.fName+" "+localStorage.lName,
+	        document.getElementById('user_email').innerHTML=localStorage.email,
+	        document.getElementById('user_image').src="images/profile_avatar_60x60.png",
+	        document.getElementById('account_setting').innerHTML="Account setting",
+	        document.getElementById('sign_out').innerHTML="Sign Out";
+	        $('#sign_out').click(function(){
+	        	localStorage.clear();
+	        });
+	    $('#user_info').hover(function(){
+	      $(this).find('.dropdown-menu').first().stop(true, true).slideDown(0);
+	             $(this).toggleClass('open');
+	         }, function () {
+	             $(this).find('.dropdown-menu').first().stop(true, true).slideUp(0);
+	             $(this).toggleClass('open');
+	    });
+         }
+	  });
+
+  </script>
+  <script>
+  function Seller(){
+	  if(localStorage.fName!=null)
+	  {
+	   if(localStorage.user_PINCODE!=8888)
+	   {
+	     window.location="http://localhost:5224/ebaytester/seller.html";
+	   }
+	   else {
+	     window.location="Address_form";
+	   }
+	  }
+	  else {
+		  window.location="http://localhost:5224/ebaytester/login.html";
+	 }
+  }
+  </script>
   <!-- end external script file  -->
   <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
@@ -18,11 +59,31 @@
     <div class="row header">
       <div class="col-sm-5" style="margin-left:80px">
         <ul style="list-style-type:none; margin:0px; padding:0px">
-          <li style="width:135px; display:table-cell; padding-top:1px;padding-bottom:1px;">Hi!<a href="http://localhost:5224/ebaytester/login.html"> Sign in</a> or <a href="http://localhost:5224/ebaytester/register.html">register</a></li>
+          <li class="dropdown" style="width:135px; display:table-cell; padding-top:1px;padding-bottom:1px;" id="user_info"><p id="signin_top_bar">Hi!<a href="http://localhost:5224/ebaytester/login.html"> Sign in</a> or <a href="http://localhost:5224/ebaytester/register.html">register</a></p>
+            <ul class="dropdown-menu">
+              <div class="row">
+                <div class="col-sm-3">
+                  <image src="" id="user_image">
+                </div>
+                <div class="col-sm-9">
+                  <ul style="list-style-type: none;">
+                  <li id="user_name"></li>
+                  <li><a href="#" id="user_email"></a></li>
+                </ul>
+                </div>
+              </div>
+              <div>
+                <ul style="list-style-type: none;">
+                <li style="text-align:left"><a href=href="#" id="account_setting" ></a></li>
+                <li><a href="http://localhost:5224/ebaytester/home.html" id="sign_out"></a></li>
+              </ul>
+              </div>
+            </ul>
+          </li>
           <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
           <li style="width:30px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Deals</a></li>
           <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
-          <li style="width:30px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Sell</a></li>
+          <li style="width:30px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" onclick="Seller()">Sell</a></li>
           <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
           <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Help & Contact</a></li>
           <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
