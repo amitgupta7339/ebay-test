@@ -84,14 +84,14 @@
 	
 			     $.ajax({
 			       type: "post",
-			       url:  "",
+			       url:  "http://localhost:5224/ebaytester/webapi/products/uploadProduct",
 			       data: $('#Product_detail_form').serialize(),
 			       dataType: "JSON",
 			       success: function(response){
 			         if(response!=null)
 			         {
 			           localStorage.Product_Id=response.product_id;
-			           window.location="";
+			           window.location="http://localhost:5224/ebaytester/image_upload_form.html";
 			         }
 			         else 
 			              {

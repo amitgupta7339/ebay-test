@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Enter details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="col-md-5"></div>
+<div class="col-md-4">
+<img class="img-responsive" src="images/logo.png" width="120" height="100" align="middle" />
+</div>
+</div>
+<div class="container">
+
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+
+<div class="panel panel-default">
+<div class="panel-body">
+<h4><p align="center">Provide your contact info</p></h4>
+<form id="Address_From">
+<div class="form-group">
+  <label for="country"></label>
+  <select class="form-control" id="country">
+    <option>India</option>
+  </select>
+</div>
+
+<div class="form-group">
+<label for="address"></label>
+<input type="text" class="form-control" id="address" placeholder="Enter address"/>
+</div>
+<!--
+<div class="form-group">
+<label for="address"></label>
+<input type="text" class="form-control" id="address" placeholder="Apartment,suite,floor,etc.(optional)"/>
+</div> -->
+<div class="form-group form-inline">
+  <label for="country"></label>
+  <select class="form-control" id="state" style="width:200px">
+    <option>MadhyaPradesh</option>
+    <option>Maharashtra</option>
+    <option>Punjab</option>
+    <option>AndhraPradesh</option>
+  </select>
+
+  <label for="pincode"></label>
+<input type="text" class="form-control" id="pincode" placeholder="Pin Code" style="width:105px"/>
+
+</div>
+
+<div class="form-group">
+<label for="email"></label>
+<input type="email" class="form-control" id="emailid" placeholder="Enter your email address" value=localStorage.email />
+</div>
+
+<div class="form-group">
+<label for="mobile"></label>
+<input type="text" class="form-control" id="mobile" placeholder="Enter your mobile number"/>
+</div>
+<div class="form-group">
+<div class="checkbox">
+    <label><input type="checkbox" id="t&c">I agree to all terms and conditions.</label>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary" id="continue" style="width:320px">Continue</button>
+
+
+</form>
+</div>
+</div>
+
+
+</div>
+
+</div>
+<script>
+$('#Address_From').submit(function(){
+
+         $.ajax({
+           type: "post",
+           url:  "",
+           data: $('#Address_From').serialize(),
+           dataType: "JSON",
+           success: function(response){
+             if(response!=null)
+             {
+
+               window.location="";
+             }
+             else
+                  {
+                    alert("");
+                  }
+           }
+         });
+       return false;
+     });
+</script>
+</body>
+</html>

@@ -88,6 +88,7 @@ public User userRegister(User user)
 	return null;
 }
 
+
 public int ValidateEmailId(String user_email) {
 	try {
 		
