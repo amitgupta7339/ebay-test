@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <img src="images/logo.png" title="eBay">
+  <form class="form-inline" id="admin_category">
+    <div class="form-group">
+      <label for="Category">Category:</label>
+      <select  name="Category" id="Category">
+       <option value="">All Category</option>
+       <option value="Mobile Accessories"> Mobile Accessories </option>
+     </select>
+    </div>
+    <div class="form-group">
+    </div>
+    <div class="form-group">
+      <label for="NewCategory">New Category:</label>
+      <input type="text" class="form-control" id="NewCategory" placeholder="Enter New Category" name="NewCategory" >
+    </div>
+    <!-- <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div> -->
+    <div class="form-group">
+      <label for="SubCategory">subCategory:</label>
+      <input type="text" class="form-control" id="subCategory" placeholder="Enter subCategory" name="subCategory">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-danger" id="delete" >Delete</button>
+  </form>
+</div>
+<script>
+// $.ajax({
+//   type: "post",
+//   url:  "http://localhost:5224/ebaytester/webapi/products/uploadProduct",
+//   dataType: "JSON",
+//   success: function(response){
+//     if(response!=null)
+//     {
+//       var array=["amit","gupta"];
+//       var i;
+//       // var catOptions = "";
+//                   for (i=0;i<array.length;i++) {
+//                     $('<option value="'+ array[i]+'">' + array[i]+ '</option>').appendTo('#Category');
+//                       // catOptions += "<option>" + array[i] + "</option>";
+//                   }
+//     }
+//     else
+//          {
+//            alert("");
+//          }
+//   }
+// });
+// var array=["amit","gupta"];
+// var i;
+// // var catOptions = "";
+//             for (i=0;i<array.length;i++) {
+//               $('<option value="'+ array[i]+'">' + array[i]+ '</option>').appendTo('#Category');
+//                 // catOptions += "<option>" + array[i] + "</option>";
+//             }
+
+            // document.getElementById("Category").innerHTML = catOptions;
+            $.ajax({
+              type: "get",
+              url:  "http://localhost:5224/ebaytester/webapi/category/getAllCategory",
+              dataType: "JSON",
+              success: function(response){
+                if(response!=null)
+                {var i;
+                  for (i=0;i<response.length;i++) {
+                  $('<option value="'+ response[i].category_name+'">' + response[i].category_name+ '</option>').appendTo('#Category');
+                    // catOptions += "<option>" + array[i] + "</option>";
+                 }
+                }
+              }
+            });
+$('#Category').on('change', function() {
+      if(this.value!= ''){
+            $("#NewCategory").attr('disabled','disabled');
+        }
+      else {
+            $("#NewCategory").removeAttr('disabled');
+          }
+      });
+
+$('#admin_category').submit(function(){
+   if(($('#Category').val() == '') && ($('#NewCategory').val() == ''))
+   {
+    alert("choose one field from Category and NewCategory");
+   }
+   else if(($('#Category').val() == '') || ($('#NewCategory').val() == ''))
+   {
+     $.ajax({
+       type: "post",
+       url:  "http://localhost:5224/ebaytester/webapi/products/uploadProduct",
+       data: $('#admin_category').serialize(),
+       dataType: "JSON",
+       success: function(response){
+         if(response!=null)
+         {
+           window.location="http://localhost:5224/ebaytester/home.html";
+         }
+       }
+     });
+   }
+   else
+   {
+     alert("choose only one feild from Category and NewCategory");
+   }
+});
+
+</script>
+</body>
+</html>
