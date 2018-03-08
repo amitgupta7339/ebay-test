@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="myjquery.js"></script>
+     <script>
+      $(function(){
+        $("#header").load("header.html");
+      });
+    </script>
+  </head>
+
+  <body>
+  <div id="header"></div>
+  <div class="container">
+    <h2>Horizontal form</h2>
+    <form class="form-horizontal" action="/action_page.php" id="Product_detail_form">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Product_Name">Product Name</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" id="Product_Name" placeholder="Enter Product_Name" name="Product_Name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Category</label>
+        <div class="col-sm-10">
+          <!-- <input class="col-sm-3" type="text" class="form-control" name="Category" id="Category" placeholder="Enter Product_Name" value="Mobile Accessories"> -->
+           <select class="col-sm-3" name="Category" id="Category">
+            <option value="">All Category</option>
+            <!--<option value="Mobile Accessories"> Mobile Accessories </option>-->
+          </select>
+          <label class="control-label col-sm-2" for="pwd">Subcategory</label>
+          <!-- <input class="col-sm-3" type="text" class="form-control" name="Subcategory" id="Subcategory" placeholder="Enter Product_Name" value="Cases & Covers"> -->
+         <select class="col-sm-3" name="Subcategory" id="Subcategory">
+            <option value="">Sub Category</option>
+            <!--  <option value="Cases & Covers">Cases & Covers</option>-->
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Price">Price</label>
+        <div class="col-sm-7">
+          <input class="col-sm-5" type="number" class="form-control" id="Price" min="0" placeholder="Enter Price in INR" name="Price">
+          <label class="control-label col-sm-2" for="Quantity">Quantity</label>
+          <input class="col-sm-5" type="number" class="form-control" id="Quantity" min="0" placeholder="Enter no of pieces available" name="Quantity">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Condition">Condition</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" id="Condition" placeholder="Enter Condition"   name="Condition">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Shipping">Shipping</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" id="Shipping" placeholder="Enter delivery mode" name="Shipping">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Description">Description</label>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" id="Description" placeholder="Add Product Description" name="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="Discount">Discount</label>
+        <div class="col-sm-7">
+          <input type="number" class="form-control" id="Discount" min="0" max="100" placeholder="Enter Discount" name="Discount">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="ajax/seller_ajax.js"></script>
+  <!-- // $.ajax({
+  //     type: "get",
+  //     url:  "http://localhost:5224/ebaytester/webapi/category/getAllCategory",
+  //     dataType: "JSON",
+  //     success: function(response){
+  //       if(response!=null)
+  //       {var i;
+  //         for (i=0;i<response.length;i++) {
+  //         $('<option value="'+ response[i].category_name+'">' + response[i].category_name+ '</option>').appendTo('#Category');
+  //           // catOptions += "<option>" + array[i] + "</option>";
+  //        }
+  //       }
+  //     }
+  //   }); -->
+
+
+	<!-- // $('#Product_detail_form').submit(function(){
+  //
+	// 		     $.ajax({
+	// 		       type: "post",
+	// 		       url:  "http://localhost:5224/ebaytester/webapi/products/uploadProduct",
+	// 		       data: $('#Product_detail_form').serialize(),
+	// 		       dataType: "JSON",
+	// 		       success: function(response){
+	// 		         if(response!=null)
+	// 		         {
+	// 		           localStorage.Product_Id=response.product_id;
+	// 		           window.location="http://localhost:5224/ebaytester/image_upload_form.html";
+	// 		         }
+	// 		       }
+	// 		     });
+	// 		   return false;
+	// 		 }); -->
+  // </script>
+  <!-- <script>
+  $("#Category").change(function() {
+      var Categoryobj={
+        "category_name":$('#Category').val(),
+        "category_id":0
+      };
+      var CategoryJson=JSON.stringify(Categoryobj);
+      $.ajax({
+        type :"POST",
+        url: "http://localhost:5224/ebaytester/webapi/user/product_info",
+        data : CategoryJson,
+        contentType: "application/json;",
+        success: function(Category_response){
+          if(Category_response!=null)
+          {
+            localStorage.Category_Id=Category_response.category_id;
+          }
+      });
+    return false;
+    });
+  </script>
+
+  <script>
+      var SubCategoryobj={
+        "sub_category_name":$('#Subcategory').val(),
+        "sub_category_id":0;
+      };
+        var SubCategoryJson=JSON.stringify(SubCategoryobj);
+        $.ajax({
+          type :"POST",
+          url: "http://localhost:5224/ebaytester/webapi/user/product_info",
+          data : SubCategoryJson,
+          contentType: "application/json;",
+          success: function(SubCategory_response){
+            if(SubCategory_response!=null)
+            {
+              localStorage.SubCategory_Id=Category_response.sub_category_id;
+            }
+          });
+      else {
+              alert("please select Sub_category");
+           }
+      });
+  </script>
+  <script>
+  $('#Product_detail_form').submit(function(){
+    if(localStorage.Category_Id!=null && localStorage.SubCategory_Id!=null){
+           var myobj={"product_id": 0,
+                      "category_id":localStorage.Category_Id,
+                      "sub_category_id":localStorage.SubCategory_Id,
+                      "product_name":$('#Product_Name').val(),
+                      "product_price":$('#Price').val(),
+                      "product_discount": $('#Discount').val(),
+                      "product_condition":$('#Condition').val(),
+                      "product_shipping": $('#Shipping').val(),
+                      "product_sold_quantity":0,
+                      "product_available_quantity":0,
+                      "product_quantity":$('#Quantity').val(),
+                      "product_img_url":"",
+                      "product_description": $('#Description').val()
+                     };
+          var myjson=JSON.stringify(myobj);
+          console.log(myjson);
+
+                 $.ajax({
+                   type :"POST",
+                   url: "http://localhost:5224/ebaytester/webapi/user/product_info",
+                   data : myjson,
+                   contentType: "application/json;",
+                   success: function(response){
+                     console.log(response)
+
+                    if(response!=null)
+                       {
+                          window.location="http://localhost:5224/ebaytester/home.html";
+                       }
+                     else
+                       {
+                          window.location="http://localhost:5224/ebaytester/product_form.html";
+                       }
+                   }
+                 });
+           }
+           else {
+             alert("select category and subcategory");
+           }
+         return false;
+       });
+  </script> -->
+
+  </body>
+</html>
