@@ -185,7 +185,7 @@ public class ProductService {
 			preparedstmnt.execute();
 			
 			
-			query="select * from product_info where product_name =? AND user_id=? ";
+			query="select * from product where product_name =? AND user_id=? ";
 			preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
 			preparedstmnt.setString(1, product_name);
 			preparedstmnt.setInt(2, seller_id);
@@ -359,10 +359,10 @@ return product;
 //			return response;
 //		}
 	@SuppressWarnings("finally")
-	public String uploadProductPic(InputStream fileInputStream,String fileName, String id) {	
+	public String uploadProductPic(InputStream fileInputStream,String fileName, int id) {	
 		System.out.println("now uploading the product");
 		System.out.println(id);
-		int product_id = Integer.parseInt(id);
+		int product_id = id;
 		PreparedStatement preparedStatement3;
 		File folder = new File(PathSetup.imagePath+"products/"+product_id);
 	    File[] listOfFiles = folder.listFiles();

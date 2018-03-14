@@ -153,7 +153,7 @@ public User getUserDetail(String user_email) {
 
 		if (rs.next()) {
 			user = new User();
-			user.setId(rs.getInt(1));
+			user.setUser_id(rs.getInt(1));
 			user.setUser_fname(rs.getString(2));
 			user.setUser_lname(rs.getString(3));
 			user.setUser_email(rs.getString(4));

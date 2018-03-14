@@ -7,7 +7,7 @@ $('#login').click(function(){
 		       success: function(response){
 		         if(response!=null)
 		         { localStorage.clear();
-                           localStorage.User_id=response.user_id;
+                           localStorage.user_Id=response.user_id;
 		           localStorage.fName=response.user_fname;
 		           localStorage.lName=response.user_lname;
 		           localStorage.email=response.user_email;

@@ -8,9 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<script>
-$("#emailid").val("amit");
-</script>
 <body>
 <div class="container">
 <div class="col-md-5"></div>
@@ -60,7 +57,7 @@ $("#emailid").val("amit");
 
 <div class="form-group">
 <label for="email"></label>
-<input type="email" class="form-control" id="emailid" placeholder="Enter your email address" name="emailid"/>
+<input type="email" class="form-control" id="emailid" placeholder="Enter your email address" name="emailid" value=""/>
 
 </div>
 
@@ -85,6 +82,9 @@ $("#emailid").val("amit");
 </div>
 
 </div>
+<script>
+$("#emailid").val(localStorage.email);
+</script>
 <script>
 $('#Address_From').submit(function(){
          $.ajax({

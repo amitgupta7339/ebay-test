@@ -180,13 +180,13 @@ public class ProductResource {
 //	}
 	
 	@POST
-	@Path("/uploadProductPic/{product_id}")
+	@Path("/uploadProductPic")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public String ProductPicUpload(
 			@FormDataParam("file") InputStream fileInputStream,
 			@FormDataParam("file") FormDataContentDisposition fileFormDataContentDisposition,
-			@PathParam("product_id") String product_id) {
+			@FormDataParam("product_id") int product_id) {
 		
 		System.out.println("calling service check");
 

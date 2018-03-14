@@ -26,7 +26,7 @@ $('#register_form').submit(function(){
 										   localStorage.fName=response.user_fname;
 										   localStorage.lName=response.user_lname;
 										   localStorage.email=response.user_email;
-										   localStorage.user_PINCODE=response.user_pincode;
+										   localStorage.user_PINCODE=8888;
 										   window.location="http://localhost:5224/ebaytester/home.html";
 										  }
 									  else

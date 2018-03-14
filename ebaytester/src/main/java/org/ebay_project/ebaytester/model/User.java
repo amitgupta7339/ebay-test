@@ -32,11 +32,11 @@ public class User {
 		this.user_phone = user_phone;
 	}
 
-	public int getId() {
+	public int getUser_id() {
 		return user_id;
 	}
 
-	public void setId(int user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 
