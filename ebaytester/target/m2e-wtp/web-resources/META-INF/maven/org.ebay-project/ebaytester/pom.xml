@@ -25,6 +25,8 @@
         </plugins>
     </build>
 
+      
+        
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -54,11 +56,18 @@
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-moxy</artifactId>
         </dependency>
+        
         <dependency>
+          <groupId>org.glassfish.jersey.media</groupId>
+          <artifactId>jersey-media-multipart</artifactId>
+          <version>2.25.1</version>
+        </dependency>
+        
+        <!--  <dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-multipart</artifactId>
-			<version>2.21</version>
-		</dependency>
+			<version>2.25.1</version>
+		</dependency>-->
     </dependencies>
     <properties>
         <jersey.version>2.25.1</jersey.version>

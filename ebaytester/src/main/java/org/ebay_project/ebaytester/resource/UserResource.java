@@ -4,6 +4,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -35,6 +36,24 @@ public class UserResource {
 		return userService.userRegister(user);
 		
 	}
-	
+		
+		@POST
+		@Path("/updateAddress/{user_email}")
+		@Produces(MediaType.APPLICATION_JSON)
+		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+		public User AddressUpdate(@PathParam("user_email") String user_email,
+									@FormParam("country") String country,
+									@FormParam("address") String address,
+									@FormParam("state") String state, 
+									@FormParam("pincode") int pincode, 
+									@FormParam("emailid") String emailid,
+									@FormParam("mobile") String mobile)
+		{
+
+			UserService addService=new UserService();
+			return addService.updateAddress(user_email,country,address,state,pincode,emailid,mobile);
+			
+		}
 
 }
+	

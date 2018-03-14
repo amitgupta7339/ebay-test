@@ -11,7 +11,11 @@
   <script src="myjquery.js"></script>
   <script >
   $(document).ready(function(){
-	    if(localStorage.fName!=null){
+	  if(localStorage.email=='admin@gmail.com')
+		  {
+
+		  }
+	  else  if(localStorage.fName!=null){
 	        document.getElementById('signin_top_bar').innerHTML="Hi!"+localStorage.fName,
 	        $('#user_info').width(80),
 	        document.getElementById('user_name').innerHTML=localStorage.fName+" "+localStorage.lName,
@@ -39,7 +43,7 @@
 	  {
 	   if(localStorage.user_PINCODE!=8888)
 	   {
-	     window.location="http://localhost:5224/ebaytester/seller.html";
+	     window.location="http://localhost:5224/ebaytester/new_product_upload.html";
 	   }
 	   else {
 	     window.location="http://localhost:5224/ebaytester/address_form.html";
@@ -189,9 +193,9 @@
                     </td>
                     <td class="gh-td" id="gh-cat-td">
                        <div id="gh-cat-box" class="">
-                          <select aria-label="Select a category for search" class="gh-sb gh-sprRetina" size="1" id="gh-cat" name="_sacat" style="height:40px; width:190px;line-height:1; margin-right:5px; margin-left:2px ">
-                             <option selected="selected" value="0">All Categories</option>
-                             <option value="293">Audio &amp; Home Entertainment</option>
+                          <select aria-label="Select a category for search" id="Category" class="gh-sb gh-sprRetina" size="1" id="gh-cat" name="_sacat" style="height:40px; width:190px;line-height:1; margin-right:5px; margin-left:2px ">
+                             <option value="">All Categories</option>
+                             <!-- <option value="293">Audio &amp; Home Entertainment</option>
                              <option value="131090">Automotive</option>
                              <option value="178777">Baby &amp; Mom</option>
                              <option value="26395">Beauty, Health &amp; Grocery</option>
@@ -227,7 +231,7 @@
                              <option value="179545">Warranty Services</option>
                              <option value="14324">Watches</option>
                              <option value="180544">Wearable Devices</option>
-                             <option value="99">Everything Else</option>
+                             <option value="99">Everything Else</option> -->
                           </select>
                        </div>
                     </td>
@@ -679,6 +683,22 @@
 <div class="container" style="margin-top:30px;">
   <img src="images/download.jpeg" style="width:50%;">
 </div>
+<script>
+$.ajax({
+    type: "get",
+    url:  "http://localhost:5224/ebaytester/webapi/category/getAllCategory",
+    dataType: "JSON",
+    success: function(response){
+      if(response!=null)
+      {var i;
+        for (i=0;i<response.length;i++) {
+        $('<option value="'+ response[i].category_name+'">' + response[i].category_name+ '</option>').appendTo('#Category');
+          // catOptions += "<option>" + array[i] + "</option>";
+       }
+      }
+    }
+  }); 
 
+</script>
 </body>
 </html>

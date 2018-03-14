@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes ">
 		<link rel="stylesheet" href="css/register_style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	</head>
 	<body bgcolor="#F7F7F7">
 			<div id="header">
@@ -16,16 +16,16 @@
 			</div>
 			<br>
 		<div id="container">
-			
+
 					<a href="http://localhost:5224/ebaytester/login.html"><img src="images/signin.png" alt="eBay" align="center" height="48" width="200" id="signin"></a></li>
 					<a href="http://localhost:5224/ebaytester/register.html"><img src="images/register.png" alt="eBay" align="center" height="48" width="200" id="register"></a></li>
-				
+
 			<br>
 			<br>
 			<div id="form">
-					<form  id="register_form"> 
+					<form  id="register_form">
 						<br>
-						
+
 						<p id="p1">First name <span id="tab">Last name</span></p>
 						<input type="text" class="text" name="fname" id="text1" required >
 						<input type="text" class="text" name="lname" id="text2" required >
@@ -40,11 +40,12 @@
 						<p class="p2">By clicking <b>Register</b>, you agree that you have read and accepted our <a id="a" href="#">User Agreement, User Privacy Notice, Rules and Policies </a>
 						and the <a id="a" href="#">UPaisaPay User Agreement</a>.</p>
 						<input type="submit" value="Register" class="Register" >
-						
+
 					</form>
 				</div>
 		</div>
-	<script>
+		<script src="ajax/register_ajax.js"></script>
+	<!-- <script>
 			  $('#register_form').submit(function(){
 				  var myobj={"user_id":0,
 						   "user_fname":$('#text1').val(),
@@ -59,7 +60,7 @@
 				           "user_phone":""};
 				var myjson=JSON.stringify(myobj);
 				console.log(myjson);
-				
+
 							  $.ajax({
 								  type :"POST",
 								  url: "http://localhost:5224/ebaytester/webapi/user/register",
@@ -67,7 +68,7 @@
 								  contentType: "application/json;",
 								  success: function(response){
 									  console.log(response)
-									  
+
 									 if(response!=null)
 										  {  localStorage.clear();
 								           localStorage.fName=response.user_fname;
@@ -83,12 +84,10 @@
 										  }
 								  }
 							  });
-	
+
 			  return false;
 		  });
-		</script>
+		</script> -->
 	</body>
-	
-</html>
-	
 
+</html>

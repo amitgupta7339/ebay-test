@@ -27,89 +27,168 @@ public class ProductResource {
 
 	
 	
-	@GET
-	@Path("/getAllProducts")
-	@Produces(value = { MediaType.APPLICATION_JSON })
-	public ArrayList<Product> getAllProducts() {
-		ProductService productService=new ProductService();
-		ArrayList<Product> list = productService.getAllProducts();
-		if(list.isEmpty())
-		{
-		return null;
-		}
-		else
-		{
-		return list ;
-	}
-	}
-	
-	@GET
-	@Path("/category/{category_name}")
-	@Produces(value = { MediaType.APPLICATION_JSON })
-	public ArrayList<Product> getProductsCategoryWise(@PathParam("category_name") String category_name) {
-		CategoryService categoryService=new CategoryService();
-		ArrayList<Product> list = categoryService.getProducts(category_name);
-		if(list.isEmpty())
-		{
-		return null;
-		}
-		else
-		{
-		return list ;
-	}
-	}
-	@GET
-	@Path("/sub_category/{sub_category_name}")
-	@Produces(value = { MediaType.APPLICATION_JSON })
-	public ArrayList<Product> getProductsSubcategoryWise(@PathParam("sub_category_name") String sub_category_name) {
-		SubcategoryService subcategoryService=new SubcategoryService();
-		ArrayList<Product> list = subcategoryService.getProducts(sub_category_name);
-		if(list.isEmpty())
-		{
-		return null;
-		}
-		else
-		{
-		return list ;
-	}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+//	@GET
+//	@Path("/getAllProducts")
+//	@Produces(value = { MediaType.APPLICATION_JSON })
+//	public ArrayList<Product> getAllProducts() {
+//		ProductService productService=new ProductService();
+//		ArrayList<Product> list = productService.getAllProducts();
+//		if(list.isEmpty())
+//		{
+//		return null;
+//		}
+//		else
+//		{
+//		return list ;
+//	        }
+//	}
+//	
+//	@GET
+//	@Path("/category/{category_name}")
+//	@Produces(value = { MediaType.APPLICATION_JSON })
+//	public ArrayList<Product> getProductsCategoryWise(@PathParam("category_name") String category_name) {
+//		CategoryService categoryService=new CategoryService();
+//		ArrayList<Product> list = categoryService.getProducts(category_name);
+//		if(list.isEmpty())
+//		{
+//		return null;
+//		}
+//		else
+//		{
+//		return list ;
+//	}
+//	}
+//	@GET
+//	@Path("/sub_category/{sub_category_name}")
+//	@Produces(value = { MediaType.APPLICATION_JSON })
+//	public ArrayList<Product> getProductsSubcategoryWise(@PathParam("sub_category_name") String sub_category_name) {
+//		SubcategoryService subcategoryService=new SubcategoryService();
+//		ArrayList<Product> list = subcategoryService.getProducts(sub_category_name);
+//		if(list.isEmpty())
+//		{
+//		return null;
+//		}
+//		else
+//		{
+//		return list ;
+//	}
+//	}
 	
 	@POST
-	@Path("/uploadProduct")
+	@Path("/uploadProduct/{seller_id}")
 	@Produces(value = { MediaType.APPLICATION_JSON })
 	@Consumes(value = { MediaType.APPLICATION_FORM_URLENCODED })
-	public Response productUpload(@FormParam("Product_Name") String Product_Name, @FormParam("Category") String Category, @FormParam("Subcategory") String Subcategory, @FormParam("Price") int Price, @FormParam("Quantity") int Quantity, 
-			@FormParam("Condition") String Condition, @FormParam("Shipping") String Shipping, @FormParam("Description") String Description, @FormParam("Discount") int Discount) {
+	public Product productUpload(
+			@FormParam("Product_Name") String product_name, 
+			@FormParam("Category") String category, 
+			@FormParam("Subcategory") String subcategory,
+			@PathParam("seller_id") int seller_id, 
+			@FormParam("Price") int product_price,
+			@FormParam("Quantity") int quantity,
+			@FormParam("Condition")String product_condition,
+			@FormParam("Shipping")String product_shipping,
+			@FormParam("Description")String product_description,
+			@FormParam("Discount") int product_discount,
+			@FormParam("Deal") String deal,
+			@FormParam("Brand") String brand,
+			@FormParam("Color") String color,
+			@FormParam("Screen_size") String screen_size,
+			@FormParam("Processor") String processor,
+			@FormParam("Storage") String storage,
+			@FormParam("Warranty") String warranty,
+			@FormParam("Operating_system") String operating_system,
+			@FormParam("Product_year") int product_year,
+			@FormParam("Gender") String gender,
+			@FormParam("Warranty_type") String warranty_type,
+			@FormParam("Applicable") String applicable,
+			@FormParam("Material") String material,
+			@FormParam("Clothing_size")String clothing_size,
+			@FormParam("Style") String style,	 
+			@FormParam("Card_class") String card_class) {
 
 		ProductService productService = new ProductService();
-		Product product = productService.setProductInfo(Product_Name,Category,Subcategory,Price,Quantity,Condition,Shipping,Description,Discount);
-
+		Product product = productService.setProductInfo(product_name,
+				category,
+				subcategory,
+				seller_id,
+				product_price,
+				quantity,
+				product_condition,
+				product_shipping,
+				product_description,
+				product_discount,
+				deal,
+				brand,
+				color,
+				screen_size,
+				processor,
+				storage,
+				warranty,
+				operating_system,
+				product_year,
+				gender,
+				warranty_type,
+				applicable,
+				material,
+				clothing_size,
+				style,
+				card_class);
 		if (product == null) {
-			return Response.status(409).build();  // resource conflict
+			return null;  // resource conflict
 		} else {
 
-			return Response.ok().entity(product).build();
+			return product;
 		}
 
 	}
 	
+//	@POST
+//	@Path("/deleteProduct/{seller_id}")
+//	@Produces(value = { MediaType.APPLICATION_JSON })
+//	@Consumes(value = { MediaType.APPLICATION_FORM_URLENCODED })
+//	public void DeleteProduct(@FormParam("") String product_name, @PathParam("seller_id") int seller_id){
+//
+//		ProductService productService = new ProductService();
+//		Product product = productService.DeleteProduct(  product_name,  seller_id);
+//
+//		if (product == null) {
+//			return null;  // resource conflict
+//		} else {
+//
+//			return product;
+//		}
+//
+//	}
+	
+//	@POST
+//	@Path("/uploadProduct")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+//	public Product productUpload(@FormParam("Product_Name") String Product_Name, @FormParam("Category") String Category, @FormParam("Subcategory") String Subcategory, @FormParam("Price") int Price, @FormParam("Quantity") int Quantity, 
+//			@FormParam("Condition") String Condition, @FormParam("Shipping") String Shipping, @FormParam("Description") String Description, @FormParam("Discount") int Discount) {
+//
+//		ProductService productService = new ProductService();
+//		Product product = productService.setProductInfo(Product_Name,Category,Subcategory,Price,Quantity,Condition,Shipping,Description,Discount);
+//
+//		if (product == null) {
+//			return null;  // resource conflict
+//		} else {
+//
+//			return product;
+//		}
+//
+//	}
 	
 	@POST
 	@Path("/uploadProductPic/{product_id}")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
-	public Response ProductPicUpload(
+	public String ProductPicUpload(
 			@FormDataParam("file") InputStream fileInputStream,
 			@FormDataParam("file") FormDataContentDisposition fileFormDataContentDisposition,
-			@PathParam("product_id") int product_id) {
+			@PathParam("product_id") String product_id) {
+		
+		System.out.println("calling service check");
 
 		// local variables
 		String fileName = null;
@@ -119,9 +198,9 @@ public class ProductResource {
 		uploadFilePath = new ProductService().uploadProductPic(
 				fileInputStream, fileName, product_id);
 		if (uploadFilePath == null)
-			return Response.notModified().build();
+			return null;
 
-		return Response.ok().entity(uploadFilePath).build();
+		return uploadFilePath;
 
 	}
 

@@ -88,6 +88,40 @@ public User userRegister(User user)
 	return null;
 }
 
+public User updateAddress(String user_email, String country, String address, String state, int pincode, String emailid,
+		String mobile) {
+	PreparedStatement preparedstmnt;
+	ResultSet rs;
+	try {
+	String query="update user set user_country=? , user_address=?, user_state=?,  user_pincode=?, user_email=?, user_phone=? where user_email=?; ";
+	preparedstmnt=(PreparedStatement) conn.prepareStatement(query);
+	preparedstmnt.setString(1, country);
+	preparedstmnt.setString(2, address);
+	preparedstmnt.setString(3, state);
+	preparedstmnt.setInt(4, pincode);
+	preparedstmnt.setString(5, emailid);
+	preparedstmnt.setString(6, mobile);
+	preparedstmnt.setString(7, user_email);
+	
+	preparedstmnt.execute();
+	query="select * from user where user_email=?";
+	preparedstmnt=(PreparedStatement) conn.prepareStatement(query);
+	preparedstmnt.setString(1, user_email);
+	rs=preparedstmnt.executeQuery();
+	if(rs.next())
+	{
+		User user=new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),
+				rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10),rs.getString(11));
+		return user;
+	}
+	}
+	
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+	return null;
+}
 
 public int ValidateEmailId(String user_email) {
 	try {

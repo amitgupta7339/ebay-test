@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="myjquery.js"></script>
+     <script>
+      $(function(){
+        $("#header").load("header.html");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="container">  
+          <span class="col-sm-4" >
+            <button type="submit" class="btn btn-success" id="new_product">new_product</button>
+          </span>
+           <span class="col-sm-4">
+            <button type="submit" class="btn btn-warning" id="modify">modify</button>
+          </span>
+          <span class="col-sm-4">
+           <button type="submit" class="btn btn-danger" id="Delete">Delete</button>
+         </span>
+    </div>
+  <script>
+  $('#new_product').click(function(){
+    window.location="http://localhost:5224/ebaytester/new_product_upload.html";
+  });
+  $('#modify').click(function(){
+    window.location="";
+  });
+  $('#Delete').click(function(){
+    window.location="http://localhost:5224/ebaytester/product_delete.html";
+  });
+  </script>
+ </body>
+</html>
