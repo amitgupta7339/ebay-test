@@ -13,9 +13,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.validation.ReportAsSingleViolation;
 
+import org.ebay_project.ebaytester.model.Message;
 import org.ebay_project.ebaytester.model.Product;
 
 import com.mysql.jdbc.Statement;
@@ -42,6 +44,58 @@ public class ProductService {
 				System.out.println("Connection close error");
 			}
 		}
+	}
+	
+
+	public List<Product> getSellerAllProducts(int user_id){
+		Product p1 ;
+		List<Product> list = new ArrayList<>();
+		PreparedStatement preparedstmnt;
+		try {
+			String query="select * from product where user_id = ?";
+			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt.setInt(1, user_id);
+			ResultSet rs = preparedstmnt.executeQuery();
+
+			while (rs.next()) {
+				p1= new Product();
+				p1.setSub_category_id(rs.getInt(2));
+				p1.setCategory_id(rs.getInt(3));
+				p1.setUser_id(rs.getInt(4));
+				p1.setProduct_name(rs.getString(5));				
+				p1.setProduct_price(rs.getInt(6));
+				p1.setProduct_discount(rs.getInt(7));
+				p1.setProduct_condition(rs.getString(8));
+				p1.setProduct_shipping(rs.getString(9));
+				p1.setProduct_sold_quantity(rs.getInt(10));
+				p1.setProduct_img_url(rs.getString(11));
+				p1.setProduct_available_quantity(rs.getInt(12));
+				p1.setProduct_description(rs.getString(13));
+				p1.setProduct_rating(rs.getInt(14));
+				p1.setDeal(rs.getString(15));
+				p1.setBrand(rs.getString(16));
+				p1.setColor(rs.getString(17));
+				p1.setScreen_size(rs.getString(18));
+				p1.setProcessor(rs.getString(19));
+				p1.setStorage(rs.getString(20));
+				p1.setWarranty(rs.getString(21));
+				p1.setOperating_system(rs.getString(22));
+				p1.setProduct_year(rs.getInt(23));
+				p1.setGender(rs.getString(24));
+				p1.setApplicable(rs.getString(25));
+				p1.setMaterial(rs.getString(26));
+				p1.setClothing_size(rs.getString(27));
+				p1.setStyle(rs.getString(28));
+				p1.setWarranty_type(rs.getString(29));
+				p1.setCard_class(rs.getString(30));
+				
+				list.add(p1);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return list;
 	}
 	
 //	public ArrayList<Product> getAllProducts() {
@@ -223,10 +277,6 @@ public class ProductService {
 				e.printStackTrace();
 			}
 		
-		
-//	} catch (Exception e) {
-//		System.out.println("Exception raised!!" + e);
-//	}
 return product;	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -237,22 +287,32 @@ return product;
 		return null;
 	}
 	
-//	public void DeleteProduct(String product_name, int seller_id)
-//	{PreparedStatement preparedstmnt;
-//		try {
-//		String query= "delete from product_info where product_name=? and seller_id=?;";
-//		preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
-//		preparedstmnt.setString(1, product_name);
-//		preparedstmnt.setInt(2, seller_id);
-//		preparedstmnt.execute();
-//		
-//		}
-//		catch(Exception e)
-//		{
-//		 e.printStackTrace();
-//		}
-//		
-//	}
+	public Message DeleteProduct(String product_name, int seller_id)
+	{PreparedStatement preparedstmnt;
+		Message mssg=null;
+	try {
+		String query= "delete from product where product_name=? and user_id=?";
+		preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
+		preparedstmnt.setString(1, product_name);
+		preparedstmnt.setInt(2, seller_id);
+	    boolean rs=preparedstmnt.execute();
+	    if(rs)
+	    {
+		 mssg=new Message("Success");
+		 
+		}
+	    else
+	    {
+	    	mssg=new Message("Failure");	
+	    }
+	    
+	}
+		catch(Exception e)
+		{
+		 e.printStackTrace();
+		}
+	return mssg;
+	}
 	
 //	public Product setProductInfo(String Product_Name,String Category,String Subcategory,int Price,int Quantity,String Condition,String Shipping,String Description,int Discount) {
 //
@@ -366,7 +426,7 @@ return product;
 		PreparedStatement preparedStatement3;
 		File folder = new File(PathSetup.imagePath+"products/"+product_id);
 	    File[] listOfFiles = folder.listFiles();
-	    listOfFiles[1].delete();
+	    listOfFiles[0].delete();
 	    //System.out.println(userName+" "+listOfFiles[1].getName()+" profilepic to delete");
 	   
 	    //System.out.println(f.delete());

@@ -14,6 +14,7 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.ebay_project.ebaytester.model.Message;
 import org.ebay_project.ebaytester.model.Product;
 import org.ebay_project.ebaytester.service.CategoryService;
 import org.ebay_project.ebaytester.service.ProductService;
@@ -24,7 +25,13 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 @Path("/products")
 public class ProductResource {
 	
-
+	@GET
+	@Path("/list/{user_id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Product> getSellerAllProducts(@PathParam("user_id") int user_id){
+		ProductService ps = new ProductService();
+		return ps.getSellerAllProducts(user_id) ;
+	}
 	
 	
 //	@GET
@@ -142,23 +149,15 @@ public class ProductResource {
 
 	}
 	
-//	@POST
-//	@Path("/deleteProduct/{seller_id}")
-//	@Produces(value = { MediaType.APPLICATION_JSON })
-//	@Consumes(value = { MediaType.APPLICATION_FORM_URLENCODED })
-//	public void DeleteProduct(@FormParam("") String product_name, @PathParam("seller_id") int seller_id){
-//
-//		ProductService productService = new ProductService();
-//		Product product = productService.DeleteProduct(  product_name,  seller_id);
-//
-//		if (product == null) {
-//			return null;  // resource conflict
-//		} else {
-//
-//			return product;
-//		}
-//
-//	}
+	@POST
+	@Path("/deleteProduct/{seller_id}")
+	@Produces(value = { MediaType.APPLICATION_JSON })
+	@Consumes(value = { MediaType.APPLICATION_FORM_URLENCODED })
+	public Message DeleteProduct(@FormParam("Products_name") String product_name, @PathParam("seller_id") int seller_id){
+
+		ProductService productService = new ProductService();
+		return productService.DeleteProduct(  product_name,  seller_id);
+	}
 	
 //	@POST
 //	@Path("/uploadProduct")
