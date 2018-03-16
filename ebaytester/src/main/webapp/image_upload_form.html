@@ -11,6 +11,9 @@
 <body>
 <div class="container">
   <h2>image_upload_form</h2>
+  <div class="row">
+         <div class="col-sm-11"><a href="http://localhost:5224/ebaytester/home.html"><img src="images/logo.png" title="eBay"></a></div>
+     </div>
   <form class="form-horizontal" id="image_upload_form" >
     <div class="form-group">
       <div class="col-sm-8">
@@ -26,12 +29,12 @@
   </form>
 </div>
 <script>
-alert(localStorage.product_id_seller);
+// alert(localStorage.product_id_seller);
 document.getElementById("prod_id").value=localStorage.product_id_seller;
 </script>
 <script>
 	    $('#image_upload_form').submit(function() {
-        alert(localStorage.product_id_seller+"");
+        // alert(localStorage.product_id_seller+"");
         var fd = new FormData($('#image_upload_form')[0]);
         console.log(fd);
         $.ajax({
@@ -42,11 +45,11 @@ document.getElementById("prod_id").value=localStorage.product_id_seller;
         	processData : false, // Important!
         	contentType : false,
         	cache : false,
+        	dataType: "text",
 	        // e.preventDefault();
 	        // var formData = new FormData(this);
-	            success:function(data){
-	                console.log("success");
-	                console.log(data);
+	            complete:function(data){
+                  window.location="http://localhost:5224/ebaytester/home.html";
 	            }
 	        });
 	    });

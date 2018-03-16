@@ -288,15 +288,16 @@ return product;
 	}
 	
 	public Message DeleteProduct(String product_name, int seller_id)
-	{PreparedStatement preparedstmnt;
-		Message mssg=null;
+	{
+		PreparedStatement preparedstmnt;
+		Message mssg;
 	try {
 		String query= "delete from product where product_name=? and user_id=?";
 		preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
 		preparedstmnt.setString(1, product_name);
 		preparedstmnt.setInt(2, seller_id);
-	    boolean rs=preparedstmnt.execute();
-	    if(rs)
+	    int rs=preparedstmnt.executeUpdate();
+	    if(rs > 0)
 	    {
 		 mssg=new Message("Success");
 		 
@@ -305,13 +306,14 @@ return product;
 	    {
 	    	mssg=new Message("Failure");	
 	    }
-	    
+	    System.out.println(mssg.getMessage());
+	    return mssg; 
 	}
 		catch(Exception e)
 		{
 		 e.printStackTrace();
 		}
-	return mssg;
+	  return null;
 	}
 	
 //	public Product setProductInfo(String Product_Name,String Category,String Subcategory,int Price,int Quantity,String Condition,String Shipping,String Description,int Discount) {
@@ -435,13 +437,14 @@ return product;
 		fileName=""+Calendar.getInstance().getTimeInMillis()+fileName;
 		String path=PathSetup.imagePath+"products/"+product_id+"/images/";
 		String productPicPath=PathSetup.imagePath+"products/"+product_id+"/";
+		String databaseimagepath= "http://localhost:5224/ebaytester/products/"+product_id+"/";
 		Product product = new Product();
 		try{
 			outputStream=new FileOutputStream(new File(path+fileName));
 			outputStream1=new FileOutputStream(new File(productPicPath+"p"+fileName));
 			String query= "update product set product_img_url = ? where product_id = ?";
 			preparedStatement3 = connection.prepareStatement(query);
-			preparedStatement3.setString(1,productPicPath+"p"+fileName);
+			preparedStatement3.setString(1,databaseimagepath+"p"+fileName);
 			preparedStatement3.setInt(2,product_id);
 			preparedStatement3.executeUpdate();
 			int read = 0;

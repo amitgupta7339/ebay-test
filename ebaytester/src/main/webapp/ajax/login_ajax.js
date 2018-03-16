@@ -11,7 +11,10 @@ $('#login').click(function(){
 		           localStorage.fName=response.user_fname;
 		           localStorage.lName=response.user_lname;
 		           localStorage.email=response.user_email;
+			   localStorage.user_Address=response.user_address;
+			   localStorage.user_State=response.user_state;
 		           localStorage.user_PINCODE=response.user_pincode;
+			   localStorage.user_Phone=response.user_phone;
 		           if(localStorage.email=='admin@gmail.com')
 		        	   {
 		        	   window.location="http://localhost:5224/ebaytester/admin_category.html";

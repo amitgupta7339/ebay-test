@@ -26,8 +26,8 @@ $('#Product_delete_form').submit(function(){
 		       url:  "http://localhost:5224/ebaytester/webapi/products/deleteProduct/"+localStorage.user_Id,
 		       data: $('#Product_delete_form').serialize(),
 		       dataType: "JSON",
-		       success: function(response){
-		    	   alert(response.message);
+		       complete: function(response){
+		    	   alert("Success");
 		       }
 		});
 		}

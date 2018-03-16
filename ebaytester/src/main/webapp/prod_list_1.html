@@ -1,0 +1,72 @@
+
+<!Doctype HTML>
+<html lang="en">
+<head>
+	<title>Prototype</title>
+	<meta charset = "utf-8">
+	<meta name = "viewport" content = "width=device-width , initial scale = 1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<link rel="stylesheet" href="css/basic.css">
+
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+
+ <body>
+
+
+ 	<div class = "container" >
+
+ 		<div class = "row">
+ 			<div class = "col-sm-2">
+ 			<br>
+ 				<div id = "first_half">
+ 				<div id = "CatSub"><!-- subcategory list division -->
+ 					<p style="font-size:16px"><a id = "cat_name" href="#"></a> </p>
+ 					<br>
+ 					<div class="row">
+ 						<div class="col-sm-2"></div>
+ 						<div id="sub_list" class="col-sm-10"></div>
+ 					</div>
+ 					<br>
+ 				</div>
+ 				<div id = "filters">
+
+ 				</div>
+ 				<p style="font-size:18px;"><strong> Price</strong></p>
+ 				<div class= "row">
+ 					<div class="col-sm-1"><p style="font-size:12px">Rs.</p></div>
+ 					<div class="col-sm-3"><input type="text" style="width:40px" id="price_text1" name="start_price"></div>
+ 					<div class="col-sm-2"><p style="font-size:12px">to Rs.</p></div>
+ 					<div class="col-sm-3"><input type="text" style="width:40px" id="price_text2" name="end_price"></div>
+ 					<div class="col-sm-3">
+ 						<button type="button" class="btn btn-info" onclick="priceFilter(document.getElementById('price_text1').value,document.getElementById('price_text2').value)">
+      						<span class="glyphicon glyphicon-forward"></span>
+    					</button></div>
+ 				</div>
+ 				</div>
+            </div>
+ 			<div class = "col-sm-8" style="background-color:white;">
+      </br>
+         <div class="btn-group">
+          <button type="button" class="btn">Apple</button>
+          <button type="button" class="btn">Samsung</button>
+          <button type="button" class="btn">Sony</button>
+          </div>
+      </br>
+      </br>
+        <!--  <div class = "row">
+        <div class = "col-sm-10">
+ 				 <!--  <img src="images/f1.jpg" alt="category" style="width:100%">
+         </div>
+        </div>-->
+ 				  <div id= "prod_list" class = "row">
+				 </div>
+ 			</div>
+ 			<div class = "col-sm-2">
+ 			</div>
+ 		</div>
+ 	</div>
+  <script src="javascript/main.js"> </script>
+ </body>
+ </html>

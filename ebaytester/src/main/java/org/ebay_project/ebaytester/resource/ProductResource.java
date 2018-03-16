@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 
 import org.ebay_project.ebaytester.model.Message;
 import org.ebay_project.ebaytester.model.Product;
+import org.ebay_project.ebaytester.model.Product_list;
 import org.ebay_project.ebaytester.service.CategoryService;
 import org.ebay_project.ebaytester.service.ProductService;
 import org.ebay_project.ebaytester.service.SubcategoryService;
@@ -50,6 +51,22 @@ public class ProductResource {
 //	        }
 //	}
 //	
+	@GET
+	@Path("/category/{category_name}")
+	@Produces(value = { MediaType.APPLICATION_JSON })
+	public ArrayList<Product_list> getProductsCategoryWise(@PathParam("category_name") String category_name) {
+		CategoryService categoryService=new CategoryService();
+		ArrayList<Product_list> list = categoryService.getProducts(category_name);
+		if(list.isEmpty())
+		{
+		return null;
+		}
+		else
+		{
+		return list ;
+	}
+	}
+	
 //	@GET
 //	@Path("/category/{category_name}")
 //	@Produces(value = { MediaType.APPLICATION_JSON })
@@ -156,7 +173,9 @@ public class ProductResource {
 	public Message DeleteProduct(@FormParam("Products_name") String product_name, @PathParam("seller_id") int seller_id){
 
 		ProductService productService = new ProductService();
+		//System.out.println(productService.DeleteProduct(  product_name,  seller_id).getMessage());
 		return productService.DeleteProduct(  product_name,  seller_id);
+		
 	}
 	
 //	@POST

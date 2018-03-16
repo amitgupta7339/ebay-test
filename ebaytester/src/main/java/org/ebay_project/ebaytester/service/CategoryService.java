@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import org.ebay_project.ebaytester.model.Category;
 import org.ebay_project.ebaytester.model.Product;
+import org.ebay_project.ebaytester.model.Product_list;
 import org.ebay_project.ebaytester.model.Subcategory;
 
 public class CategoryService {
@@ -186,6 +187,105 @@ public class CategoryService {
 			return categoryresult;
 			}
 		
+public ArrayList<Product_list> getProducts(String category_name) {
+			
+			System.out.println("Done Here");
+			Product_list product;
+			ArrayList<Product_list> productList = new ArrayList<Product_list>();
+			String q1="select category_id from category where category_name=?";
+			int category_id = 0;
+			String q2 = "select * from product where category_id = ?";
+			PreparedStatement preparedStatementq2;
+			PreparedStatement preparedStatementq1;
+			try {
+				 preparedStatementq1 = connection.prepareStatement(q1);
+				preparedStatementq1.setString(1,category_name);
+				ResultSet rsq1 = preparedStatementq1.executeQuery();
+				if(rsq1.next())
+				{
+					category_id = rsq1.getInt(1);
+				}
+				preparedStatementq2 = connection.prepareStatement(q2);
+				preparedStatementq2.setInt(1,category_id);
+			
+				
+				 ResultSet rsq2 =  preparedStatementq2.executeQuery();
+				 
+				/*q1 = "select seller_id from seller_product where seller_product_id = ?";
+				 preparedStatementq1 = connection.prepareStatement(q1);
+				 preparedStatementq1.setInt(1,rsq2.getInt(1));
+				 rsq1 = preparedStatementq1.executeQuery();
+				 
+				 q1 = "select user_id,user_fname,user_lname from user where user_id = ?";
+				 preparedStatementq1 = connection.prepareStatement(q1);
+				 preparedStatementq1.setInt(1,rsq1.getInt(1));
+				 rsq1 = preparedStatementq1.executeQuery();*/
+
+				while(rsq2.next()) {
+					product = new Product_list();
+					
+				/*	q1 = "select seller_id from seller_product where seller_product_id = ?";
+					 preparedStatementq1 = connection.prepareStatement(q1);
+					 //preparedStatementq1.setInt(1,rsq2.getInt(1));
+					 System.out.println("Done here");
+					 System.out.println(rsq2.getInt(1));
+					 
+					 preparedStatementq1.setInt(1,rsq2.getInt(1));
+					 rsq1 = preparedStatementq1.executeQuery();
+					 if(rsq1.next()) {*/
+					 //System.out.println(rsq1.getInt(1));
+					 q1 = "select user_id,user_fname,user_lname from user where user_id = ?";
+					 preparedStatementq1 = connection.prepareStatement(q1);
+					 preparedStatementq1.setInt(1,rsq2.getInt(4));
+					 rsq1 = preparedStatementq1.executeQuery();
+					 if(rsq1.next())
+					 {
+					product.setSellerName(rsq1.getString(2)+" "+rsq1.getString(3));
+					product.setSellerId(rsq1.getInt(1));
+					 };//};
+					
+					
+					/*product.setSellerName(rsq1.getString(2)+" "+rsq1.getString(3));
+					product.setSellerId(rsq1.getInt(1));*/
+					product.setProductId(rsq2.getInt(1));
+					product.setCatId(rsq2.getInt(3));
+					product.setSubCatId(rsq2.getInt(2));
+					product.setProductName(rsq2.getString(5));
+					product.setProductPrice(rsq2.getInt(6));
+					product.setProductDiscount(rsq2.getInt(7));
+					product.setProductCondition(rsq2.getString(8));
+					product.setProductShipping(rsq2.getString(9));
+					product.setProductSoldQuantity(rsq2.getInt(10));
+					//product.setProduct_quantity(rsq2.getInt(10));
+					product.setProductAvailableQuantity(rsq2.getInt(12));
+					product.setProductImageUrl(rsq2.getString(11));
+					product.setProductDescription(rsq2.getString(13));
+					product.setProductRating(rsq2.getInt(14));
+					product.setProductBrand(rsq2.getString(16));
+					product.setProductColor(rsq2.getString(17));
+					product.setProductStorage(rsq2.getString(20));
+					product.setProductWarranty(rsq2.getString(21));
+					product.setProductOS(rsq2.getString(22));
+					product.setProductYear(rsq2.getInt(23));
+					product.setProductGender(rsq2.getString(24));
+					product.setProductApplicable(rsq2.getString(25));
+					product.setProductMaterial(rsq2.getString(26));
+					product.setProductWarrantyType(rsq2.getString(29));
+					productList.add(product);
+				}
+				System.out.println(productList.size());
+
+				for (Product_list l : productList) {
+					System.out.println(l.getProductId() + "  " + l.getProductDescription());
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			System.out.println("Done Here too");
+			return productList;
+		
+		}
 		
 //		public ArrayList<Product> getProducts(String category_name) {
 //

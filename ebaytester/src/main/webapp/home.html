@@ -55,6 +55,8 @@
 	 }
   }
   </script>
+  <script src="javascript/home.js">
+  </script>
   <!-- end external script file  -->
   <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
@@ -237,7 +239,7 @@
                        </div>
                     </td>
                     <!-- <td class="gh-td"><input type="submit" class="btn btn-prim gh-spr" id="gh-btn" value="Search"></td> -->
-                    <td><button type="button" class="btn btn-primary" style="margin:5px; height:40px; background:#00509d "> <b>Search</b> </button></td>
+                    <td><button type="button" class="btn btn-primary" style="margin:5px; height:40px; background:#00509d " onclick="searchfunction()"> <b>Search</b> </button></td>
                     <td class="gh-td" id="gh-as-td"><a title="Advanced Search" href="#" _sp="m570.l2614" id="gh-as-a" style="padding-left:10px; padding-right:10px; color:#777777; font-size:11px">Advanced</a></td>
                  </tr>
               </tbody>
@@ -698,7 +700,7 @@ $.ajax({
        }
       }
     }
-  }); 
+  });
 
 </script>
 </body>
