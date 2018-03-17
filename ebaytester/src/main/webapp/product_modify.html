@@ -12,19 +12,22 @@
         $("#header").load("header.html");
       });
     </script> -->
+
   </head>
   <body>
     <div id="header"></div>
+<!-- ======================================================== Product_Name-dropdown ================================================== -->
     <div class="container">
       <div class="row">
          <div class="col-sm-11"><a href="http://localhost:5224/ebaytester/home.html"><img src="images/logo.png" title="eBay"></a></div>
      </div>
-      <form class="form-horizontal" id="Product_delete_form">
+      <form class="form-horizontal" id="Product_name_list">
         <div class="form-group">
           <label class="control-label col-sm-2" for="Product_Name">Product Name</label>
           <div class="col-sm-7">
             <select  name="Products_name" id="Products_name">
              <option value="">All Products names bases on seller name</option>
+             <option value="hello">hello</option>
            </select>
           </div>
           <div class="col-sm-3">
@@ -36,8 +39,8 @@
       </form>
     </div>
     <br>
-    <br>
-
+<!-- ==================================================  Product_modify_form ===========================================================  -->
+  <div id="Product_modify_form_upload">
     <form class="form-horizontal" id="Product_modify_form">
       <div class="form-group">
         <label class="control-label col-sm-2" for="Product_Name">Product Name</label>
@@ -48,16 +51,12 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="pwd">Category</label>
         <div class="col-sm-10">
-          <!-- <input class="col-sm-3" type="text" class="form-control" name="Category" id="Category" placeholder="Enter Product_Name" value="Mobile Accessories"> -->
            <select class="col-sm-3" name="Category" id="Category">
             <option value="">All Category</option>
-            <!--<option value="Mobile Accessories"> Mobile Accessories </option>-->
           </select>
           <label class="control-label col-sm-2" for="pwd">Subcategory</label>
-          <!-- <input class="col-sm-3" type="text" class="form-control" name="Subcategory" id="Subcategory" placeholder="Enter Product_Name" value="Cases & Covers"> -->
          <select class="col-sm-3" name="Subcategory" id="Subcategory">
             <option value="">Sub Category</option>
-            <!--  <option value="Cases & Covers">Cases & Covers</option>-->
           </select>
         </div>
       </div>
@@ -203,8 +202,9 @@
         </div>
       </div>
     </form>
+  </div>
+<script src="javascript/product_modify.js"></script>
+    <!-- <script src="ajax/product_delete_ajax.js"></script> -->
 
-    <script src="ajax/product_delete_ajax.js"></script>
-    <script src="javascript/Product_modify_form"></script>
   </body>
 </html>

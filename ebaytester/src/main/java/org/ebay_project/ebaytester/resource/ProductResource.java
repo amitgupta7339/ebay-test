@@ -34,6 +34,14 @@ public class ProductResource {
 		return ps.getSellerAllProducts(user_id) ;
 	}
 	
+        @GET
+	@Path("/list/{user_id}/{product_name}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Product getSellerProduct(@PathParam("user_id") int user_id,
+									@PathParam("product_name") String product_name){
+                ProductService ps = new ProductService();
+		return ps.getSellerProduct(user_id,product_name) ;
+	}
 	
 //	@GET
 //	@Path("/getAllProducts")

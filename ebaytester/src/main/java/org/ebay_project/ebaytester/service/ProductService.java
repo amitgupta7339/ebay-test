@@ -98,6 +98,54 @@ public class ProductService {
 		return list;
 	}
 	
+	public Product getSellerProduct(int user_id,String product_name){
+		Product p1 = new Product();
+		PreparedStatement preparedstmnt;
+		try {
+			String query="select * from product where user_id =? and product_name =?";
+			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt.setInt(1, user_id);
+			preparedstmnt.setString(2, product_name);
+			ResultSet rs = preparedstmnt.executeQuery();
+
+			while (rs.next()) {
+				p1.setSub_category_id(rs.getInt(2));
+				p1.setCategory_id(rs.getInt(3));
+				p1.setUser_id(rs.getInt(4));
+				p1.setProduct_name(rs.getString(5));				
+				p1.setProduct_price(rs.getInt(6));
+				p1.setProduct_discount(rs.getInt(7));
+				p1.setProduct_condition(rs.getString(8));
+				p1.setProduct_shipping(rs.getString(9));
+				p1.setProduct_sold_quantity(rs.getInt(10));
+				p1.setProduct_img_url(rs.getString(11));
+				p1.setProduct_available_quantity(rs.getInt(12));
+				p1.setProduct_description(rs.getString(13));
+				p1.setProduct_rating(rs.getInt(14));
+				p1.setDeal(rs.getString(15));
+				p1.setBrand(rs.getString(16));
+				p1.setColor(rs.getString(17));
+				p1.setScreen_size(rs.getString(18));
+				p1.setProcessor(rs.getString(19));
+				p1.setStorage(rs.getString(20));
+				p1.setWarranty(rs.getString(21));
+				p1.setOperating_system(rs.getString(22));
+				p1.setProduct_year(rs.getInt(23));
+				p1.setGender(rs.getString(24));
+				p1.setApplicable(rs.getString(25));
+				p1.setMaterial(rs.getString(26));
+				p1.setClothing_size(rs.getString(27));
+				p1.setStyle(rs.getString(28));
+				p1.setWarranty_type(rs.getString(29));
+				p1.setCard_class(rs.getString(30));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return p1;
+	}
+	
 //	public ArrayList<Product> getAllProducts() {
 //
 //		Product product;
