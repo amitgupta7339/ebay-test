@@ -23,7 +23,7 @@
 
 	</ul>
 	<div class="panel panel-default">
-  <div class="panel-body">
+    <div class="panel-body">
 	<br/>
 	<br/>
 
@@ -49,7 +49,6 @@
 	<div class="col-md-6"></div>
 	<div class="col-md-3"><b>Total Money</b></div>
 	<div class="col-md-3"><p id="product_cost1">total</p></div>
-
 	</div>
 	<div class=" well col-md-4">
 	<h3>Your order total:</h3>
@@ -75,28 +74,28 @@ alert(localStorage.product_id_buynow);
       dataType: "JSON",
       success: function(response){
         if(response!=null)
-        {alert(response.product_name);
-          document.getElementById("product_name").innerHTML = response.product_name;
+        { alert(response.product_name);
+          localStorage.productname_Buynow = response.product_name;
           localStorage.productcost_Buynow=response.product_price;
+          localStorage.buyer_product_quantity=1;
+          document.getElementById("name").innerHTML=localStorage.fName+" "+localStorage.lName;
+          document.getElementById("address").innerHTML=localStorage.user_Address;
+          document.getElementById("mob no").innerHTML=localStorage.user_Phone;
+          document.getElementById("product_name").innerHTML=localStorage.productname_Buynow;
+          document.getElementById("product_quantity").value=localStorage.buyer_product_quantity;
+          document.getElementById("product_cost1").innerHTML=localStorage.productcost_Buynow*localStorage.buyer_product_quantity;
+          document.getElementById("product_cost").innerHTML="Rs "+localStorage.productcost_Buynow;
+          document.getElementById("total_cost").innerHTML="Rs "+localStorage.productcost_Buynow*localStorage.buyer_product_quantity;
         }
         else
         	{
         	alert("condition false");
         	}
     }
-    return false;
-    });
+  });
 </script>
 <script>
-localStorage.buyer_product_quantity=1;
-document.getElementById("name").innerHTML=localStorage.fName+" "+localStorage.lName;
-document.getElementById("address").innerHTML=localStorage.user_Address;
-document.getElementById("mob no").innerHTML=localStorage.user_Phone;
-//document.getElementById("product_name").innerHTML=localStorage.productname_Buynow;
-document.getElementById("product_quantity").value=localStorage.buyer_product_quantity;
-document.getElementById("product_cost1").innerHTML=localStorage.productcost_Buynow*localStorage.buyer_product_quantity;
-document.getElementById("product_cost").innerHTML="Rs "+localStorage.productcost_Buynow;
-document.getElementById("total_cost").innerHTML="Rs "+localStorage.productcost_Buynow*localStorage.buyer_product_quantity;
+
 
 </script>
 
