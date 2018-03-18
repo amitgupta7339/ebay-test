@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import org.ebay_project.ebaytester.model.Category;
 import org.ebay_project.ebaytester.model.Subcategory;
 import org.ebay_project.ebaytester.service.CategoryService;
+import org.ebay_project.ebaytester.service.ProductService;
 
 
 @Path("/category")
@@ -65,5 +66,19 @@ public class CategoryResource {
 		return list ;
 	}
 	}
+	
+	@GET
+	@Path("getcategoryname/{category_id}")
+	@Produces(value = { MediaType.APPLICATION_JSON })
+	public Category getCategoryName(@PathParam("category_id") int category_id) {
+                System.out.println("Category API excute start"+category_id);
+                CategoryService categoryService = new CategoryService();
+		Category cc = categoryService.getCategoryName(category_id);
+                System.out.println("subCategory API excute successfully");
+		
+		return cc ;
+	
+	}
+	
 
 }

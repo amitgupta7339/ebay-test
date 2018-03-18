@@ -17,8 +17,10 @@ import java.util.List;
 
 import javax.validation.ReportAsSingleViolation;
 
+import org.ebay_project.ebaytester.model.Category;
 import org.ebay_project.ebaytester.model.Message;
 import org.ebay_project.ebaytester.model.Product;
+import org.ebay_project.ebaytester.model.Subcategory;
 
 import com.mysql.jdbc.Statement;
 
@@ -97,6 +99,57 @@ public class ProductService {
 		
 		return list;
 	}
+	
+	public Product getProductDetail(int product_id) 
+	{
+		Product p1 = new Product();
+		PreparedStatement preparedstmnt;
+		try {
+			String query = "SELECT * FROM product WHERE product_id =? ";
+			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt.setInt(1, product_id);
+			ResultSet rs = preparedstmnt.executeQuery();
+			while (rs.next()) {
+				p1.setSub_category_id(rs.getInt(2));
+				p1.setCategory_id(rs.getInt(3));
+				p1.setUser_id(rs.getInt(4));
+				p1.setProduct_name(rs.getString(5));				
+				p1.setProduct_price(rs.getInt(6));
+				p1.setProduct_discount(rs.getInt(7));
+				p1.setProduct_condition(rs.getString(8));
+				p1.setProduct_shipping(rs.getString(9));
+				p1.setProduct_sold_quantity(rs.getInt(10));
+				p1.setProduct_img_url(rs.getString(11));
+				p1.setProduct_available_quantity(rs.getInt(12));
+				p1.setProduct_description(rs.getString(13));
+				p1.setProduct_rating(rs.getInt(14));
+				p1.setDeal(rs.getString(15));
+				p1.setBrand(rs.getString(16));
+				p1.setColor(rs.getString(17));
+				p1.setScreen_size(rs.getString(18));
+				p1.setProcessor(rs.getString(19));
+				p1.setStorage(rs.getString(20));
+				p1.setWarranty(rs.getString(21));
+				p1.setOperating_system(rs.getString(22));
+				p1.setProduct_year(rs.getInt(23));
+				p1.setGender(rs.getString(24));
+				p1.setApplicable(rs.getString(25));
+				p1.setMaterial(rs.getString(26));
+				p1.setClothing_size(rs.getString(27));
+				p1.setStyle(rs.getString(28));
+				p1.setWarranty_type(rs.getString(29));
+				p1.setCard_class(rs.getString(30));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return p1;
+	}
+	
+	
+	
+	
 	
 	public Product getSellerProduct(int user_id,String product_name){
 		Product p1 = new Product();
@@ -335,6 +388,114 @@ return product;
 		return null;
 	}
 	
+
+    public String updateSellerProduct(
+    		String original_product_name,
+    		String product_name,
+			int user_id,
+			int product_price,
+			int quantity,
+			String product_condition,
+			String product_shipping,
+			String product_description,
+			int product_discount,
+			String deal,
+			String brand,
+			String color,
+			String screen_size,
+			String processor,
+			String storage,
+			String warranty,
+			String operating_system,
+			int product_year,
+			String gender,
+			String warranty_type,
+			String applicable,
+			String material,
+			String clothing_size,
+			String style,
+			String card_class) {
+		
+		int status=0;
+		PreparedStatement preparedstmnt;
+		int rs=0;
+		try {
+			String query="UPDATE product set product_name = ? , product_price = ?, "
+					+ "product_available_quantity=?,"
+					+ "product_condition=?,product_shipping=?,product_description=?,"
+					+ "product_discount=?,deal=?,brand=?, color=?, screen_size=?,processor=?,storage=?,warranty=?,"
+					+ "operating_system=?, product_year=?, gender=?, warranty_type=?,applicable=?,material=?,"
+					+ "clothing_size=?, style=?,card_class=? where user_id = ? and product_name = ?";
+			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt.setString(1, product_name);
+			preparedstmnt.setInt(2, product_price);
+			preparedstmnt.setInt(3, quantity);	
+			preparedstmnt.setString(4, product_condition);
+			preparedstmnt.setString(5, product_shipping);
+			preparedstmnt.setString(6, product_description);
+			preparedstmnt.setInt(7, product_discount);
+			preparedstmnt.setString(8, deal);
+			preparedstmnt.setString(9, brand);
+			preparedstmnt.setString(10, color);
+			preparedstmnt.setString(11, screen_size);
+			preparedstmnt.setString(12, processor);
+			preparedstmnt.setString(13, storage);
+			preparedstmnt.setString(14, warranty);
+			preparedstmnt.setString(15, operating_system);
+			preparedstmnt.setInt(16, product_year);
+			preparedstmnt.setString(17, gender);
+			preparedstmnt.setString(18, warranty_type);
+			preparedstmnt.setString(19, applicable);
+			preparedstmnt.setString(20, material);
+			preparedstmnt.setString(21, clothing_size);
+			preparedstmnt.setString(22, style);
+			preparedstmnt.setString(23, card_class);
+			preparedstmnt.setInt(24, user_id);
+			preparedstmnt.setString(25, original_product_name);
+			rs= preparedstmnt.executeUpdate();
+//			Statement stmt=(Statement) connection.createStatement();
+//			
+//			String sql = "UPDATE product" +
+//					"Set product_name = "+product_name+","
+//							+ " product_price = "+product_price+","
+//									+ " quantity = "+quantity+","
+//											+ " product_condition = "+product_condition+","
+//													+ " product_shipping = "+product_shipping+","
+//															+ " product_description = "+product_description+","
+//																	+ " product_discount = "+product_discount+","
+//																			+ " deal = "+deal+","
+//																					+ " brand = "+brand+","
+//																							+ " color = "+color+","
+//																									
+//											+ " screen_size = "+screen_size+","
+//										+ " processor = "+processor+","
+//+ " storage = "+storage+","
+//+ " warranty = "+warranty+","
+//+ " operating_system = "+operating_system+","
+//+ " product_year = "+product_year+","
+//+ " gender = "+gender+","
+//+ " warranty_type = "+warranty_type+","
+//+ " applicable = "+applicable+","
+//+ " material = "+material+","
+//+ " clothing_size = "+clothing_size+","
+//+ " style = "+style+""+
+//"where user_id = "+user_id+"and product_name ="+original_product_name;
+//					
+//			
+//			
+//			status = stmt.executeUpdate(sql);
+		
+		} catch (Exception e) {
+		System.out.println(e);
+		}
+		
+		if(rs > 0) {
+			return "Succesfull";
+		}
+			return "unsuccessfull";
+	}
+
 	public Message DeleteProduct(String product_name, int seller_id)
 	{
 		PreparedStatement preparedstmnt;

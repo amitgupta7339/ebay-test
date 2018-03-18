@@ -23,100 +23,96 @@
      </div>
     <form class="form-horizontal" id="Product_detail_form">
       <div class="form-group">
-        <label class="control-label col-sm-2" for="Product_Name">Product Name</label>
+        <label class="control-label col-sm-2" for="Product_Name">Product Name*</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Product_Name" placeholder="Enter Product_Name" name="Product_Name">
+          <input type="text" class="form-control" id="Product_Name" placeholder="Enter Product_Name" name="Product_Name" value="" required>
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Category</label>
+        <label class="control-label col-sm-2" for="pwd">Category*</label>
         <div class="col-sm-10">
-          <!-- <input class="col-sm-3" type="text" class="form-control" name="Category" id="Category" placeholder="Enter Product_Name" value="Mobile Accessories"> -->
            <select class="col-sm-3" name="Category" id="Category">
             <option value="">All Category</option>
-            <!--<option value="Mobile Accessories"> Mobile Accessories </option>-->
           </select>
-          <label class="control-label col-sm-2" for="pwd">Subcategory</label>
-          <!-- <input class="col-sm-3" type="text" class="form-control" name="Subcategory" id="Subcategory" placeholder="Enter Product_Name" value="Cases & Covers"> -->
+          <label class="control-label col-sm-2" for="pwd">Subcategory*</label>
          <select class="col-sm-3" name="Subcategory" id="Subcategory">
             <option value="">Sub Category</option>
-            <!--  <option value="Cases & Covers">Cases & Covers</option>-->
           </select>
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="Price">Price</label>
+        <label class="control-label col-sm-2" for="Price">Price*</label>
         <div class="col-sm-7">
-          <input class="col-sm-5" type="number" class="form-control" id="Price" min="0" placeholder="Enter Price in INR" name="Price">
-          <label class="control-label col-sm-2" for="Quantity">Quantity</label>
-          <input class="col-sm-5" type="number" class="form-control" id="Quantity" min="0" placeholder="Enter no of pieces available" name="Quantity">
+          <input class="col-sm-5" type="number" class="form-control" id="Price" min="0" placeholder="Enter Price in INR" name="Price" value="" required>
+          <label class="control-label col-sm-2" for="Quantity">Quantity*</label>
+          <input class="col-sm-5" type="number" class="form-control" id="Quantity" min="0" placeholder="Enter no of pieces available" name="Quantity" value="" required>
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="Condition">Condition</label>
+        <label class="control-label col-sm-2" for="Condition">Condition*</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Condition" placeholder="Enter Condition"   name="Condition">
+          <input type="text" class="form-control" id="Condition" placeholder="Enter Condition"   name="Condition" value="" required>
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="Shipping">Shipping</label>
+        <label class="control-label col-sm-2" for="Shipping">Shipping*</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Shipping" placeholder="Enter delivery mode" name="Shipping">
+          <input type="text" class="form-control" id="Shipping" placeholder="Enter delivery mode" name="Shipping" value="" required>
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Description">Description</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Description" placeholder="Add Product Description" name="Description">
+          <input type="text" class="form-control" id="Description" placeholder="Add Product Description" name="Description" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Discount">Discount</label>
         <div class="col-sm-7">
-          <input type="number" class="form-control" id="Discount" min="0" max="100" placeholder="Enter Discount" name="Discount">
+          <input type="number" class="form-control" id="Discount" min="0" max="100" placeholder="Enter Discount" name="Discount" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Deal">Deal</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Deal" placeholder="Enter Deal" name="Deal" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Deal" placeholder="Enter Deal" name="Deal" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Brand">Brand</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Brand" placeholder="Enter Brand" name="Brand" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Brand" placeholder="Enter Brand" name="Brand" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Color">Color</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Color" placeholder="Enter Color" name="Color" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Color" placeholder="Enter Color" name="Color" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Screen_size">Screen_size</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Screen_size" placeholder="Enter Screen_size in inch" name="Screen_size" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Screen_size" placeholder="Enter Screen_size in inch" name="Screen_size" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Processor">Processor</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Processor" placeholder="Enter Processor" name="Processor" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Processor" placeholder="Enter Processor" name="Processor" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Storage">Storage</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Storage" placeholder="Enter Storage value" name="Storage" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Storage" placeholder="Enter Storage value" name="Storage" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Warranty">Warranty</label>
         <div class="col-sm-7">
           <div class="col-sm-11">
-            <input type="text" class="form-control" id="Warranty" placeholder="Enter Warranty in months" name="Warranty" style="text-transform:uppercase">
+            <input type="text" class="form-control" id="Warranty" placeholder="Enter Warranty in months" name="Warranty" style="text-transform:uppercase" value="">
           </div>
              <div class="col-sm-1">
                  <span >/MONTHS</span>
@@ -124,15 +120,15 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-2" for="Operating_system">Operating_system</label>
+        <label class="control-label col-sm-2" for="Operating_system" >Operating_system</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Operating_system" placeholder="Enter Operating_system" name="Operating_system" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Operating_system" placeholder="Enter Operating_system" name="Operating_system" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Product_year">Product_year</label>
         <div class="col-sm-7">
-          <input type="number" maxlength="4" min="1800" class="form-control" id="Product_year" placeholder="Enter Product_year" name="Product_year" style="text-transform:uppercase">
+          <input type="number" maxlength="4" min="1800" class="form-control" id="Product_year" placeholder="Enter Product_year" name="Product_year" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
@@ -153,31 +149,31 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="Applicable">Applicable</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Applicable" placeholder="Enter Applicable" name="Applicable" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Applicable" placeholder="Enter Applicable" name="Applicable" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Material">Material</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Material" placeholder="Enter Material" name="Material" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Material" placeholder="Enter Material" name="Material" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Clothing_size">Clothing_size</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Clothing_size" placeholder="Enter Clothing_size" name="Clothing_size" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Clothing_size" placeholder="Enter Clothing_size" name="Clothing_size" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Style">Style</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Style" placeholder="Enter Style" name="Style" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Style" placeholder="Enter Style" name="Style" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-2" for="Card_class">Card_class</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="Card_class" placeholder="Enter Card_class" name="Card_class" style="text-transform:uppercase">
+          <input type="text" class="form-control" id="Card_class" placeholder="Enter Card_class" name="Card_class" style="text-transform:uppercase" value="">
         </div>
       </div>
       <div class="form-group">
@@ -188,7 +184,7 @@
     </form>
   </div>
   <script src="ajax/new_product_upload.js"></script>
-  
+
   <!--  <p id="demo">hello<p>
   <script>
    document.getElementById("demo").innerHTML=localStorage.user_Id;

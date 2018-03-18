@@ -187,6 +187,28 @@ public class CategoryService {
 			return categoryresult;
 			}
 		
+		public Category getCategoryName(int category_id)
+		{
+			Category c = new Category();
+			PreparedStatement preparedStatement;
+			try {
+				String query= "select * from category where category_id = ?";
+				preparedStatement=	(PreparedStatement) connection.prepareStatement(query);
+				preparedStatement.setInt(1, category_id);
+				ResultSet rs = preparedStatement.executeQuery();
+				if(rs.next())
+				{
+					c.setCategory_id(rs.getInt(1));
+					c.setCategory_name(rs.getString(2));
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			return c;
+		}
+		
 public ArrayList<Product_list> getProducts(String category_name) {
 			
 			System.out.println("Done Here");

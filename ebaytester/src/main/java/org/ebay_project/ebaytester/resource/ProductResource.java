@@ -7,19 +7,16 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
 import org.ebay_project.ebaytester.model.Message;
 import org.ebay_project.ebaytester.model.Product;
 import org.ebay_project.ebaytester.model.Product_list;
 import org.ebay_project.ebaytester.service.CategoryService;
 import org.ebay_project.ebaytester.service.ProductService;
-import org.ebay_project.ebaytester.service.SubcategoryService;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
@@ -42,6 +39,15 @@ public class ProductResource {
                 ProductService ps = new ProductService();
 		return ps.getSellerProduct(user_id,product_name) ;
 	}
+        
+     @GET
+     @Path("/getproduct/{product_id}")
+     @Produces(MediaType.APPLICATION_JSON)
+     public Product getProductDetail(@PathParam("product_id") int product_id)
+     {
+    	 ProductService ps = new ProductService();
+    	 return ps.getProductDetail(product_id) ;
+     }
 	
 //	@GET
 //	@Path("/getAllProducts")
@@ -173,6 +179,67 @@ public class ProductResource {
 		}
 
 	}
+
+    @PUT
+	@Path("/update/{user_id}/{product_name}")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String updateSellerProduct(
+			@PathParam("user_id") int user_id,
+			@PathParam("product_name") String original_product_name,
+			@FormParam("Product_Name") String product_name, 
+			@FormParam("Price") int product_price,
+			@FormParam("Quantity") int quantity,
+			@FormParam("Condition")String product_condition,
+			@FormParam("Shipping")String product_shipping,
+			@FormParam("Description")String product_description,
+			@FormParam("Discount") int product_discount,
+			@FormParam("Deal") String deal,
+			@FormParam("Brand") String brand,
+			@FormParam("Color") String color,
+			@FormParam("Screen_size") String screen_size,
+			@FormParam("Processor") String processor,
+			@FormParam("Storage") String storage,
+			@FormParam("Warranty") String warranty,
+			@FormParam("Operating_system") String operating_system,
+			@FormParam("Product_year") int product_year,
+			@FormParam("Gender") String gender,
+			@FormParam("Warranty_type") String warranty_type,
+			@FormParam("Applicable") String applicable,
+			@FormParam("Material") String material,
+			@FormParam("Clothing_size")String clothing_size,
+			@FormParam("Style") String style,	 
+			@FormParam("Card_class") String card_class
+			){		System.out.println("helloupdateSellerProduct");
+    	ProductService ps = new ProductService();
+		return ps.updateSellerProduct(
+				original_product_name,
+				product_name,
+				user_id,
+				product_price,
+				quantity,
+				product_condition,
+				product_shipping,
+				product_description,
+				product_discount,
+				deal,
+				brand,
+				color,
+				screen_size,
+				processor,
+				storage,
+				warranty,
+				operating_system,
+				product_year,
+				gender,
+				warranty_type,
+				applicable,
+				material,
+				clothing_size,
+				style,
+				card_class
+				) ;
+	}
 	
 	@POST
 	@Path("/deleteProduct/{seller_id}")
@@ -230,5 +297,6 @@ public class ProductResource {
 
 	}
 
+	
 
 }

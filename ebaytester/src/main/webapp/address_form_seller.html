@@ -91,7 +91,8 @@
         $("#mobile").val(localStorage.user_Phone);
       }
     </script>
-    <script>
+    <script src="ajax/address_form_seller_ajax.js"></script>
+    <!-- <script>
       $('#Address_From').submit(function(){
                $.ajax({
                  type: "post",
@@ -102,10 +103,10 @@
                    if(response!=null)
                    {
                      localStorage.email=response.user_email;
-	                 localStorage.user_Address=response.user_address;
-		             localStorage.user_State=response.user_state;
-		             localStorage.user_PINCODE=response.user_pincode;
-	                 localStorage.user_Phone=response.user_phone
+	                   localStorage.user_Address=response.user_address;
+		                 localStorage.user_State=response.user_state;
+		                 localStorage.user_PINCODE=response.user_pincode;
+	                   localStorage.user_Phone=response.user_phone
                      window.location=window.location="http://localhost:5224/ebaytester/Seller_dashboard.html";;
                    }
                    else
@@ -116,6 +117,6 @@
                });
              return false;
            });
-    </script>
+    </script> -->
   </body>
 </html>
