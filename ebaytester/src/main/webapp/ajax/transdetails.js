@@ -4,7 +4,7 @@ $('#transaction-form').submit(function(){
 		     $.ajax({
 		    	 
 		       type: "post",
-		       url:  "http://localhost:5224/ebaytester/webapi/payment/1/2",//+localStorage.product_id_Buy+"/"+localStorage.buyer_product_quantity,
+		       url:  "http://localhost:5224/ebaytester/webapi/payment/"+localStorage.product_id_Buy+"/"+localStorage.buyer_product_quantity,
 		       data: $('#transaction-form').serialize(),
 		       dataType: 'text',
 		       complete: function(data){
