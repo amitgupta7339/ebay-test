@@ -37,7 +37,9 @@ public class PaymentResource {
 		if(payment.Validation(product_id,buy_quantity,card_number,cvv,ex_month,ex_year))
 			return "true";
 		else
-			return "false";
+		{	System.out.println(payment.result);
+			return payment.result;
+		}
 		}
 	
 	

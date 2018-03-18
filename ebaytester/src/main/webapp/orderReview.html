@@ -54,7 +54,7 @@
 	<h3>Your order total:</h3>
 	<p id="total_cost"></p>
 	<br/>
-	<a href="Paymentmethod.html" type="button" class="btn btn-primary">Proceed to pay</a>
+	<a type="button" class="btn btn-primary" id="Proceed_to_pay">Proceed to pay</a>
 	</div>
 	</div>
 	<div class="col-md-1">
@@ -67,16 +67,18 @@
 
 	</div>
 <script>
-alert(localStorage.product_id_buynow);
+//alert(localStorage.product_id_buynow);
     $.ajax({
       type: "get",
       url:  "http://localhost:5224/ebaytester/webapi/products/getproduct/"+localStorage.product_id_buynow,
       dataType: "JSON",
       success: function(response){
         if(response!=null)
-        { alert(response.product_name);
+        { //alert(response.product_name);
           localStorage.productname_Buynow = response.product_name;
           localStorage.productcost_Buynow=response.product_price;
+          localStorage.product_available_Quantity=response.product_available_quantity;
+          //alert(localStorage.product_available_Quantity);
           localStorage.buyer_product_quantity=1;
           document.getElementById("name").innerHTML=localStorage.fName+" "+localStorage.lName;
           document.getElementById("address").innerHTML=localStorage.user_Address;
@@ -94,10 +96,7 @@ alert(localStorage.product_id_buynow);
     }
   });
 </script>
-<script>
 
-
-</script>
 
 <script>
   $('#product_quantity').keyup(function(){
@@ -109,7 +108,23 @@ alert(localStorage.product_id_buynow);
     document.getElementById("total_cost").innerHTML="Rs "+localStorage.productcost_Buynow_multiple;
   });
 </script>
+<script>
+$("#Proceed_to_pay").on('click',function(){
+	//alert(localStorage.buyer_product_quantity);
+	window.location="http://localhost:5224/ebaytester/Paymentmethod.html";
+	//alert(localStorage.product_available_Quantity);
+	//alert(localStorage.buyer_product_quantity);
+  //if(localStorage.product_available_Quantity < localStorage.buyer_product_quantity)
+  //{
+	//  window.location="http://localhost:5224/ebaytester/Paymentmethod.html"; 
+  //}
+  //else {
+	//  alert("available quantity "+localStorage.product_available_Quantity);
+	//    window.location="http://localhost:5224/ebaytester/orderReview.html";
+  //}
+});
 
+</script>
 
 
 </body>

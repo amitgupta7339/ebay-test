@@ -11,6 +11,7 @@ public class PaymentService {
 	Payment pay;
 	int product_id;
 	int buyquantity; 
+	public  String result;
 	public PaymentService() 
 	{
 		try {
@@ -41,6 +42,7 @@ public class PaymentService {
 		pay=cardDetailsValidation(card_number,cvv,ex_date);
 		if(pay==null)
 			{
+			result="Invalid card details.";
 			System.out.println("Invalid card details");
 			return false;
 			}
@@ -96,16 +98,55 @@ public class PaymentService {
 	public boolean updateBalance(Payment pay, int price)
 	{
 		//System.out.println("Inside updateBalance");
+		if(quantitycheck(pay,price)) {
 		if(!cardWithdraw(pay, price)) 
 			{	
+			result="Insufficient balance in account.";
 			System.out.println("product price is "+price);
 			System.out.println("user balance is "+pay.getBalance());
 			System.out.println("Insufficient balance");
 			return false;
 			}
-		return true;
-	}
+		else
+			return true;
+		}
+		else
+			return false;	
+		}
+	public boolean quantitycheck(Payment pay, int price)
+	{	
+		try {
+		String query="select product_available_quantity from product where product_id='"+product_id+"';";
 	
+			rs=stmt.executeQuery(query);
+		
+		int quantity=0;
+		if(rs.next())
+			quantity=rs.getInt("product_available_quantity");
+		if(quantity>=buyquantity)
+		{	return true;
+			/*query="update product set product_available_quantity="+(quantity-buyquantity)+" where product_id='"+product_id+"';";
+		stmt.execute(query);
+			query="select product_sold_quantity from product where product_id='"+product_id+"';";
+			rs=stmt.executeQuery(query);
+			if(rs.next())
+				quantity=rs.getInt("product_sold_quantity");
+		query="update product set product_sold_quantity="+(quantity+buyquantity)+" where product_id='"+product_id+"';";
+		stmt.execute(query);*/
+		
+		}
+		else {
+			result="Seller doesnot have the desired quantity";
+			return false;
+		}
+		}
+		catch(SQLException e)
+		{	
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 	public boolean cardWithdraw(Payment pay, int price)
 	{
 		//System.out.println("Inside cardWithdraw");
@@ -126,43 +167,39 @@ public class PaymentService {
 			pstmt.execute();
 			System.out.println("Remaining balance after buying product is  "+balance);
 			
-			query="select product_available_quantity from product where product_id='"+product_id+"';";
-			rs=stmt.executeQuery(query);
-			int quantity=0;
-			if(rs.next())
-				quantity=rs.getInt("product_available_quantity");
-			if(quantity>buyquantity)
-			{
-				query="update product set product_available_quantity="+(quantity-buyquantity)+" where product_id='"+product_id+"';";
-			stmt.execute(query);
-				query="select product_sold_quantity from product where product_id='"+product_id+"';";
-				rs=stmt.executeQuery(query);
-				if(rs.next())
-					quantity=rs.getInt("product_sold_quantity");
-				
-
-
-
-
-	
 			
-			query="update product set product_sold_quantity="+(quantity+buyquantity)+" where product_id='"+product_id+"';";
-			stmt.execute(query);
-			}
-			else
-				return false;
 			query="select balance from cardDetails where card_number=000000000000000;";
 			rs=stmt.executeQuery(query);
 			if(rs.next())
 			balance=rs.getInt("balance");
 			query="update cardDetails set balance="+(balance+price)+" where card_number=000000000000000;";
 			stmt.execute(query);
+			
+			int quantity=0;
+			query="select * from product where product_id='"+product_id+"';";
+			rs=stmt.executeQuery(query);
+			if(rs.next())
+				quantity=rs.getInt("product_available_quantity");
+			if(quantity>=buyquantity)
+			{	
+				query="update product set product_available_quantity="+(quantity-buyquantity)+" where product_id='"+product_id+"';";
+			stmt.execute(query);
+				query="select product_sold_quantity from product where product_id='"+product_id+"';";
+				rs=stmt.executeQuery(query);
+				if(rs.next())
+					quantity=rs.getInt("product_sold_quantity");
+			query="update product set product_sold_quantity="+(quantity+buyquantity)+" where product_id='"+product_id+"';";
+			stmt.execute(query);
+			}
 			return true;
 			}
-		 catch (SQLException e) {
+		 catch (SQLException e) 
+			{		 
 			e.printStackTrace();
+			return false;
 		 	}
 		}
+		else
 		return false;
 	}
 	

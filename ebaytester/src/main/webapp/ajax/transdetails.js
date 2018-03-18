@@ -4,16 +4,17 @@ $('#transaction-form').submit(function(){
 		     $.ajax({
 		    	 
 		       type: "post",
-		       url:  "http://localhost:5224/ebaytester/webapi/payment/"+localStorage.product_id_Buy+"/"+localStorage.buyer_product_quantity,
+		       url:  "http://localhost:5224/ebaytester/webapi/payment/"+localStorage.product_id_buynow+"/"+localStorage.buyer_product_quantity,
 		       data: $('#transaction-form').serialize(),
 		       dataType: 'text',
 		       complete: function(data){
 		    	   		var a=JSON.stringify(data);
 		    	   		var b=JSON.parse(a);
+		    	  
 		    	   		if(b.responseText=="true")
 		    	   		 window.location="http://localhost:5224/ebaytester/transactionsuccess.html";
 		    	   		else
-		    	   			alert("transaction failure");
+		    	   			alert("transaction failure: "+b.responseText);
 		    	   
 		    	   /*
 		         if(response!=null)
