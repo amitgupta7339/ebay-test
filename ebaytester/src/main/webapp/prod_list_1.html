@@ -5,17 +5,20 @@
 	<title>Prototype</title>
 	<meta charset = "utf-8">
 	<meta name = "viewport" content = "width=device-width , initial scale = 1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  	<script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" href="css/basic.css">
  </head>
-
+ <script>
+  $(function(){
+ 	 $("#header").load("header.html");
+  });
+ </script>
  <body>
-  
- 	
+<div id="header"></div>
  	<div class = "container" >
-
+     <!-- <a href="http://localhost:5224/ebaytester/home.html"><img src="images/ebayin logo.JPG" width="140" height="60"/></a> -->
  		<div class = "row">
  			<div class = "col-sm-2">
  			<br>
@@ -30,7 +33,7 @@
  					<br>
  				</div>
  				<div id = "filters">
- 							
+
  				</div>
  				<p style="font-size:18px;"><strong> Price</strong></p>
  				<div class= "row">
@@ -38,7 +41,7 @@
  					<div class="col-sm-3"><input type="text" style="width:40px" id="price_text1" name="start_price"></div>
  					<div class="col-sm-2"><p style="font-size:12px">to Rs.</p></div>
  					<div class="col-sm-3"><input type="text" style="width:40px" id="price_text2" name="end_price"></div>
- 					<div class="col-sm-3"> 
+ 					<div class="col-sm-3">
  						<button type="button" class="btn btn-info" onclick="priceFilter(document.getElementById('price_text1').value,document.getElementById('price_text2').value)">
       						<span class="glyphicon glyphicon-forward"></span>
     					</button></div>
@@ -51,7 +54,7 @@
           <button type="button" class="btn">Apple</button>
           <button type="button" class="btn">Samsung</button>
           <button type="button" class="btn">Sony</button>
-          </div> 
+          </div>
       </br>
       </br>
         <!--  <div class = "row">
@@ -60,7 +63,7 @@
          </div>
         </div>-->
  				  <div id= "prod_list" class = "row">
-				 </div> 
+				 </div>
  			</div>
  			<div class = "col-sm-2">
  			</div>
@@ -69,4 +72,3 @@
   <script src="javascript/main.js"> </script>
  </body>
  </html>
-    

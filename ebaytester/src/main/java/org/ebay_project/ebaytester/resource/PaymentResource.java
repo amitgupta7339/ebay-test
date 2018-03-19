@@ -22,7 +22,7 @@ public class PaymentResource {
 	
 	@POST
 	@Path("/{product_id}/{quantity}")
-	public String PaymentValidation(@PathParam("product_id") int product_id,@PathParam("quantity") int buy_quantity,
+	public String PaymentValidation(@PathParam("product_id") int product_id,@PathParam("quantity") int buy_quantity,  
 								  @FormParam("card_number") String card_number, 
 								  @FormParam("cvv")String cvv,
 								  @FormParam("ex_month")String ex_month,

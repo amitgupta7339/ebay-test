@@ -4,15 +4,15 @@
 <meta charset="ISO-8859-1">
 <title>Order Review</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="jquery-3.3.1/jquery.min.js"></script>
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
 	<div class="col-md-1"></div>
 	<div class="col-md-10">
-	<img src="images/ebayin logo.JPG" width="140" height="60"/>
+	<a href="http://localhost:5224/ebaytester/home.html"><img src="images/ebayin logo.JPG" width="140" height="60"/></a>
 	<br/>
 
 	<ul class="nav nav-tabs">
@@ -41,7 +41,7 @@
 	<hr/>
 	<div class="container-fluidic">
 	<div class="col-md-6"><p id="product_name">product name</p></div>
-	<div class="col-md-3">QTY:<input type="number" value="" id="product_quantity" min="1" style="width:30px"></div>
+	<div class="col-md-3">QTY:<input type="text" value="" id="product_quantity" min="1" style="width:40px"></div>
 	<div class="col-md-3"><p id="product_cost">cost</p></div>
 	</div>
 	<br/>
@@ -76,8 +76,9 @@
         if(response!=null)
         { //alert(response.product_name);
           localStorage.productname_Buynow = response.product_name;
-          localStorage.productcost_Buynow=response.product_price;
           localStorage.product_available_Quantity=response.product_available_quantity;
+          localStorage.product_discount_Buynow=(response.product_discount)/100;
+          localStorage.productcost_Buynow=(response.product_price)*(localStorage.product_discount_Buynow);
           //alert(localStorage.product_available_Quantity);
           localStorage.buyer_product_quantity=1;
           document.getElementById("name").innerHTML=localStorage.fName+" "+localStorage.lName;
@@ -116,7 +117,7 @@ $("#Proceed_to_pay").on('click',function(){
 	//alert(localStorage.buyer_product_quantity);
   //if(localStorage.product_available_Quantity < localStorage.buyer_product_quantity)
   //{
-	//  window.location="http://localhost:5224/ebaytester/Paymentmethod.html"; 
+	//  window.location="http://localhost:5224/ebaytester/Paymentmethod.html";
   //}
   //else {
 	//  alert("available quantity "+localStorage.product_available_Quantity);

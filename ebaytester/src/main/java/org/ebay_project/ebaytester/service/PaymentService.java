@@ -48,13 +48,22 @@ public class PaymentService {
 			}
 		else
 		{
-			String query="select product_price from product where product_id='"+product_id+"';";
+			String query="select * from product where product_id='"+product_id+"';";
 			rs=stmt.executeQuery(query);
-			int price=0;
+			int price=0,discount=0;
 			while(rs.next())
 			{
 				price=rs.getInt("product_price");
-				price=price*buy_quantity;
+				discount=rs.getInt("product_discount");
+				if(discount>0)
+				{
+					price=(price*buy_quantity*discount)/100;
+				}
+				else
+				{
+					price=price*buy_quantity;
+				}
+				
 				break;
 			}
 			if(updateBalance(pay,price))
