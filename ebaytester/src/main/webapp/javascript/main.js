@@ -11,9 +11,9 @@
 	"inr" : "159.00",
 	"ship" : "Free Shipping"
 		}
-	
+
 ];*/
-	
+
 	//document.write("Hey There");
 
 	var sub_cat = localStorage.sub_category_name;
@@ -41,8 +41,8 @@
 	    	   	for(y in sub_list)
 	    	   		{
 	    	   			sub_list_gui+='<p style="font-size:12px"><a href="#" onclick = SubCatFilter('+sub_list[y].sub_category_id+')>'+sub_list[y].sub_category_name+'</a></p>';
-	    	   			
-	    	   		
+
+
 	    	   		}
 	    	   	document.getElementById("sub_list").innerHTML = sub_list_gui;
 	       }
@@ -52,16 +52,16 @@
 	{
 		var content='<ul class="list-group">';
  	   var strng="";
- 	   r = r_tmp; 
+ 	   r = r_tmp;
  	    for(y in r)
  	   {//document.write(r[y].productBrand);
  	    if(r[y].subCatId == obj)
  	    {
  	    strng = "myfunction("+r[y].productId+")";
  	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
- 	   	content+=r[y].productImageUrl+'" style="max-width:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+ 	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
  	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
- 	   //document.write("myfunction("+r[y].product_id+")");	
+ 	   //document.write("myfunction("+r[y].product_id+")");
  	    }/*else{
  	    	r.splice(y,1);
  	    	//document.write(y);
@@ -70,7 +70,7 @@
  	    r = r.filter(function(el) {
  		    return el.subCatId === obj;
  		});
- 		
+
  	   document.getElementById("prod_list").innerHTML=content+'</ul>';
  	  //document.getElementById("sub_list").innerHTML = "";
  	 //document.getElementById("cat_name").innerHTML = "";
@@ -80,16 +80,16 @@
 		if((cat == null || cat == ""))
 		{
 		url_prcd = "sub_category/" +sub_cat;
-		
+
 		}else{
-			
-			url_prcd = "category/" +cat; 
+
+			url_prcd = "category/" +cat;
 		}
 	$.ajax({
 	       type: "get",
 	       url:  "http://localhost:5224/ebaytester/webapi/products/"+url_prcd,
 	       success: function(response){
-	    	   
+
 	    	   r=JSON.parse(JSON.stringify(response));
 	    	   var content='<ul class="list-group">';
 	    	   var strng="";
@@ -98,21 +98,21 @@
 	    	   {//document.write(r[y].productBrand);
 	    	    	if(!brand.includes(r[y].productBrand) && r[y].productBrand !="" && r[y].productBrand != null)//if particular brand is not there in list then add new one
 	    	    		{
-	    	    			brand.push(r[y].productBrand);			
+	    	    			brand.push(r[y].productBrand);
 	    	    		}
 	    	    	if(!color.includes(r[y].productColor) && r[y].productColor !="" && r[y].productColor != null )
 	    	    		{
-	    	    			color.push(r[y].productColor);	
+	    	    			color.push(r[y].productColor);
 	    	    		}
 	    	    	if(!condition.includes(r[y].productCondition) && r[y].productCondition !="" && r[y].productCondition != null)//if particular brand is not there in list then add new one
     	    		{
-    	    			condition.push(r[y].productCondition);			
+    	    			condition.push(r[y].productCondition);
     	    		}
 	    	    strng = "myfunction("+r[y].productId+")";
 	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-	    	   	content+=r[y].productImageUrl+'" style="max-width:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
-	    	   //document.write("myfunction("+r[y].product_id+")");	
+	    	   //document.write("myfunction("+r[y].product_id+")");
 	    	   };
 	    	   document.getElementById("prod_list").innerHTML=content+'</ul>';
 	    	   //document.write(brand.length);
@@ -147,27 +147,27 @@
     		   		//document.write(tmp);
     		   		tmp+="<br>";
     		   }
-	    	   
+
 	    	   document.getElementById("filters").innerHTML = tmp;
 	       //tmp="";
-	    	   
-	       
-	       
-	       }	
+
+
+
+	       }
 	     });
-	
+
 	//var brand=[];
-	
+
 	function buybutton(prod_id)
 	{ //alert(prod_id);
 		localStorage.product_id_buynow=prod_id;
 		if(localStorage.email!=null)
-			{	
+			{
 			if(localStorage.user_PINCODE==8888)
 				{
 				window.location="http://localhost:5224/ebaytester/address_form_buyer.html";
 				}
-	  
+
 	  //alert(localStorage.product_id_buynow);
 		//localStorage.productname_Buynow=prod_name;
 		//localStorage.productcost_Buynow=prod_price;
@@ -175,14 +175,14 @@
 				{
 				window.location="http://localhost:5224/ebaytester/orderReview.html";
 				}
-		
+
 			}
 		else
 			{
 			window.location="http://localhost:5224/ebaytester/login.html";
 			}
 	}
-	
+
 	function myfunction(prod_id)
 	{
 		//document.write("Hey");
@@ -194,7 +194,7 @@
 		//document.write(prod_id);
 		window.location="http://localhost:5224/ebaytester/prod_desc.html";
 	}
-	
+
 	var brand_filt = [];
 	function brandFilter(obj)
 	{
@@ -209,20 +209,20 @@
 	    	    		{
 	    	    	    strng = "myfunction("+r[y].productId+")";
 	    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-	    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+	    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px;  height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 	    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
-	    	    						
+
 	    	    		}
-	    	    //document.write("myfunction("+r[y].product_id+")");	
+	    	    //document.write("myfunction("+r[y].product_id+")");
 	    	   };
 	    	   document.getElementById("prod_list").innerHTML=content+'</ul>';
-		    
-		    
-		    
-		    
+
+
+
+
 		  }else{
 		    //alert("Not checked"); //when not checked
-			  brand_filt.splice(brand_filt.indexOf($(obj).val()),1);//to delete the unchecked element 
+			  brand_filt.splice(brand_filt.indexOf($(obj).val()),1);//to delete the unchecked element
 			  var content='<ul class="list-group">';
 		    	var strng="";
 		    	for(y in r)
@@ -231,7 +231,7 @@
 		    				{
 		    				strng = "myfunction("+r[y].productId+")";
 		    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-		    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+		    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px;" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 		    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
 		    	    		continue;
 		    				}
@@ -239,20 +239,20 @@
 		    	    		{
 		    	    	    strng = "myfunction("+r[y].productId+")";
 		    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-		    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+		    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 		    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
-		    	    						
+
 		    	    		}
-		    	    //document.write("myfunction("+r[y].product_id+")");	
+		    	    //document.write("myfunction("+r[y].product_id+")");
 		    	   };
 		    	   document.getElementById("prod_list").innerHTML=content+'</ul>';
-			  
+
 			  //alert(brand_filt);
 		  }
-		
+
 	}
-	
-	
+
+
 	var condition_filt = [];
 	function conditionFilter(obj)
 	{
@@ -267,20 +267,20 @@
 	    	    		{
 	    	    	    strng = "myfunction("+r[y].productId+")";
 	    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-	    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+	    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 	    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
-	    	    						
+
 	    	    		}
-	    	    //document.write("myfunction("+r[y].product_id+")");	
+	    	    //document.write("myfunction("+r[y].product_id+")");
 	    	   };
 	    	   document.getElementById("prod_list").innerHTML=content+'</ul>';
-		    
-		    
-		    
-		    
+
+
+
+
 		  }else{
 		    //alert("Not checked"); //when not checked
-			  condition_filt.splice(condition_filt.indexOf($(obj).val()),1);//to delete the unchecked element 
+			  condition_filt.splice(condition_filt.indexOf($(obj).val()),1);//to delete the unchecked element
 			  var content='<ul class="list-group">';
 		    	var strng="";
 		    	for(y in r)
@@ -289,7 +289,7 @@
 		    				{
 		    				strng = "myfunction("+r[y].productId+")";
 		    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-		    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+		    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 		    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
 		    	    		continue;
 		    				}
@@ -297,19 +297,19 @@
 		    	    		{
 		    	    	    strng = "myfunction("+r[y].productId+")";
 		    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-		    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+		    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 		    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
-		    	    						
+
 		    	    		}
-		    	    //document.write("myfunction("+r[y].product_id+")");	
+		    	    //document.write("myfunction("+r[y].product_id+")");
 		    	   };
 		    	   document.getElementById("prod_list").innerHTML=content+'</ul>';
-			  
+
 			  //alert(brand_filt);
 		  }
-		
+
 	}
-	
+
 	var color_filt = [];
 	function colorFilter(obj)
 	{
@@ -324,20 +324,20 @@
 	    	    		{
 	    	    	    strng = "myfunction("+r[y].productId+")";
 	    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-	    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+	    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 	    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
-	    	    						
+
 	    	    		}
-	    	    //document.write("myfunction("+r[y].product_id+")");	
+	    	    //document.write("myfunction("+r[y].product_id+")");
 	    	   };
 	    	   document.getElementById("prod_list").innerHTML=content+'</ul>';
-		    
-		    
-		    
-		    
+
+
+
+
 		  }else{
 		    //alert("Not checked"); //when not checked
-			  color_filt.splice(color_filt.indexOf($(obj).val()),1);//to delete the unchecked element 
+			  color_filt.splice(color_filt.indexOf($(obj).val()),1);//to delete the unchecked element
 			  var content='<ul class="list-group">';
 		    	var strng="";
 		    	for(y in r)
@@ -346,7 +346,7 @@
 		    				{
 		    				strng = "myfunction("+r[y].productId+")";
 		    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-		    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+		    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px;" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 		    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
 		    	    		continue;
 		    				}
@@ -354,21 +354,21 @@
 		    	    		{
 		    	    	    strng = "myfunction("+r[y].productId+")";
 		    	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-		    	    	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+		    	    	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 		    	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
-		    	    						
+
 		    	    		}
-		    	    //document.write("myfunction("+r[y].product_id+")");	
+		    	    //document.write("myfunction("+r[y].product_id+")");
 		    	   };
 		    	   document.getElementById("prod_list").innerHTML=content+'</ul>';
-			  
+
 			  //alert(brand_filt);
 		  }
-		
-	}	
-	
-	
-	
+
+	}
+
+
+
 	function priceFilter(start_price,end_price)
 	{
 		var content='<ul class="list-group">';
@@ -383,9 +383,9 @@
 	 	    		//document.write("Inside");
 	 	    	strng = "myfunction("+r[y].productId+")";
 	 	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
-	 	   	content+=r[y].productImageUrl+'" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+	 	   	content+=r[y].productImageUrl+'" style="border: 1px solid #ddd; border-radius: 4px;  padding: 5px; width: 150px; height: 150px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 	 	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<button type="button" style = "float:right" class="btn btn-primary">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
-	 	   //document.write("myfunction("+r[y].product_id+")");	
+	 	   //document.write("myfunction("+r[y].product_id+")");
 	 	    	};
 	 	    	};
 	 	   document.getElementById("prod_list").innerHTML=content+'</ul>';

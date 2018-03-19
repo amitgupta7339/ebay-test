@@ -4,7 +4,6 @@
 
 			}
 		else  if(localStorage.fName!=null){
-			alert(localStorage.fName);
 					document.getElementById('signin_top_bar').innerHTML="Hi!"+localStorage.fName,
 					$('#user_info').width(80),
 					document.getElementById('user_name').innerHTML=localStorage.fName+" "+localStorage.lName,
