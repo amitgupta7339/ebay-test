@@ -75,10 +75,20 @@
       success: function(response){
         if(response!=null)
         { //alert(response.product_name);
+          localStorage.original_cost=response.product_price;
           localStorage.productname_Buynow = response.product_name;
           localStorage.product_available_Quantity=response.product_available_quantity;
           localStorage.product_discount_Buynow=(response.product_discount)/100;
-          localStorage.productcost_Buynow=(response.product_price)*(localStorage.product_discount_Buynow);
+          if((localStorage.product_discount_Buynow)==0)
+          {localStorage.productcost_Buynow=response.product_price;
+            document.getElementById("product_cost").innerHTML="Rs: "+localStorage.productcost_Buynow;
+
+          }
+          else {
+            localStorage.productcost_Buynow=localStorage.original_cost-(response.product_price)*(localStorage.product_discount_Buynow);
+            document.getElementById("product_cost").innerHTML="Rs: <strike>"+localStorage.original_cost+"</strike> "+localStorage.productcost_Buynow+" (Discount: "+response.product_discount+"%)";
+          }
+
           //alert(localStorage.product_available_Quantity);
           localStorage.buyer_product_quantity=1;
           document.getElementById("name").innerHTML=localStorage.fName+" "+localStorage.lName;
@@ -87,7 +97,7 @@
           document.getElementById("product_name").innerHTML=localStorage.productname_Buynow;
           document.getElementById("product_quantity").value=localStorage.buyer_product_quantity;
           document.getElementById("product_cost1").innerHTML=localStorage.productcost_Buynow*localStorage.buyer_product_quantity;
-          document.getElementById("product_cost").innerHTML="Rs "+localStorage.productcost_Buynow;
+          //document.getElementById("product_cost").innerHTML="Rs: <strike>"+localStorage.original_cost+"</strike> "+localStorage.productcost_Buynow;
           document.getElementById("total_cost").innerHTML="Rs "+localStorage.productcost_Buynow*localStorage.buyer_product_quantity;
         }
         else
@@ -105,7 +115,7 @@
     localStorage.productcost_Buynow_multiple=$(this).val()*localStorage.productcost_Buynow;
     document.getElementById("product_quantity").value=localStorage.buyer_product_quantity;
     document.getElementById("product_cost1").innerHTML=localStorage.productcost_Buynow_multiple;
-    document.getElementById("product_cost").innerHTML=localStorage.productcost_Buynow;
+    //document.getElementById("product_cost").innerHTML=localStorage.productcost_Buynow;
     document.getElementById("total_cost").innerHTML="Rs "+localStorage.productcost_Buynow_multiple;
   });
 </script>
