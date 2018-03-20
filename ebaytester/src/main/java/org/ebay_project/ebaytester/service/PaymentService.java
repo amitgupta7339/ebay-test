@@ -55,12 +55,8 @@ public class PaymentService {
 			{
 				price=rs.getInt("product_price");
 				discount=rs.getInt("product_discount");
-				if(discount>0)
-				{
-					price=price-(price*discount)/100;
-				}
-				
-					price=price*buy_quantity;
+				price=price-(price*discount)/100;
+				price=price*buy_quantity;
 				break;
 			}
 			if(updateBalance(pay,price))
