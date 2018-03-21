@@ -11,6 +11,8 @@ public class PaymentService {
 	Payment pay;
 	int product_id;
 	int buyquantity; 
+	String deal="";
+	int total_quantity=0;
 	public  String result;
 	public PaymentService() 
 	{
@@ -50,16 +52,19 @@ public class PaymentService {
 		{
 			String query="select * from product where product_id='"+product_id+"';";
 			rs=stmt.executeQuery(query);
-			int price=0,discount=0;
+			float price=0,discount=0;
+			
 			while(rs.next())
 			{
 				price=rs.getInt("product_price");
 				discount=rs.getInt("product_discount");
+				deal=rs.getString("deal");
 				price=price-(price*discount)/100;
 				price=price*buy_quantity;
+				checkdeal(deal);
 				break;
 			}
-			if(updateBalance(pay,price))
+			if(updateBalance(pay,(int)price))
 				return true;
 			
 		}
@@ -67,6 +72,18 @@ public class PaymentService {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public void checkdeal(String deal_type)
+	{
+		switch(deal)
+		{
+		case "BUY 1 GET 1":
+			total_quantity=buyquantity*2;
+			break;
+		default:
+			total_quantity=buyquantity;
+		}
 	}
 	
 	public Payment cardDetailsValidation( String card_number1, String cvv1, String ex_date1)
@@ -125,7 +142,7 @@ public class PaymentService {
 		int quantity=0;
 		if(rs.next())
 			quantity=rs.getInt("product_available_quantity");
-		if(quantity>=buyquantity)
+		if(quantity>=total_quantity)
 		{	return true;
 			/*query="update product set product_available_quantity="+(quantity-buyquantity)+" where product_id='"+product_id+"';";
 		stmt.execute(query);
@@ -182,15 +199,15 @@ public class PaymentService {
 			rs=stmt.executeQuery(query);
 			if(rs.next())
 				quantity=rs.getInt("product_available_quantity");
-			if(quantity>=buyquantity)
+			if(quantity>=total_quantity)
 			{	
-				query="update product set product_available_quantity="+(quantity-buyquantity)+" where product_id='"+product_id+"';";
+				query="update product set product_available_quantity="+(quantity-total_quantity)+" where product_id='"+product_id+"';";
 			stmt.execute(query);
 				query="select product_sold_quantity from product where product_id='"+product_id+"';";
 				rs=stmt.executeQuery(query);
 				if(rs.next())
 					quantity=rs.getInt("product_sold_quantity");
-			query="update product set product_sold_quantity="+(quantity+buyquantity)+" where product_id='"+product_id+"';";
+			query="update product set product_sold_quantity="+(quantity+total_quantity)+" where product_id='"+product_id+"';";
 			stmt.execute(query);
 			}
 			return true;

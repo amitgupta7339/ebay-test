@@ -283,6 +283,7 @@ public ArrayList<Product_list> getProducts(String category_name) {
 					product.setProductImageUrl(rsq2.getString(11));
 					product.setProductDescription(rsq2.getString(13));
 					product.setProductRating(rsq2.getInt(14));
+					product.setProduct_deal(rsq2.getString(15));
 					product.setProductBrand(rsq2.getString(16));
 					product.setProductColor(rsq2.getString(17));
 					product.setProductStorage(rsq2.getString(20));

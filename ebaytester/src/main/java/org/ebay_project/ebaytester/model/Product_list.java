@@ -1,35 +1,44 @@
 package org.ebay_project.ebaytester.model;
 
 public class Product_list {
-private int product_id ;
-private int sub_category_id;
-private int category_id;
-private String product_name;
-private int product_price;
-private int product_discount;
-private String product_condition ;
-private String product_shipping;
-private int product_sold_quantity;
-private String product_img_url;
-private int product_available_quantity;
-private String product_description;
-private int product_rating;
-private String product_brand;
-private String product_color;
-private String product_storage;
-private String product_warranty;
-private String product_os;
-private int product_year;
-private String product_gender;
-private String product_applicable;
-private String product_material;
-private String product_clothing_size;
-private String product_warranty_type;
-private int product_seller_id;
-private String product_seller_name;
-	public Product_list() {};
-	public Product_list(String product_seller_name,int product_seller_id,int product_id,int sub_category_id,int category_id,String product_name,int product_price,int product_discount,String product_condition,String product_shipping,int product_sold_quantity,String product_img_url,int product_available_quantity,String product_description, int product_rating,String product_brand,String product_color,String product_storage,String product_warranty,String product_os,int product_year,String product_gender,String product_applicable,String product_material,String product_clothing_size,String product_warranty_type)
-	{
+	private int product_id;
+	private int sub_category_id;
+	private int category_id;
+	private String product_name;
+	private int product_price;
+	private int product_discount;
+	private String product_condition;
+	private String product_shipping;
+	private int product_sold_quantity;
+	private String product_img_url;
+	private int product_available_quantity;
+	private String product_description;
+	private int product_rating;
+	private String product_brand;
+	private String product_color;
+	private String product_storage;
+	private String product_warranty;
+	private String product_os;
+	private int product_year;
+	private String product_gender;
+	private String product_applicable;
+	private String product_material;
+	private String product_clothing_size;
+	private String product_warranty_type;
+	private int product_seller_id;
+	private String product_seller_name;
+	private String product_deal;
+
+	public Product_list() {
+	};
+
+	public Product_list(String product_seller_name, int product_seller_id, int product_id, int sub_category_id,
+			int category_id, String product_name, int product_price, int product_discount, String product_condition,
+			String product_shipping, int product_sold_quantity, String product_img_url, int product_available_quantity,
+			String product_description, int product_rating, String product_brand, String product_color,
+			String product_storage, String product_warranty, String product_os, int product_year, String product_gender,
+			String product_applicable, String product_material, String product_clothing_size,
+			String product_warranty_type) {
 		this.product_seller_id = product_seller_id;
 		this.product_seller_name = product_seller_name;
 		this.product_id = product_id;
@@ -56,240 +65,222 @@ private String product_seller_name;
 		this.product_material = product_material;
 		this.product_clothing_size = product_clothing_size;
 		this.product_warranty_type = product_warranty_type;
-		
+
 	};
-	
-	public int getSellerId()
-	{
+
+	public String getProduct_deal() {
+		return product_deal;
+	}
+
+	public void setProduct_deal(String product_deal) {
+		this.product_deal = product_deal;
+	}
+
+	public int getSellerId() {
 		return product_seller_id;
 	};
-	public void setSellerId(int id)
-	{
+
+	public void setSellerId(int id) {
 		this.product_seller_id = id;
 	};
-	
-	public String getSellerName()
-	{
+
+	public String getSellerName() {
 		return product_seller_name;
 	};
-	public void setSellerName(String name)
-	{
+
+	public void setSellerName(String name) {
 		this.product_seller_name = name;
 	};
-	
-	public int getProductId()
-	{
+
+	public int getProductId() {
 		return product_id;
 	};
-	public void setProductId(int id)
-	{
+
+	public void setProductId(int id) {
 		this.product_id = id;
 	};
-	
-	public int getSubCatId()
-	{
+
+	public int getSubCatId() {
 		return sub_category_id;
 	};
-	public void setSubCatId(int id)
-	{
+
+	public void setSubCatId(int id) {
 		this.sub_category_id = id;
 	};
-	
-	public int getCatId()
-	{
+
+	public int getCatId() {
 		return this.category_id;
 	};
-	public void setCatId(int id)
-	{
+
+	public void setCatId(int id) {
 		this.category_id = id;
 	};
-	
-	public String getProductName()
-	{
+
+	public String getProductName() {
 		return product_name;
 	};
-	public void setProductName(String name)
-	{
+
+	public void setProductName(String name) {
 		this.product_name = name;
 	};
-	
-	public int getProductPrice()
-	{
-		return product_price ;
+
+	public int getProductPrice() {
+		return product_price;
 	};
-	public void setProductPrice(int price)
-	{
+
+	public void setProductPrice(int price) {
 		this.product_price = price;
 	};
-	
-	public int getProductRating()
-	{
+
+	public int getProductRating() {
 		return product_rating;
 	};
-	public void setProductRating(int rating)
-	{
+
+	public void setProductRating(int rating) {
 		this.product_rating = rating;
 	}
-	
-	public int getProductDiscount()
-	{
+
+	public int getProductDiscount() {
 		return product_discount;
 	};
-	public void setProductDiscount(int discount)
-	{
+
+	public void setProductDiscount(int discount) {
 		this.product_discount = discount;
 	};
-	
-	public String getProductCondition()
-	{
+
+	public String getProductCondition() {
 		return product_condition;
 	};
-	public void setProductCondition(String cond)
-	{
+
+	public void setProductCondition(String cond) {
 		this.product_condition = cond;
 	};
-	
-	public String getProductShipping()
-	{
+
+	public String getProductShipping() {
 		return product_shipping;
 	};
-	public void setProductShipping(String ship)
-	{
+
+	public void setProductShipping(String ship) {
 		this.product_shipping = ship;
 	};
-	
-	public int getProductSoldQuantity()
-	{
+
+	public int getProductSoldQuantity() {
 		return product_sold_quantity;
 	};
-	public void setProductSoldQuantity(int new_q)
-	{
+
+	public void setProductSoldQuantity(int new_q) {
 		this.product_sold_quantity = new_q;
 	};
-	
-	public String getProductImageUrl()
-	{
+
+	public String getProductImageUrl() {
 		return product_img_url;
 	};
-	public void setProductImageUrl(String url)
-	{
+
+	public void setProductImageUrl(String url) {
 		this.product_img_url = url;
 	};
-	
-	public int getProductAvailableQuantity()
-	{
+
+	public int getProductAvailableQuantity() {
 		return product_available_quantity;
 	};
-	public void setProductAvailableQuantity(int q)
-	{
+
+	public void setProductAvailableQuantity(int q) {
 		this.product_available_quantity = q;
 	};
-	
-	public String getProductDescription()
-	{
+
+	public String getProductDescription() {
 		return this.product_description;
 	};
-	public void setProductDescription(String desc)
-	{
+
+	public void setProductDescription(String desc) {
 		this.product_description = desc;
 	};
-	
-	public String getProductBrand()
-	{
+
+	public String getProductBrand() {
 		return product_brand;
 	};
-	public void setProductBrand(String brand)
-	{
+
+	public void setProductBrand(String brand) {
 		this.product_brand = brand;
 	};
-	
-	public String getProductColor()
-	{
+
+	public String getProductColor() {
 		return product_color;
 	};
-	public void setProductColor(String color)
-	{
+
+	public void setProductColor(String color) {
 		this.product_color = color;
 	};
-	
-	public String getProductStorage()
-	{
+
+	public String getProductStorage() {
 		return product_storage;
 	};
-	public void setProductStorage(String store)
-	{
+
+	public void setProductStorage(String store) {
 		this.product_storage = store;
 	};
-	
-	public String getProductWarranty()
-	{
+
+	public String getProductWarranty() {
 		return this.product_warranty;
 	};
-	public void setProductWarranty(String warranty)
-	{
+
+	public void setProductWarranty(String warranty) {
 		this.product_warranty = warranty;
 	};
-	
-	public String getProductOS()
-	{
+
+	public String getProductOS() {
 		return product_os;
 	};
-	public void setProductOS(String os)
-	{
-		this.product_os= os;
+
+	public void setProductOS(String os) {
+		this.product_os = os;
 	};
-	
-	public int getProductYear()
-	{
+
+	public int getProductYear() {
 		return product_year;
 	};
-	public void setProductYear(int year)
-	{
+
+	public void setProductYear(int year) {
 		this.product_year = year;
 	};
-	
-	public String getProductGender()
-	{
+
+	public String getProductGender() {
 		return product_gender;
 	};
-	public void setProductGender(String gender)
-	{
+
+	public void setProductGender(String gender) {
 		this.product_gender = gender;
 	};
-	
-	public String getProductApplicable()
-	{
+
+	public String getProductApplicable() {
 		return this.product_applicable;
 	};
-	public void setProductApplicable(String appl)
-	{
+
+	public void setProductApplicable(String appl) {
 		this.product_applicable = appl;
 	};
-	
-	public String getProductMaterial()
-	{
+
+	public String getProductMaterial() {
 		return product_material;
 	};
-	public void setProductMaterial(String mat)
-	{
+
+	public void setProductMaterial(String mat) {
 		this.product_material = mat;
 	};
-	
-	public String getProductClothingSize()
-	{
+
+	public String getProductClothingSize() {
 		return product_clothing_size;
 	};
-	public void setProductClothingSize(String size)
-	{
+
+	public void setProductClothingSize(String size) {
 		this.product_clothing_size = size;
 	};
-	
-	public String getProductWarrantyType()
-	{
+
+	public String getProductWarrantyType() {
 		return product_warranty_type;
 	};
-	public void setProductWarrantyType(String warranty)
-	{
+
+	public void setProductWarrantyType(String warranty) {
 		this.product_warranty_type = warranty;
 	};
 

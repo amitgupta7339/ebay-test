@@ -10,8 +10,8 @@
 </head>
 <body>
 	<div class="container">
-  	<div class="col-md-1"></div>
-  	<div class="col-md-10">
+  	<div class="col-sm-1"></div>
+  	<div class="col-sm-10">
     	<a href="http://localhost:5224/ebaytester/home.html"><img src="images/ebayin logo.JPG" width="140" height="60"/></a>
     	<br/>
 
@@ -27,8 +27,8 @@
         	<br/>
         	<br/>
 
-        	<div class="container-fluidic>">
-          	<div class="col-md-8">
+        	<div class="container-fluid>">
+          	<div class="col-sm-8">
             	<h4><b>Your item(s) will be delivered to this address</b></h4>
             	<hr/>
             	<p id="name">here will come name</p>
@@ -39,25 +39,31 @@
             	<hr style="border-top: dotted 1px"/>
             	<h3>Your item details</h3>
             	<hr/>
-            	<div class="container-fluidic">
-              	<div class="col-md-6"><p id="product_name">product name</p></div>
-              	<div class="col-md-3">QTY:<input type="text" value="" id="product_quantity" min="1" style="width:40px"></div>
-              	<div class="col-md-3"><p id="product_cost">cost</p></div>
+            	<div class="container-fluid">
+              	<div class="col-sm-6"><p id="product_name">product name</p></div>
+              	<div class="col-sm-3">QTY:<input type="text" value="" id="product_quantity" min="1" style="width:30px"></div>
+              	<div class="col-sm-3"><p id="product_cost">cost</p></div>
+            	</div>
+            	<div class="container-fluid">
+              	<div class="col-sm-6"><p>Total Quantity</p></div>
+              	<div class="col-sm-1"></div>
+              	<div class="col-sm-3" ><input type="text" value="" id="total_product_quantity" min="1" style="width:30px" disabled="disabled"></div>
+              	<div class="col-sm-2"><p id="Deal_type"></p></div>
             	</div>
             	<br/>
             	<hr style="border-top: dotted 1px"/>
-            	<div class="col-md-6"></div>
-            	<div class="col-md-3"><b>Total Money</b></div>
-            	<div class="col-md-3"><p id="product_cost1">total</p></div>
+            	<div class="col-sm-6"></div>
+            	<div class="col-sm-3"><b>Total Money</b></div>
+            	<div class="col-sm-3"><p id="product_cost1">total</p></div>
           	</div>
-          	<div class=" well col-md-4">
+          	<div class=" well col-sm-4">
             	<h3>Your order total:</h3>
             	<p id="total_cost"></p>
             	<br/>
             	<a type="button" class="btn btn-primary" id="Proceed_to_pay">Proceed to pay</a>
           	</div>
         	</div>
-        	<div class="col-md-1">
+        	<div class="col-sm-1">
         	<br/>
         	<br/>
         	</div>
@@ -74,6 +80,7 @@
       success: function(response){
         if(response!=null)
         { //alert(response.product_name);
+          localStorage.Deal=response.deal;
           localStorage.original_cost=response.product_price;
           localStorage.productname_Buynow = response.product_name;
           localStorage.product_available_Quantity=response.product_available_quantity;
@@ -106,7 +113,14 @@
     }
   });
 </script>
+<script>
+document.getElementById("Deal_type").innerHTML="("+localStorage.Deal+")";
+if(localStorage.Deal=="BUY 1 GET 1")
+{localStorage.total_quantity=2*localStorage.buyer_product_quantity
+  $('#total_product_quantity').val(localStorage.total_quantity);
+}
 
+</script>
 
 <script>
   $('#product_quantity').keyup(function(){
@@ -116,6 +130,10 @@
     document.getElementById("product_cost1").innerHTML=localStorage.productcost_Buynow_multiple;
     //document.getElementById("product_cost").innerHTML=localStorage.productcost_Buynow;
     document.getElementById("total_cost").innerHTML="Rs "+localStorage.productcost_Buynow_multiple;
+    if(localStorage.Deal=="BUY 1 GET 1")
+    {localStorage.total_quantity=2*localStorage.buyer_product_quantity;
+      $('#total_product_quantity').val(localStorage.total_quantity);
+    }
   });
 </script>
 <script>
