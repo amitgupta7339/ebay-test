@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.ebay_project.ebaytester.model.Product;
 import org.ebay_project.ebaytester.model.Subcategory;
@@ -56,6 +57,29 @@ public class SubcategoryService {
 		}
 		return sc;
 	}
+public List<Subcategory> getAllSubcategoryName(){
+		Subcategory s1 ;
+		List<Subcategory> list = new ArrayList<>();
+		PreparedStatement preparedstmnt;
+		try {
+			String query="select * from sub_category";
+			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			ResultSet rs = preparedstmnt.executeQuery();
+             while (rs.next()) {
+				s1= new Subcategory();
+                                s1.setSub_category_id(rs.getInt(1));
+				s1.setCategory_id(rs.getInt(2));
+				s1.setSub_category_name(rs.getString(3));
+				list.add(s1);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return list;
+	}
+
+
 //	public ArrayList<Product> getProducts(String sub_category_name) {
 //
 //		Product product;

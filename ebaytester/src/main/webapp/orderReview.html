@@ -114,11 +114,19 @@
   });
 </script>
 <script>
-document.getElementById("Deal_type").innerHTML="("+localStorage.Deal+")";
+if(localStorage.Deal!="")
+	{
+	 document.getElementById("Deal_type").innerHTML="("+localStorage.Deal+")";
+	}
+
 if(localStorage.Deal=="BUY 1 GET 1")
 {localStorage.total_quantity=2*localStorage.buyer_product_quantity
   $('#total_product_quantity').val(localStorage.total_quantity);
 }
+else
+	{
+	 $('#total_product_quantity').val(localStorage.buyer_product_quantity);
+	}
 
 </script>
 
@@ -134,6 +142,10 @@ if(localStorage.Deal=="BUY 1 GET 1")
     {localStorage.total_quantity=2*localStorage.buyer_product_quantity;
       $('#total_product_quantity').val(localStorage.total_quantity);
     }
+    else
+    	{
+    	$('#total_product_quantity').val(localStorage.buyer_product_quantity);
+    	}
   });
 </script>
 <script>

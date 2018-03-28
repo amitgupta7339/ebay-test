@@ -46,7 +46,7 @@ document.getElementById("prod_id").value=localStorage.product_id_seller;
         	contentType : false,
         	cache : false,
         	dataType: 'text',
-	            complete:function(data){
+	            success:function(data){
                   window.location="http://localhost:5224/ebaytester/home.html";
 	            }
 	        });

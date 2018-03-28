@@ -1,0 +1,415 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cart</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      html body
+      {
+        line-height: 1;
+        font-size: 14px;
+        color: #333;
+        font-family: "Helvetica neue", Helvetica, Arial, Sans-serif;
+      }
+      div
+      {
+        display: block;
+      }
+
+      ul
+      {
+        display: block;
+        list-style-type: disc;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 40px;
+      }
+      li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+      }
+
+      span {
+        font-size: 100%;
+        font-weight: normal;
+        margin: 0px;
+        padding: 0px;
+        border-width: 0px;
+        border-style: initial;
+        border-color: initial;
+        border-image: initial;
+      }
+
+      .xo-container
+      {
+        width: 980px;
+        min-width: 980px;
+        margin: 0 auto;
+      }
+      .xo-dib
+      {
+        display: inline-block;
+        width: 100%;
+        margin-top: 15px;
+      }
+      .xo-crtbdr
+      {
+        position: relative;
+        border: 10px solid #EEEEEE;
+      }
+      .xo-c-tt
+      {
+        padding: 10px 20px 18px 20px;
+        color: #666666;
+        height: 70px;
+      }
+      .xo-ct-itm
+      {
+        width: 250px;
+        float: left;
+        padding-top: 10px;
+      }
+      .xo-ct-itm span
+      {
+        font-size: 28px;
+        font-weight: 200;
+        color: #666
+      }
+      .xo-ct-rt
+      {
+        text-align: left;
+        float: right;
+        padding-top: 10px;
+      }
+      .xo-ct-ot
+      {
+        text-align: left;
+        font-size: 14px;
+        padding-right: 5px;
+      }
+      .xo-ct-ttl
+      {
+        font-size: 24px;
+        color: #666;
+        font-weight: 700;
+        font-family:Helvetica, Arial, Sans-serif;
+      }
+      .xo-otl
+      {
+        padding: 20px 20px 10px 20px;
+        border-top: 1px solid #DDD;
+        border-bottom: 1px solid #DDD;
+        background-color: #F2F2F5;
+        background-image: url(https://securepics.ebaystatic.com/aw/pics/in/xo/viewcart/bggrey16x16.jpg?e);
+      }
+
+      .xo-vc-dinb
+      {
+        display: inline-block;
+        width: 100%;
+      }
+
+      .xo-rgt
+      {
+        float: right;
+        text-align: right;
+        min-width: 250px;
+      }
+
+      .btn
+      {
+        display: inline-block;
+        zoom: 1;
+        vertical-align: baseline;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 500;
+        text-shadow: 0 1px 0px rgba(0, 0, 0, .2);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 3px 0px rgba(0, 0, 0, .2);
+        -moz-box-shadow: 0 3px 0px rgba(0, 0, 0, .2);
+        box-shadow: 0 3px 0px #ddd;
+        font-size: 16px;
+        padding: .5em 1.2em;
+        border: 1px solid transparent;
+        margin: 0px;
+        overflow: visible;
+      }
+
+      .btn-prim
+      {
+        color: #FFF;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        /* background:-webkit-gradient(linear, left top, left bottom, from(#0079bc),to(#00509d) ); */
+        background: #00509d;
+      }
+      .btn-m
+      {
+        font-size: 14px;
+      }
+      .xo-vc-dinb a.btn {
+        padding-bottom: 8px;
+        padding-top: 8px;
+      }
+
+      .btn-ter, a.btn-ter {
+          color: #1f75a7;
+          border-width: 1px;
+          border-style: solid;
+          border-color: #ccc #ccc #bbb;
+          text-decoration: none;
+          background: #f8f8f8;
+          /* background: -webkit-gradient(linear, left top, left bottom, from(#fefefe),to(#f8f8f8) ); */
+
+        }
+        .xoc-shr, .xoc-shl
+        {
+          float: right;
+          height: 15px;
+          width: 304px;
+          background-repeat: no-repeat;
+          background-image: url(https://securepics.ebaystatic.com/aw/pics/in/xo/viewcart/shadowr304x15.png?e);
+        }
+        .xoc-shl
+        {
+          float: left;
+          background-image: url(https://securepics.ebaystatic.com/aw/pics/in/xo/viewcart/shadowl304x15.png?e);
+        }
+        .xoc-vc-pt10
+        {
+          padding-top: 10px;
+        }
+
+        .xo-slrhd
+        {
+          padding: 6px 16px;
+          font-size: 12px;
+          margin-top: 10px;
+        }
+
+        .mbg
+        {
+          display: inline;
+          color: #2999DB;
+
+        }
+
+        .mbg-l
+        {
+          display: inline-block;
+          white-space: nowrap;
+          vertical-align: middle;
+          padding: 3px 0px 3px 0px;
+          margin-right: 6px;
+        }
+
+        .mbg-id
+        {
+          margin: 5px 0 0;
+        }
+        .mbg a
+        {
+          cursor: pointer;
+        }
+        a:active, a:link
+        {
+          color: #2999db;
+        }
+        a:visited
+        {
+          color: #909;
+        }
+        .xo-slrhd a, .xo-slrhd .mbg
+        {
+          color: #2999DB;
+        }
+        a:visited, a.scnd:visited
+        {
+          color: #6a29b9;
+          text-decoration: none;
+        }
+        a:visited
+        {
+          color: #6a29b9;
+          text-decoration: none;
+        }
+
+        .xo-slr1
+        {
+          background-color: #FFF;
+        }
+        .xo-sc-itm:first-child
+        {
+          padding-top: 0px;
+        }
+        .xo-sc-itm:last-child, .xo-slr1:first-child, .xo-slr1:last-child
+        {
+          border-bottom: 0px transparent;
+        }
+        .xo-slritm {
+          padding: 5px 0px;
+          min-height: 110px;
+          display: inline-block;
+          width: 100%;
+        }
+
+        .xo-itm-remv {
+          float: right;
+          font-size: 12px;
+          color: #666;
+          text-decoration: none;
+          margin-top: -22px;
+          margin-right: 20px;
+          padding-left: 16px;
+        }
+        .xo-itm-remv a, .xo-itm-remv a:hover {
+          font-size: 12px;
+          color: #666 !important;
+          cursor: pointer;
+          text-decoration: none;
+          background-image: url(https://securepics.ebaystatic.com/aw/pics/in/xo/viewcart/bgclose_12x12.jpg?e);
+          background-repeat: no-repeat;
+          padding-left: 20px;
+          background-position: 2px 2px;
+        }
+        .xo-itm-grid {
+          display: inline-block;
+          width: 100%;
+        }
+
+        .xo-gry {
+          color: #777;
+        }
+
+        .xo-otlf {
+          padding: 12px;
+          text-align: center;
+          border-top: 1px solid #DDD;
+          height: 64px;
+        }
+
+        li.item {
+          background: none repeat scroll 0 0 #FFFFFF;
+          float: left;
+          list-style: none outside none;
+          margin-left: 4px;
+          min-height: 100px;
+        }
+
+        li.xo-itm-1 {
+          width: 30px;
+          padding-left: 10px;
+        }
+
+        li.xo-itm-2 {
+          width: 110px;
+        }
+
+        li.xo-itm-3 {
+          width: 500px;
+          max-width: 500px;
+          padding-right: 10px;
+        }
+
+        li.xo-itm-4 {
+          width: 282px;
+        }
+
+
+
+        .l-shad {
+          width: 100px;
+          height: 100px;
+          border: 1px solid #EEE;
+        }
+
+        li.xo-itm-2 {
+          width: 100px;
+          height: 100px;
+          border: 1px solid #EEE;
+        }
+
+        .imgt {
+          text-align: center;
+          cursor: pointer;
+          background-color: white;
+          display: block;
+          border-radius: 3px;
+        }
+
+        .chkbox{
+          width: auto;
+          height: 50px;
+          width: 50px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="xo-container">
+      <div class="xo-dib">
+        <div class="xo-crtbdr">
+          <div>
+            <div class="xo-c-tt">
+                <div class="xo-ct-itm">
+                  <span id="spark-count" data-itemcount="1">Items in your cart</span>
+                </div>
+                <div class="xo-ct-rt">
+                  <span class="xo-ct-ot">Order total</span><span class="xo-ct-ttl" id="order_total"></span>
+                </div>
+
+              </div>
+
+              <div class="xo-crtb">
+
+                <div class="xo-otl" id="pc_top" style="display:block">
+                  <div class="xo-vc-dinb">
+                    <div class="xo-rgt">
+                      <div class="xo-po" style="padding-bottom: 10px;float:right;">
+                        <input id="place_order" class="btn btn-m btn-prim" type="submit" value="Place Order">
+                      </div>
+                      <div style="padding-right: 28px;float: right;"><a id="shop_more" class="btn btn-m btn-ter" href="###" target="">Shop More</a></div>
+                      <!-- enter HREF ABOVE -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="xo-vc-pt10">
+
+
+
+<!-- =======================================start of cart item list================================= -->
+                <div id="cart"></div>
+<!--======================================  end of cart item list====================================== -->
+
+
+                <div class="xo-otlf"><p><h6>EBAY GUARANTEE<sup>*</sup></h6></p></div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <hr>
+        </div>
+      </div>
+
+
+      <div class="xoc-shr"></div>
+      <div class="xoc-shl"></div>
+    </div>
+    <script src="javascript/cart.js"></script>
+  </body>
+</html>

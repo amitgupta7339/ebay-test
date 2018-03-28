@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+     <!-- <script>
+      $(function(){
+        $("#header").load("header.html");
+      });
+    </script> -->
+  </head>
+  <body>
+    <div class="row">
+         <div class="col-sm-11"><a href="http://localhost:5224/ebaytester/home.html"><img src="images/logo.png" title="eBay"></a></div>
+     </div>
+     <form class="form-horizontal" id="Product_detail_form">
+       <div class="form-group">
+         <label class="control-label col-sm-2" for="pwd">Subcat Name</label>
+         <div class="col-sm-10">
+            <select class="col-sm-3" name="subCategory" id="subCategory_product">
+             <option value="">All subCategory</option>
+           </select>
+           <label class="control-label col-sm-2" for="pwd">color</label>
+          <select class="col-sm-3" name="color" id="color">
+            <option value="">Choose Color</option>
+            <option value="RED">RED</option>
+            <option value="GREEN">GREEN</option>
+            <option value="BLUE">BLUE</option>
+            <option value="PINK">PINK</option>
+            <option value="BLACK">BLACK</option>
+            <option value="WHITE">WHITE</option>
+           </select>
+         </div>
+       </div>
+       <div class="form-group">
+         <div class="col-sm-offset-2 col-sm-10">
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </div>
+       </div>
+     </form>
+     
+     <script src="ajax/Exam_02_ajax.js"></script>
+     <script>
+     $('#Product_detail_form').submit(function(){
+       localStorage.sub_category_name=$('subCategory_product').val();
+       localStorage.color=$('color').val();
+       window.location="http://localhost:5224/ebaytester/prod_list_1.html";
+     });
+
+  </body>
+</html>

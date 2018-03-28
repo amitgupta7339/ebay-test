@@ -26,21 +26,21 @@ import com.mysql.jdbc.Statement;
 
 public class ProductService {
 
-	Connection connection;
+	Connection conn;
 
 	public ProductService() {
 		
 		try {
 			
 			Class.forName("com.mysql.jdbc.Driver");  
-		 connection=DriverManager.getConnection(  "jdbc:mysql://localhost:3306/ebaytest","root","root");  
+		 conn=DriverManager.getConnection(  "jdbc:mysql://localhost:3306/ebaytest","root","root");  
 			
 			
 			System.out.println("connection !");
 		} catch (Exception e) {
 			System.out.println("Exception found" + e);
 			try {
-				connection.close();
+				conn.close();
 			} 
 			catch (Exception ee) {
 				System.out.println("Connection close error");
@@ -49,13 +49,64 @@ public class ProductService {
 	}
 	
 
+public List<Product> getAllProducts(){
+		Product p1 ;
+		List<Product> list = new ArrayList<>();
+		PreparedStatement preparedstmnt;
+		try {
+			String query="select * from product";
+			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
+			ResultSet rs = preparedstmnt.executeQuery();
+
+			while (rs.next()) {
+				p1= new Product();
+                                p1.setProduct_id(rs.getInt(1));
+				p1.setSub_category_id(rs.getInt(2));
+				p1.setCategory_id(rs.getInt(3));
+				p1.setUser_id(rs.getInt(4));
+				p1.setProduct_name(rs.getString(5));				
+				p1.setProduct_price(rs.getInt(6));
+				p1.setProduct_discount(rs.getInt(7));
+				p1.setProduct_condition(rs.getString(8));
+				p1.setProduct_shipping(rs.getString(9));
+				p1.setProduct_sold_quantity(rs.getInt(10));
+				p1.setProduct_img_url(rs.getString(11));
+				p1.setProduct_available_quantity(rs.getInt(12));
+				p1.setProduct_description(rs.getString(13));
+				p1.setProduct_rating(rs.getInt(14));
+				p1.setDeal(rs.getString(15));
+				p1.setBrand(rs.getString(16));
+				p1.setColor(rs.getString(17));
+				p1.setScreen_size(rs.getString(18));
+				p1.setProcessor(rs.getString(19));
+				p1.setStorage(rs.getString(20));
+				p1.setWarranty(rs.getString(21));
+				p1.setOperating_system(rs.getString(22));
+				p1.setProduct_year(rs.getInt(23));
+				p1.setGender(rs.getString(24));
+				p1.setApplicable(rs.getString(25));
+				p1.setMaterial(rs.getString(26));
+				p1.setClothing_size(rs.getString(27));
+				p1.setStyle(rs.getString(28));
+				p1.setWarranty_type(rs.getString(29));
+				p1.setCard_class(rs.getString(30));
+				
+				list.add(p1);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return list;
+	}
+
 	public List<Product> getSellerAllProducts(int user_id){
 		Product p1 ;
 		List<Product> list = new ArrayList<>();
 		PreparedStatement preparedstmnt;
 		try {
 			String query="select * from product where user_id = ?";
-			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setInt(1, user_id);
 			ResultSet rs = preparedstmnt.executeQuery();
 
@@ -106,7 +157,7 @@ public class ProductService {
 		PreparedStatement preparedstmnt;
 		try {
 			String query = "SELECT * FROM product WHERE product_id =? ";
-			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setInt(1, product_id);
 			ResultSet rs = preparedstmnt.executeQuery();
 			while (rs.next()) {
@@ -156,7 +207,7 @@ public class ProductService {
 		PreparedStatement preparedstmnt;
 		try {
 			String query="select * from product where user_id =? and product_name =?";
-			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setInt(1, user_id);
 			preparedstmnt.setString(2, product_name);
 			ResultSet rs = preparedstmnt.executeQuery();
@@ -206,7 +257,7 @@ public class ProductService {
 //		String sql = "select * from product";
 //		PreparedStatement preparedStatement;
 //		try {
-//			preparedStatement = connection.prepareStatement(sql);
+//			preparedStatement = conn.prepareStatement(sql);
 //			
 //		
 //			
@@ -281,7 +332,7 @@ public class ProductService {
 		ResultSet rs;
 			try {
 			String query="select category_id from category where category_name=?";
-			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setString(1, category);
 			rs= preparedstmnt.executeQuery();
 			int category_id=0;
@@ -289,7 +340,7 @@ public class ProductService {
 				category_id=rs.getInt("category_id");
 			
 			query="select sub_category_id from sub_category where sub_category_name=?";
-			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setString(1, subcategory);
 			rs= preparedstmnt.executeQuery();
 			int sub_category_id =0;
@@ -297,7 +348,7 @@ public class ProductService {
 				sub_category_id=rs.getInt("sub_category_id");
 			
 //			query="select product_available_quantity from product where product_name=? AND user_id=seller_id";
-//			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
+//			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
 //			preparedstmnt.setString(1,product_name );
 //			preparedstmnt.setInt(2,seller_id );
 //			rs= preparedstmnt.executeQuery();
@@ -306,7 +357,7 @@ public class ProductService {
 //				product_available_quantity=rs.getInt("product_available_quantity");
 			
 			query="insert into product(sub_category_id,category_id,user_id,product_name,product_price,product_discount,product_condition,product_shipping, product_sold_quantity, product_img_url, product_available_quantity, product_description,product_rating, deal, brand, color, screen_size,processor, storage, warranty, operating_system, product_year, gender, applicable, material, clothing_size, style, warranty_type, card_class) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-			preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setInt(1, sub_category_id);
 			preparedstmnt.setInt(2, category_id);
 			preparedstmnt.setInt(3, seller_id);
@@ -341,7 +392,7 @@ public class ProductService {
 			
 			
 			query="select * from product where product_name =? AND user_id=? ";
-			preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setString(1, product_name);
 			preparedstmnt.setInt(2, seller_id);
 			rs=preparedstmnt.executeQuery();
@@ -426,8 +477,8 @@ return product;
 					+ "product_discount=?,deal=?,brand=?, color=?, screen_size=?,processor=?,storage=?,warranty=?,"
 					+ "operating_system=?, product_year=?, gender=?, warranty_type=?,applicable=?,material=?,"
 					+ "clothing_size=?, style=?,card_class=? where user_id = ? and product_name = ?";
-			preparedstmnt=	(PreparedStatement) connection.prepareStatement(query);
-			preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
+			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
+			preparedstmnt=(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setString(1, product_name);
 			preparedstmnt.setInt(2, product_price);
 			preparedstmnt.setInt(3, quantity);	
@@ -454,7 +505,7 @@ return product;
 			preparedstmnt.setInt(24, user_id);
 			preparedstmnt.setString(25, original_product_name);
 			rs= preparedstmnt.executeUpdate();
-//			Statement stmt=(Statement) connection.createStatement();
+//			Statement stmt=(Statement) conn.createStatement();
 //			
 //			String sql = "UPDATE product" +
 //					"Set product_name = "+product_name+","
@@ -502,7 +553,7 @@ return product;
 		Message mssg;
 	try {
 		String query= "delete from product where product_name=? and user_id=?";
-		preparedstmnt=(PreparedStatement) connection.prepareStatement(query);
+		preparedstmnt=(PreparedStatement) conn.prepareStatement(query);
 		preparedstmnt.setString(1, product_name);
 		preparedstmnt.setInt(2, seller_id);
 	    int rs=preparedstmnt.executeUpdate();
@@ -537,21 +588,21 @@ return product;
 //		int pid=0;
 //			try {
 //				
-//				preparedstmnt11=connection.prepareStatement("select category_id from category where category_name = ?");
+//				preparedstmnt11=conn.prepareStatement("select category_id from category where category_name = ?");
 //				preparedstmnt11.setString(1,Category);
 //				ResultSet rs11 = preparedstmnt11.executeQuery();
 //				if(rs11.next())
 //				{
 //					category_id=rs11.getInt(1);
 //				}
-//				preparedstmnt12=connection.prepareStatement("select sub_category_id from sub_category where sub_category_name = ?");
+//				preparedstmnt12=conn.prepareStatement("select sub_category_id from sub_category where sub_category_name = ?");
 //				preparedstmnt12.setString(1,Subcategory);
 //				ResultSet rs12 = preparedstmnt11.executeQuery();
 //				if(rs12.next())
 //				{
 //					sub_category_id=rs12.getInt(1);
 //				}
-//				 preparedstmnt = connection.prepareStatement(
+//				 preparedstmnt = conn.prepareStatement(
 //						 "INSERT INTO `product`(`category_id`,`sub_category_id`,`product_name`,`product_price`,`product_discount`,`product_condition`,`product_shipping`,`product_sold_quantity`,`product_quantity`,`product_available_quantity`,`product_img_url`,`product_description`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 //				preparedstmnt.setInt(1,category_id);
 //				preparedstmnt.setInt(2,sub_category_id);
@@ -567,7 +618,7 @@ return product;
 //				preparedstmnt.setString(12,Description);
 //				System.out.println(category_id +" "+sub_category_id );
 //				System.out.println("product upload successful" + preparedstmnt.executeUpdate());
-//				preparedstmnt1 = connection
+//				preparedstmnt1 = conn
 //						.prepareStatement("select product_id from product where product_name = ? and sub_category_id = ?");
 //				preparedstmnt1.setString(1,Product_Name);
 //				preparedstmnt1.setInt(2,sub_category_id);
@@ -652,7 +703,7 @@ return product;
 			outputStream=new FileOutputStream(new File(path+fileName));
 			outputStream1=new FileOutputStream(new File(productPicPath+"p"+fileName));
 			String query= "update product set product_img_url = ? where product_id = ?";
-			preparedStatement3 = connection.prepareStatement(query);
+			preparedStatement3 = conn.prepareStatement(query);
 			preparedStatement3.setString(1,databaseimagepath+"p"+fileName);
 			preparedStatement3.setInt(2,product_id);
 			preparedStatement3.executeUpdate();
@@ -683,7 +734,7 @@ return product;
 	public int ValidateProductId(int product_id) {
 		try {
 			
-			PreparedStatement stmt = connection.prepareStatement("Select product_id from product_info where product_id = ?");
+			PreparedStatement stmt = conn.prepareStatement("Select product_id from product_info where product_id = ?");
 			stmt.setInt(1, product_id);
 
 			ResultSet rs = stmt.executeQuery();

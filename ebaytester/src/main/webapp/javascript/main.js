@@ -17,7 +17,7 @@
 	//document.write("Hey There");
 
 	var sub_cat = localStorage.sub_category_name;
-	var cat = localStorage.category_name;
+	var cat = null;
 	//document.write(sub_cat);
 	//document.write(cat);
 	//var cat = "Mobile & Accessories";
@@ -59,10 +59,19 @@
  	   {//document.write(r[y].productBrand);
  	    if(r[y].subCatId == obj)
  	    {sort.push(r[y].productId);
+				if(r[y].product_deal=='')
+				{
  	    strng = "myfunction("+r[y].productId+")";
  	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
  	   	content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
  	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
+		 }
+		 else {
+			 strng = "myfunction("+r[y].productId+")";
+ 			content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
+ 			content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+ 			content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Deal : </strong> '+r[y].product_deal+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+		 }
  	   //document.write("myfunction("+r[y].product_id+")");
  	    }/*else{
  	    	r.splice(y,1);
@@ -112,10 +121,19 @@
     	    			condition.push(r[y].productCondition);
     	    		}
 	    	    	sort.push(r[y].productId);
+							if(r[y].product_deal=='')
+							{
 	    	    strng = "myfunction("+r[y].productId+")";
 	    	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
 	    	   	content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 	    	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>';
+					 }
+					 else {
+						 strng = "myfunction("+r[y].productId+")";
+ 		 	   		content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
+ 		 	   		content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+ 		 	     	content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Deal : </strong> '+r[y].product_deal+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+					 }
 	    	   //document.write("myfunction("+r[y].product_id+")");
 	    	   };
 	    	   document.getElementById("prod_list").innerHTML=content+'</ul>';
@@ -411,13 +429,21 @@ $('#Sort_By_price').on('change',function(){
 		var content="";
  	    for(y in r)
  	   {
- 	    	if(sort.includes(r[y].productId))
- 	    		{
- 	    	strng = "myfunction("+r[y].productId+")";
- 	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
- 	   	content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
- 	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
- 	    		};
+			 if(sort.includes(r[y].productId))
+				 {if(r[y].product_deal=="")
+					{
+					 strng = "myfunction("+r[y].productId+")";
+					 content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
+					 content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+					 content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+		}
+		else {
+			strng = "myfunction("+r[y].productId+")";
+		 content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
+		 content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+		 content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Deal : </strong> '+r[y].product_deal+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+		}
+				 };
  	    	};
  	   document.getElementById("prod_list").innerHTML=content+'</ul>';
 	}
@@ -431,11 +457,19 @@ $('#Sort_By_price').on('change',function(){
  	    for(y in r)
  	   {
  	    	if(sort.includes(r[y].productId))
- 	    		{
- 	    	strng = "myfunction("+r[y].productId+")";
- 	   	content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
- 	   	content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
- 	     content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+ 	    		{if(r[y].product_deal=="")
+					 {
+ 	    	    strng = "myfunction("+r[y].productId+")";
+ 	    	    content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
+ 	   	      content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+ 	          content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+		 }
+		 else {
+			 strng = "myfunction("+r[y].productId+")";
+ 			content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
+ 			content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+ 			content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Deal : </strong> '+r[y].product_deal+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+		 }
  	    		};
  	    	};
  	   document.getElementById("prod_list").innerHTML=content+'</ul>';
@@ -451,11 +485,19 @@ $('#Deal').on('change',function(){
 		var content="";
 
 	 	for(y in r)
-	 	    {
+	 	    {if(r[y].product_deal=='')
+				{
 	 	    	strng = "myfunction("+r[y].productId+")";
 	 	   	  content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
 	 	   	  content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
 	 	      content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+				}
+				else {
+					strng = "myfunction("+r[y].productId+")";
+	 	   		content+='<li class="list-group-item"><div class="row"><div class = "col-sm-4"><a href="#" onclick='+strng+'><img src="';
+	 	   		content+=r[y].productImageUrl+'" style="max-width:250px; height:250px" alt="product"></a></div><div class = "col-sm-8"><h4><a class="hover" href="#" onclick='+strng+'>';
+	 	     	content+=r[y].productName+'</a></h4><h5 style="color:grey">'+r[y].productDescription+'</h5><h4><br><strong>Rs.'+r[y].productPrice+'</strong></h4><h5 style="color:grey"><strong>Seller : </strong> '+r[y].sellerName+'<h5 style="color:grey"><strong>Deal : </strong> '+r[y].product_deal+'<h5 style="color:grey"><strong>Discount : </strong>'+r[y].productDiscount+'%'+'<button type="button" style = "float:right" class="btn btn-primary" onclick="buybutton('+r[y].productId+/*','+r[y].productName+','+r[y].productPrice+*/')">Buy Now</button></h5><h5 style="color:grey"><strong>Shipping : </strong>'+r[y].productShipping+'</h5></div></div></li>'
+				}
 	 	    };
 	 	 document.getElementById("prod_list").innerHTML=content+'</ul>';
 	}

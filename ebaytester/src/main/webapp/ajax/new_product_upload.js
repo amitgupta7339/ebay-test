@@ -6,14 +6,14 @@ $.ajax({
         if(response!=null)
         {var i;
           for (i=0;i<response.length;i++) {
-          $('<option value="'+ response[i].category_name+'">' + response[i].category_name+ '</option>').appendTo('#Category');
+          $('<option value="'+ response[i].category_name+'">' + response[i].category_name+ '</option>').appendTo('#Category_product');
             // catOptions += "<option>" + array[i] + "</option>";
          }
         }
       }
     });
 
-$('#Category').on('change', function() {
+$('#Category_product').on('change', function() {
 	$('#Subcategory').empty();
 	if(this.value!= ''){
 		$.ajax({
@@ -47,6 +47,7 @@ $('#Product_detail_form').submit(function(){
 			         if(response!=null)
 			         {
 			           localStorage.product_id_seller=response.product_id;
+			           alert(localStorage.product_id_seller);
 			           window.location="http://localhost:5224/ebaytester/image_upload_form.html";
 			         }
 			       }

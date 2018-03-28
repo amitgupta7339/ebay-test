@@ -22,7 +22,15 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 
 @Path("/products")
 public class ProductResource {
-	
+
+	@GET
+	@Path("/getAllproducts")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Product> getAllProducts(){
+		ProductService ps = new ProductService();
+		return ps.getAllProducts() ;
+	}
+
 	@GET
 	@Path("/list/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)

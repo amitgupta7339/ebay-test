@@ -56,7 +56,7 @@
        </li>
        <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="two" href="#">My PaisaPay</a></li>
        <li style="width:50px; display:table-cell; text-align:right;"><span style="font-size:18px ;" class="glyphicon glyphicon-bell"></span></li>
-       <li style=" width:50px; display:table-cell; text-align:right;" title="your shopping cart is empty"><a id="two" href="#"><span style="font-size:18px;"  class="glyphicon glyphicon-shopping-cart"></span></a></li>
+       <li style=" width:50px; display:table-cell; text-align:right;" title="your shopping cart is empty"><a id="two" href="http://localhost:5224/ebaytester/cart.html"><span style="font-size:18px;"  class="glyphicon glyphicon-shopping-cart"></span><span id="count"></span></a></li>
      </ul>
    </div>
  </div>
@@ -184,4 +184,10 @@
         </form>
       <script src="javascript/header.js"></script>
       <script src="ajax/AllCategory_ajax.js"></script>
+      <script>
+      if(localStorage.count!=null)
+      {
+        $('#count').html(localStorage.count);
+      }
+      </script>
 </div>
