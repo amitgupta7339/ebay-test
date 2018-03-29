@@ -30,6 +30,14 @@ public class ProductResource {
 		ProductService ps = new ProductService();
 		return ps.getAllProducts() ;
 	}
+	
+	@GET
+	@Path("/getDealproductsImage")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Product> dealImagesList(){
+		ProductService ps = new ProductService();
+		return ps.dealImagesList() ;
+	}
 
 	@GET
 	@Path("/list/{user_id}")

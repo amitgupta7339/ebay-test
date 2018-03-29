@@ -1,3 +1,4 @@
+//============================================================Default call of ajax to get all category============================================//
 $.ajax({
               type: "get",
               url:  "http://localhost:5224/ebaytester/webapi/category/getAllCategory",
@@ -12,6 +13,7 @@ $.ajax({
                 }
               }
             });
+//=====================================================Action events occurs after click on submit button ===========================================//
 $('#admin_category').submit(function(){
    if(($('#Category').val() == '') && ($('#NewCategory').val() == ''))
    {
@@ -35,3 +37,4 @@ $('#admin_category').submit(function(){
      alert("choose only one feild from Category and NewCategory");
    }
 });
+//===============================================================END OF CODE======================================================================//

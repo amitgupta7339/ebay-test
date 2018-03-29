@@ -1,3 +1,4 @@
+//===============================================AJAX Call On Get All Product Name Bases On Login Id=================================//
 $.ajax({
               type: "get",
               url:  "http://localhost:5224/ebaytester/webapi/products/list/"+localStorage.user_Id,
@@ -12,6 +13,7 @@ $.ajax({
                 }
               }
             });
+//===============================================Default Ajax call to get all categories=============================================//
 $.ajax({
     type: "get",
     url:  "http://localhost:5224/ebaytester/webapi/category/getAllCategory",
@@ -26,7 +28,7 @@ $.ajax({
       }
     }
   });
-
+//===============================================Ajax call to get all sub categories bases on category===============================//
 $('#Category').on('change', function() {
 	$('#Subcategory').empty();
 	if(this.value!= ''){
@@ -49,6 +51,7 @@ $('#Category').on('change', function() {
 		$('<option value="'+''+'">' + "sub Category"+ '</option>').appendTo('#Subcategory');
 	}
   });
+//==============================================Ajax call to Get a product data bases on product name================================//
 $('#Product_name_list').on('change',function(){
 	//alert("Seller id"+" : "+localStorage.user_Id);
 	if($('#Products_name').val() == '')
@@ -65,7 +68,7 @@ $('#Product_name_list').on('change',function(){
 		       dataType: "JSON",
 		       success: function(response){
              $('#Product_Name').val(response.product_name);
-             
+
              $('#Price').val(response.product_price);
              $('#Quantity').val(response.product_available_quantity);
              $('#Condition').val(response.product_condition);
@@ -88,32 +91,11 @@ $('#Product_name_list').on('change',function(){
              $('#Clothing_size').val(response.clothing_size);
              $('#Style').val(response.style);
              $('#Card_class').val(response.card_class);
-//             $.ajax({
-//  		       type: "get",
-//  		       url:  "http://localhost:5224/ebaytester/webapi/category/getcategoryname/"+response.category_id,
-//            // data: $('#Product_name_list').serialize(),
-//  		       dataType: "JSON",
-//  		       success: function(response_category){
-//  		    	 $('#Category').val(response_category.category_name);
-//  		    	 $.ajax({ 
-//      		       type: "get",
-//      		       url:  "http://localhost:5224/ebaytester/webapi/subcategory/getsubcategoryname/"+response.sub_category_id,
-//                // data: $('#Product_name_list').serialize(),
-//      		       dataType: "JSON",
-//      		       success: function(response_subcategory){
-//      		    	   alert(response_subcategory.sub_category_name);  
-//      		    	   $('#Subcategory').val(response_subcategory.sub_category_name);
-//      		       }
-//                 });
-//  		       }
-//             });
-//             alert(response.sub_category_id);
-            
-             
 	       }
 		});
 		}
 });
+//===============================================Ajax call to Set the Modify Data in DATABASE========================================//
 $('#Product_modify_form').submit(function(){
 	//alert("Seller id"+" : "+localStorage.user_Id);
 //		alert($('#Products_name').val());
@@ -131,3 +113,4 @@ $('#Product_modify_form').submit(function(){
                            }
            });
 });
+//==================================================================END OF CODE======================================================//

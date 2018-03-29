@@ -1,4 +1,4 @@
-//alert("Seller id"+" : "+localStorage.user_Id);
+//================================================AJAX Call On Get All Product Name Bases On Login Id=================================//
 $.ajax({
               type: "get",
               url:  "http://localhost:5224/ebaytester/webapi/products/list/"+localStorage.user_Id,
@@ -13,6 +13,7 @@ $.ajax({
                 }
               }
             });
+//============================================Action Events occurs on Click a Delete Button===========================================//
 $('#Product_delete_form').submit(function(){
 	//alert("Seller id"+" : "+localStorage.user_Id);
 	if($('#Products_name').val() == '')
@@ -32,3 +33,4 @@ $('#Product_delete_form').submit(function(){
 		});
 		}
 });
+//====================================================================END OF CODE=====================================================//

@@ -1,3 +1,4 @@
+//===============================================Default Ajax call to get all categories==============================================//
 $.ajax({
       type: "get",
       url:  "http://localhost:5224/ebaytester/webapi/category/getAllCategory",
@@ -12,7 +13,7 @@ $.ajax({
         }
       }
     });
-
+//===============================================Ajax call to get all sub categories bases on category================================//
 $('#Category_product').on('change', function() {
 	$('#Subcategory').empty();
 	if(this.value!= ''){
@@ -32,10 +33,10 @@ $('#Category_product').on('change', function() {
 		       });
 		  }
 	else{
-		$('<option value="'+''+'">' + "sub Category"+ '</option>').appendTo('#Subcategory');
-	}
-    });
-
+		    $('<option value="'+''+'">' + "sub Category"+ '</option>').appendTo('#Subcategory');
+	    }
+});
+//======================================AJAX CALL ON SUBMIT A PRODUCT DETAIL FORM FOR DATA STORAGE====================================//
 $('#Product_detail_form').submit(function(){
   alert(""+localStorage.user_Id);
 	$.ajax({
@@ -53,4 +54,5 @@ $('#Product_detail_form').submit(function(){
 			       }
 			     });
 			   return false;
-     });		     
+     });
+//=======================================================================END OF CODE==================================================//

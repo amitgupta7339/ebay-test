@@ -1,4 +1,5 @@
-  $('#Address_From').submit(function(){
+//==================================================AJAX Call On Submit The Seller Address Form========================================//
+$('#Address_From').submit(function(){
                $.ajax({
                  type: "post",
                  url:  "http://localhost:5224/ebaytester/webapi/user/updateAddress/"+localStorage.email,
@@ -22,3 +23,4 @@
                });
              return false;
            });
+//====================================================================END OF CODE======================================================//
