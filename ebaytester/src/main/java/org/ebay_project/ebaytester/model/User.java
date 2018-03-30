@@ -1,19 +1,20 @@
 package org.ebay_project.ebaytester.model;
 
 public class User {
-    private int user_id;
+	private int user_id;
 	private String user_fname;
 	private String user_lname;
 	private String user_email;
-    private String user_password;
+	private String user_password;
 	private String user_country;
-    private String user_address;
-    private String user_city;
-    private String user_state;
-    private int user_pincode;
-    private String user_phone;
+	private String user_address;
+	private String user_city;
+	private String user_state;
+	private int user_pincode;
+	private String user_phone;
 
-	public User() {}
+	public User() {
+	}
 
 	public User(int user_id, String user_fname, String user_lname, String user_email, String user_password,
 			String user_country, String user_address, String user_city, String user_state, int user_pincode,
@@ -43,7 +44,7 @@ public class User {
 	public String getUser_fname() {
 		return user_fname;
 	}
-	
+
 	public void setUser_fname(String user_fname) {
 		this.user_fname = user_fname;
 	}
@@ -119,7 +120,4 @@ public class User {
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
-
-	
-
 }

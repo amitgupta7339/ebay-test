@@ -8,31 +8,28 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.ebay_project.ebaytester.model.Product;
 import org.ebay_project.ebaytester.model.Subcategory;
 import org.ebay_project.ebaytester.service.SubcategoryService;
 
 @Path("/subcategory")
 public class SubcategoryResource {
-	@GET
+// =====================================GET SUB CATEGORY NAME BASES ON SUB CATEGORY ID============================//	
+	@GET//(write by Prakhar)
 	@Path("/getsubcategoryname/{sub_category_id}")
-	@Produces(value = { MediaType.APPLICATION_JSON })
+	@Produces(MediaType.APPLICATION_JSON)
 	public Subcategory getSubcategoryName(@PathParam("sub_category_id") int sub_category_id) {
-                System.out.println("Subcategory API excute start"+sub_category_id);
-		SubcategoryService subcategoryService=new SubcategoryService();
+		SubcategoryService subcategoryService = new SubcategoryService();
 		Subcategory cc = subcategoryService.getSubcategoryName(sub_category_id);
-                System.out.println("subCategory API excute successfully");
-		
-		return cc ;
-	
+		return cc;
 	}
-    @GET
+// =======================================GET ALL SUB CATEGORIES NAMES============================================//
+	@GET //(write by Amit)
 	@Path("/getAllsubcategoryname")
-	@Produces(value = { MediaType.APPLICATION_JSON })
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Subcategory> getAllSubcategoryName() {
-                //System.out.println("Subcategory API excute start"+sub_category_id);
-		SubcategoryService subcategoryService=new SubcategoryService();
+		SubcategoryService subcategoryService = new SubcategoryService();
 		return subcategoryService.getAllSubcategoryName();
-	
+
 	}
 }
+// =============================================END OF CODE=======================================================//

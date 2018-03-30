@@ -14,71 +14,66 @@ import javax.ws.rs.core.MediaType;
 import org.ebay_project.ebaytester.model.Category;
 import org.ebay_project.ebaytester.model.Subcategory;
 import org.ebay_project.ebaytester.service.CategoryService;
-import org.ebay_project.ebaytester.service.ProductService;
-
 
 @Path("/category")
 public class CategoryResource {
-	@GET
+// ===========================================GET ALL CATEGORIES==================================================//
+	@GET //(write by Amit)
 	@Path("/getAllCategory")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Category> getAllCategories() {
-                System.out.println("getallCategory API excute start");
-		CategoryService categoryService=new CategoryService();
+		System.out.println("getallCategory API excute start");
+		CategoryService categoryService = new CategoryService();
 		ArrayList<Category> list = categoryService.getAllCategory();
-                System.out.println("getallCategory API excute successfully");
-		if(list.isEmpty())
-		{
-		return null;
+		System.out.println("getallCategory API excute successfully");
+		if (list.isEmpty()) {
+			return null;
+		} else {
+			return list;
 		}
-		else
-		{
-		return list ;
-	    }
 	}
-	@POST
-	@Path("/uploadCategory")
+// ===========================UPLOAD NEW CATEGORY OR SUB CATEGORY BY ADMIN SIDE===================================//
+	@POST //(write by Amit)
+	@Path("/uploadCategory") 
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String categoryUpload(@FormParam("Category") String Category, @FormParam("NewCategory") String NewCategory, @FormParam("subCategory") String subCategory) {
-                System.out.println("uploadCategory API excute start");
+	public String categoryUpload(@FormParam("Category") String Category, @FormParam("NewCategory") String NewCategory,
+			@FormParam("subCategory") String subCategory) {
+		System.out.println("uploadCategory API excute start");
 		CategoryService categoryService = new CategoryService();
-		String result = categoryService.categoryAdded(Category,NewCategory,subCategory);
+		String result = categoryService.categoryAdded(Category, NewCategory, subCategory);
 		System.out.println(result);
-                System.out.println("uploadCategory API excute successfully");
-			return result;
+		System.out.println("uploadCategory API excute successfully");
+		return result;
 
 	}
-	@GET
+// =================================ON CATEGORY NAME GET ALL SUB CATEGORIES=======================================//
+	@GET //(write by Amit)
 	@Path("/{category_name}")
-	@Produces(value = { MediaType.APPLICATION_JSON })
+	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Subcategory> getAllSubCategory(@PathParam("category_name") String category_name) {
-                System.out.println("subCategory API excute start"+category_name);
-		CategoryService categoryService=new CategoryService();
+		System.out.println("subCategory API excute start" + category_name);
+		CategoryService categoryService = new CategoryService();
 		ArrayList<Subcategory> list = categoryService.getAllSubCategory(category_name);
-                System.out.println("subCategory API excute successfully");
-		if(list.isEmpty())
-		{
-		return null;
+		System.out.println("subCategory API excute successfully");
+		if (list.isEmpty()) {
+			return null;
+		} else {
+			return list;
 		}
-		else
-		{
-		return list ;
 	}
-	}
-	
-	@GET
+// ==================================GET CATEGORY NAME BASES ON CATEGORY ID=======================================//
+	@GET//(write By Prakhar)
 	@Path("getcategoryname/{category_id}")
-	@Produces(value = { MediaType.APPLICATION_JSON })
+	@Produces(MediaType.APPLICATION_JSON)
 	public Category getCategoryName(@PathParam("category_id") int category_id) {
-                System.out.println("Category API excute start"+category_id);
-                CategoryService categoryService = new CategoryService();
+		System.out.println("Category API excute start" + category_id);
+		CategoryService categoryService = new CategoryService();
 		Category cc = categoryService.getCategoryName(category_id);
-                System.out.println("subCategory API excute successfully");
-		
-		return cc ;
-	
-	}
-	
+		System.out.println("subCategory API excute successfully");
 
+		return cc;
+
+	}
 }
+// =================================================END OF CODE===================================================//
