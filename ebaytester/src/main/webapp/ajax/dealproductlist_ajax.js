@@ -14,7 +14,7 @@ $.ajax({
       content="";
       console.log(response.length);
       for(i=0;i<Math.ceil((response.length)/3);i++)
-      { content+=`<div class="item active">`
+      {
     	  if(response[i].deal!="")
     	  {
            deal_image(i);
@@ -27,7 +27,6 @@ $.ajax({
         {
           deal_image(i+2);
         }
-        content+=`</div>`
       }
       $('#Deal_Images_List').html(content);
     }
@@ -36,11 +35,13 @@ $.ajax({
 //============================================================function of show images dynamic HTML code===========================================//
 function deal_image(x)
 {
-  content+=`<span class="col-sm-4"><a href="#" onclick="deal_products(${x})"><img src="${result[x].product_img_url}" alt="Chicago" style="width:100%;"></a>
+  content+=`<div class="item active">
+  <span class="col-sm-4"><a href="#" onclick="deal_products(${x})"><img src="${result[x].product_img_url}" alt="Chicago" style="width:100%;"></a>
   <div class="carousel-caption">
     <h3>${result[x].deal}</h3>
   </div>
-  </span>`
+  </span>
+  </div>`
 };
 //======================================================after click on image redireact into deal products page in grid view=======================//
 function deal_products(x)
