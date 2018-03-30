@@ -131,7 +131,7 @@ function checkbok(x){
         }
 				$.ajax({
 			            type :"GET",
-			            url: "http://localhost:5224/ebaytester/webapi/cart/checkbox/"+pid+"/"+localStorage.user_Id+"/"+check,
+			            url: "http://localhost:5224/ebaytester/webapi/cart/checkbox/"+result[x].product_id+"/"+localStorage.user_Id+"/"+check,
 			            dataType:'text',
 			            complete: function(response){}
 			          });
