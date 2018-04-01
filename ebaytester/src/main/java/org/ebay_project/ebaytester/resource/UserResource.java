@@ -25,7 +25,6 @@ public class UserResource {
 			@FormParam("user_password") String user_password) {
 		return userService.userLogin(user_email, user_password);
 	}
-
 // =================================================REGISTER FORM=================================================//
 	@POST // (write by Prakhar and Amit)
 	@Path("/register")

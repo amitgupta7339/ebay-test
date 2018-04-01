@@ -77,7 +77,7 @@ function cart_list(x){
                        '</div>'+
                     '</li>'
 										total=parseFloat(parseFloat(total)+parseFloat(result[x].product_price)).toFixed(2);
-                                        price.push(parseFloat(result[x].product_price.toFixed(2)));
+                    price.push(parseFloat(result[x].product_price.toFixed(2)));
 
 };
 
