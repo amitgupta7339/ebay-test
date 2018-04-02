@@ -36,7 +36,11 @@ public class CartService {
 		PreparedStatement preparedstmnt;
 		PreparedStatement preparedstmnt1;
 		try {
-			String Query = "SELECT P.product_id ,P.product_price,P.product_available_quantity,P.product_discount,P.user_id,P.product_name,P.product_img_url,P.product_shipping,C.quantity FROM product AS P,cart AS C WHERE P.product_id=C.product_id AND C.user_id=?";
+			String Query="UPDATE cart SET checked=1 WHERE user_id=?";
+			preparedstmnt = (PreparedStatement) conn.prepareStatement(Query);
+			preparedstmnt.setInt(1, user_id);
+			preparedstmnt.executeUpdate();
+			Query = "SELECT P.product_id ,P.product_price,P.product_available_quantity,P.product_discount,P.user_id,P.product_name,P.product_img_url,P.product_shipping,C.quantity FROM product AS P,cart AS C WHERE P.product_id=C.product_id AND C.user_id=?";
 			preparedstmnt = (PreparedStatement) conn.prepareStatement(Query);
 			preparedstmnt.setInt(1, user_id);
 			ResultSet rs = preparedstmnt.executeQuery();

@@ -9,7 +9,7 @@ $('#login')
 								dataType : "JSON",
 								success : function(response) {
 									if (response != null) {
-										localStorage.clear();
+										//localStorage.clear();
 										localStorage.user_Id = response.user_id;
 										localStorage.fName = response.user_fname;
 										localStorage.lName = response.user_lname;
@@ -21,7 +21,10 @@ $('#login')
 										if (localStorage.email == 'admin@gmail.com') {
 											window.location = "http://localhost:5224/ebaytester/admin_category.html";
 										}
-
+										else if(localStorage.product_id_buynow!=null)
+											{
+											 window.location = "http://localhost:5224/ebaytester/orderReview.html";
+											}
 										else {
 											window.location = "http://localhost:5224/ebaytester/home.html";
 										}

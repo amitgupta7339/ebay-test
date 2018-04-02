@@ -17,7 +17,7 @@ public class PaymentResource {
 
 	PaymentService payment = new PaymentService();
 // =======================================PAYMENT BASES ON PRODUCT ID AND QUANTITY================================//
-	@POST//(write by Mayank)
+	@POST//(written by Mayank)
 	@Path("/{product_id}/{quantity}")
 	public String PaymentValidation(@PathParam("product_id") int product_id, @PathParam("quantity") int buy_quantity,
 			@FormParam("card_number") String card_number, @FormParam("cvv") String cvv,

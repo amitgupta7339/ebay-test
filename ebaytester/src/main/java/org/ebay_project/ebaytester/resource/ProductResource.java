@@ -15,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.ebay_project.ebaytester.model.Message;
 import org.ebay_project.ebaytester.model.Product;
+import org.ebay_project.ebaytester.model.Product_desc;
 import org.ebay_project.ebaytester.model.Product_list;
 import org.ebay_project.ebaytester.service.CategoryService;
 import org.ebay_project.ebaytester.service.ProductService;
@@ -24,7 +25,7 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 @Path("/products")
 public class ProductResource {
 // =============================================GET ALL PRODUCTS=================================================//
-	@GET // (write by Prakhar)
+	@GET // (written by Prakhar)
 	@Path("/getAllproducts")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Product> getAllProducts() {
@@ -32,7 +33,7 @@ public class ProductResource {
 		return ps.getAllProducts();
 	}
 // =========================================GET SINGLE PRODUCT ON EACH DEAL======================================//
-	@GET // (write by Amit)
+	@GET // (written by Amit)
 	@Path("/getDealproductsImage")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Product> dealImagesList() {
@@ -40,7 +41,7 @@ public class ProductResource {
 		return ps.dealImagesList();
 	}
 // =============================GET ALL PRODUCTS OF PARTICULAR SELLER BASES ON SELLER ID=========================//
-	@GET // (write by Anamol)
+	@GET // (written by Anamol)
 	@Path("/list/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Product> getSellerAllProducts(@PathParam("user_id") int user_id) {
@@ -48,7 +49,7 @@ public class ProductResource {
 		return ps.getSellerAllProducts(user_id);
 	}
 // =================================GET PRODUCT BASES ON SELLER ID AND PRODUCT NAME==============================//
-	@GET // (write by Anamol)
+	@GET // (written by Anamol)
 	@Path("/list/{user_id}/{product_name}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Product getSellerProduct(@PathParam("user_id") int user_id, @PathParam("product_name") String product_name) {
@@ -56,15 +57,23 @@ public class ProductResource {
 		return ps.getSellerProduct(user_id, product_name);
 	}
 // =========================================GET PRODUCT BASES ON PRODUCT ID======================================//
-	@GET // (write by Amit in Exam)
+	@GET // (written by Amit in Exam)
 	@Path("/getproduct/{product_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Product getProductDetail(@PathParam("product_id") int product_id) {
 		ProductService ps = new ProductService();
 		return ps.getProductDetail(product_id);
 	}
+// =====================GET DETAILS OF PRODUCT FOR PRODUCT DESCRIPTION PAGE BASES ON PRODUCT ID==================//
+  	@GET //(Written By Pulkit)
+	@Path("/{product_id}")
+	@Produces(value = {MediaType.APPLICATION_JSON})
+	public Product_desc getProductById(@PathParam("product_id") int prod_id){
+		ProductService prod_serv = new ProductService();
+		return prod_serv.getProductById(prod_id);
+	}
 // ========================================GET PRODUCTS BASES ON CATEGORY NAME===================================//
-	@GET // (write by Pulkit)
+	@GET // (written by Pulkit)
 	@Path("/category/{category_name}")
 	@Produces(value = { MediaType.APPLICATION_JSON })
 	public ArrayList<Product_list> getProductsCategoryWise(@PathParam("category_name") String category_name) {
@@ -78,7 +87,7 @@ public class ProductResource {
 		}
 	}
 // =======================================UPLOAD PRODUCT DETAILS BASES ON SELLER ID==============================//
-	@POST // (write by Prakhar,changes done by Saumya and Amit)
+	@POST // (written by Prakhar,changes done by Saumya and Amit)
 	@Path("/uploadProduct/{seller_id}")
 	@Produces(value = { MediaType.APPLICATION_JSON })
 	@Consumes(value = { MediaType.APPLICATION_FORM_URLENCODED })
@@ -110,7 +119,7 @@ public class ProductResource {
 
 	}
 // =====================================MODIFY PRODUCT BASES ON SELLER ID AND PRODUCT NAME=======================//
-	@PUT // (write by Anamol)
+	@PUT // (written by Anamol)
 	@Path("/update/{user_id}/{product_name}")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -135,7 +144,7 @@ public class ProductResource {
 				applicable, material, clothing_size, style, card_class);
 	}
 // =====================================DELETE PRODUCT BY SELLER BASES ON SELLER ID==============================//
-	@POST // (write by Amit)
+	@POST // (written by Amit)
 	@Path("/deleteProduct/{seller_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -146,7 +155,7 @@ public class ProductResource {
 		return productService.DeleteProduct(product_name, seller_id);
 	}
 // ==================================================Upload product image========================================//
-	@POST // (write by Prakhar)
+	@POST // (written by Prakhar)
 	@Path("/uploadProductPic")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.MULTIPART_FORM_DATA)

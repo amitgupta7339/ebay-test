@@ -14,7 +14,7 @@ import org.ebay_project.ebaytester.service.SubcategoryService;
 @Path("/subcategory")
 public class SubcategoryResource {
 // =====================================GET SUB CATEGORY NAME BASES ON SUB CATEGORY ID============================//	
-	@GET//(write by Prakhar)
+	@GET//(written by Prakhar)
 	@Path("/getsubcategoryname/{sub_category_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Subcategory getSubcategoryName(@PathParam("sub_category_id") int sub_category_id) {
@@ -23,7 +23,7 @@ public class SubcategoryResource {
 		return cc;
 	}
 // =======================================GET ALL SUB CATEGORIES NAMES============================================//
-	@GET //(write by Amit)
+	@GET //(written by Amit)
 	@Path("/getAllsubcategoryname")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Subcategory> getAllSubcategoryName() {

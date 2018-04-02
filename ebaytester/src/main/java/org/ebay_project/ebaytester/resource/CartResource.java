@@ -15,7 +15,7 @@ import org.ebay_project.ebaytester.service.CartService;
 @Path("/cart")
 public class CartResource {
 //	================================= GET ALL PRODUCTS BASES ON LOGEDIN USER ID===================================//
-	@GET //(write by Amit)
+	@GET //(written by Amit)
 	@Path("/getallproduct/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Cart> getCardProductList(@PathParam("user_id") int user_id) {
@@ -23,7 +23,7 @@ public class CartResource {
 		return C1.getCartProductList(user_id);
 	}
 // =================================DELETE PRODUCT BASES ON PRODUCT ID AND USER ID================================//
-	@GET //(write by Amit)
+	@GET //(written by Amit)
 	@Path("/deleteproduct/{product_id}/{user_id}")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteproduct(@PathParam("product_id") int product_id, @PathParam("user_id") int user_id) {
@@ -31,7 +31,7 @@ public class CartResource {
 		return C1.deleteproduct(product_id, user_id);
 	}
 // =========================UPDATE BUYER PRODUCT QUANTITY BASES ON PRODUCT_ID AND USER_ID=========================//
-	@GET //(write by Amit)
+	@GET //(written by Amit)
 	@Path("/updateproductQuantity/{product_id}/{quantity}/{user_id}")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String updateProductQuantity(@PathParam("product_id") int product_id, @PathParam("quantity") int quantity,
@@ -40,7 +40,7 @@ public class CartResource {
 		return C1.updateProductQuantity(product_id, quantity, user_id);
 	}
 // ================UPDATE CHECKED ATTRIBUTE IN TABLES BASES ON USER ID, PRODUCT ID AND CHECK STATUS===============//
-	@GET //(write by Amit)
+	@GET //(written by Amit)
 	@Path("/checkbox/{product_id}/{user_id}/{check}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String checkboxUpdate(@PathParam("product_id") int product_id, @PathParam("user_id") int user_id,
@@ -49,7 +49,7 @@ public class CartResource {
 		return C1.checkboxUpdate(product_id, user_id, check);
 	}
 // ========================ADD ITEM INTO CART BASES ON PRODUCT ID, USER ID AND BUYER QUANTITY=====================//
-	@POST //(write by Anamol)
+	@POST //(written by Anamol)
 	@Path("/addToCart/{product_id}/{user_id}/{quantity}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String addToCart(@PathParam("product_id") int product_id, @PathParam("user_id") int user_id,

@@ -20,6 +20,7 @@ import javax.validation.ReportAsSingleViolation;
 import org.ebay_project.ebaytester.model.Category;
 import org.ebay_project.ebaytester.model.Message;
 import org.ebay_project.ebaytester.model.Product;
+import org.ebay_project.ebaytester.model.Product_desc;
 import org.ebay_project.ebaytester.model.Subcategory;
 
 import com.mysql.jdbc.Statement;
@@ -48,7 +49,68 @@ public class ProductService {
 		}
 	}
 	
-
+	public Product_desc getProductById(int prod_id)
+	{
+		Product_desc product = new Product_desc();
+		try {
+		PreparedStatement stmt = conn.prepareStatement("select * from product where product_id = ?");
+		System.out.println(prod_id);
+		stmt.setInt(1, prod_id);
+		ResultSet rs = stmt.executeQuery();
+		rs.next();
+		System.out.println(rs.getInt(1));
+		product.setProduct_id(rs.getInt(1));
+		product.setCategory_id(rs.getInt(3));
+		product.setSub_category_id(rs.getInt(2));
+		product.setSeller_id(rs.getInt(4));
+		stmt = conn.prepareStatement("select * from user where user_id = ?");
+		stmt.setInt(1,rs.getInt(4));
+		ResultSet rs2 = stmt.executeQuery();
+		if(rs2.next())
+		{
+			product.setSeller_name(rs2.getString(2)+" "+rs2.getString(3));
+			product.setSeller_email(rs2.getString(4));
+			product.setSeller_country(rs2.getString(6));
+			product.setSeller_state(rs2.getString(9));
+			product.setSeller_city(rs2.getString(8));
+			product.setSeller_address(rs2.getString(7));
+			product.setSeller_contact(rs2.getString(11));
+		}
+		product.setProduct_name(rs.getString(5));
+		product.setProduct_price(rs.getInt(6));
+		product.setProduct_discount(rs.getInt(7));
+		product.setProduct_condition(rs.getString(8));
+		product.setProduct_shipping(rs.getString(9));
+		product.setProduct_sold_quantity(rs.getInt(10));
+		product.setProduct_img_url(rs.getString(11));
+		product.setProduct_available_quantity(rs.getInt(12));
+		product.setProduct_description(rs.getString(13));
+		product.setRating(rs.getInt(14));
+		product.setDeal(rs.getString(15));
+		product.setColor(rs.getString(17));
+		product.setBrand(rs.getString(16));
+		product.setScreen_Size(rs.getString(18));
+		product.setProcessor(rs.getString(19));
+		product.setStorage(rs.getString(20));
+		product.setWarranty(rs.getString(21));
+		product.setOS(rs.getString(22));
+		product.setYear(rs.getInt(23));
+		product.setGender(rs.getString(24));
+		product.setApplicable(rs.getString(25));
+		product.setMaterial(rs.getString(26));
+		product.setSize(rs.getString(27));
+		product.setStyle(rs.getString(28));
+		product.setWarranty_Type(rs.getString(29));
+		product.setCard_Class(rs.getString(30));
+		
+		System.out.println(rs.getString(12));
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return product;
+	}
+//=================	
 public List<Product> getAllProducts(){
 		Product p1 ;
 		List<Product> list = new ArrayList<>();

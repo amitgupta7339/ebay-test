@@ -17,7 +17,7 @@ public class UserResource {
 	private UserService userService = new UserService();
 
 // =================================================LOGIN FORM====================================================//
-	@POST // (write by Prakhar)
+	@POST // (written by Prakhar)
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -26,7 +26,7 @@ public class UserResource {
 		return userService.userLogin(user_email, user_password);
 	}
 // =================================================REGISTER FORM=================================================//
-	@POST // (write by Prakhar and Amit)
+	@POST // (written by Prakhar and Amit)
 	@Path("/register")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,7 +34,7 @@ public class UserResource {
 		return userService.userRegister(user);
 	}
 // ================================================UPDATE ADDRESS=================================================//
-	@POST // (write by Amit)
+	@POST // (written by Amit)
 	@Path("/updateAddress/{user_email}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)

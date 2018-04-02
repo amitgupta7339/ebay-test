@@ -18,7 +18,7 @@ import org.ebay_project.ebaytester.service.CategoryService;
 @Path("/category")
 public class CategoryResource {
 // ===========================================GET ALL CATEGORIES==================================================//
-	@GET //(write by Amit)
+	@GET //(written by Amit)
 	@Path("/getAllCategory")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Category> getAllCategories() {
@@ -33,7 +33,7 @@ public class CategoryResource {
 		}
 	}
 // ===========================UPLOAD NEW CATEGORY OR SUB CATEGORY BY ADMIN SIDE===================================//
-	@POST //(write by Amit)
+	@POST //(written by Amit)
 	@Path("/uploadCategory") 
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -48,7 +48,7 @@ public class CategoryResource {
 
 	}
 // =================================ON CATEGORY NAME GET ALL SUB CATEGORIES=======================================//
-	@GET //(write by Amit)
+	@GET //(written by Amit)
 	@Path("/{category_name}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Subcategory> getAllSubCategory(@PathParam("category_name") String category_name) {
@@ -63,7 +63,7 @@ public class CategoryResource {
 		}
 	}
 // ==================================GET CATEGORY NAME BASES ON CATEGORY ID=======================================//
-	@GET//(write By Prakhar)
+	@GET//(written by Prakhar)
 	@Path("getcategoryname/{category_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Category getCategoryName(@PathParam("category_id") int category_id) {
