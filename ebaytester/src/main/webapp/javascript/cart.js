@@ -10,32 +10,31 @@ var count=0;
 cart_list_ajax();/*default cart ajax call*/
 /*===================================================show products list in cart==================================================================*/
 function cart_list_ajax(){
-	cart_product_list="";
-	total=0;
-	price=[];
-  $.ajax({
-  				  type :"GET",
-  					url: "http://localhost:5224/ebaytester/webapi/cart/getallproduct/"+localStorage.user_Id,
-            dataType:'JSON',
-  					success: function(response){
-  						//result=JSON.parse(JSON.stringify(response));
-            result=response;
-            cart_product_list+='<ul class="list-group">';
-              for(i in result)
-              {
-                cart_list(i);/*function call*/
-              }
-              cart_product_list+='</ul>';
+		cart_product_list="";
+		total=0;
+		price=[];
+	  $.ajax({
+	  				  type :"GET",
+	  					url: "http://localhost:5224/ebaytester/webapi/cart/getallproduct/"+localStorage.user_Id,
+	            dataType:'JSON',
+	  					success: function(response){
+	            result=response;
+	            cart_product_list+='<ul class="list-group">';
+	              for(i in result)
+	              {
+	                cart_list(i);/*function call*/
+	              }
+	              cart_product_list+='</ul>';
 
-              document.getElementById('cart').innerHTML=cart_product_list;
-              document.getElementById('order_total').innerHTML="Rs. "+total;
-              for(i in result)
-            	  {
-            	  $('#update'+result[i].product_id).hide();
-            	  }
-							localStorage.count=result.length;
-            }
-          });
+	              document.getElementById('cart').innerHTML=cart_product_list;
+	              document.getElementById('order_total').innerHTML="Rs. "+total;
+	              for(i in result)
+	            	  {
+	            	  $('#update'+result[i].product_id).hide();
+	            	  }
+								localStorage.count=result.length;
+	            }
+	          });
 };
 /*==========================================================Dynamic HTML code of products List=========================================================================================================== */
 function cart_list(x){

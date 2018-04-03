@@ -1,1 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?><note><from>Jani</from><to>Tove</to><message>Remember me this weekend</message></note>

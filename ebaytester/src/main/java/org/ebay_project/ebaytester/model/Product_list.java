@@ -29,8 +29,7 @@ public class Product_list {
 	private String product_seller_name;
 	private String product_deal;
 
-	public Product_list() {
-	};
+	public Product_list() {};
 
 	public Product_list(String product_seller_name, int product_seller_id, int product_id, int sub_category_id,
 			int category_id, String product_name, int product_price, int product_discount, String product_condition,

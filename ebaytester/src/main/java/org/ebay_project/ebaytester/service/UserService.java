@@ -111,7 +111,7 @@ public User updateAddress(String user_email, String country, String address, Str
 	if(rs.next())
 	{
 		User user=new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),
-				rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10),rs.getString(11));
+				rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10),rs.getString(11),rs.getDouble(12)); //Bhavuk changed here
 		return user;
 	}
 	}
@@ -164,6 +164,7 @@ public User getUserDetail(String user_email) {
 			user.setUser_state(rs.getString(9));
 			user.setUser_pincode(rs.getInt (10));
 			user.setUser_phone(rs.getString(11));
+			user.setWallet_balance(rs.getDouble(12)); // bhavuk changed here
 			
 		}
 	} catch (SQLException e) {
@@ -172,5 +173,35 @@ public User getUserDetail(String user_email) {
 	}
 	System.out.println("GetUserProfile !");
 	return user;
-}
+  }
+
+  //==========================================bhavuk changed here added method to get wallet balance==========================
+
+	public User getWalletBalance(int user_id) {
+
+	User user = null;
+	String sql = "select * from user where user_id = ?";
+	PreparedStatement preparedstatement;
+	
+	try {
+		preparedstatement = conn.prepareStatement(sql);
+		preparedstatement.setInt(1, user_id);
+		ResultSet rs = preparedstatement.executeQuery();
+
+		if (rs.next()) {
+			user = new User();
+			
+			user.setWallet_balance(rs.getDouble("wallet_balance")); // bhavuk changed here
+			
+		}
+	} catch (SQLException e) {
+
+		e.printStackTrace();
+	}
+	System.out.println("GetUserWalletBalance !");
+	return user;
+  }
+  //==========================================bhavuk changed here added method to get wallet balance==========================
+
+
 }

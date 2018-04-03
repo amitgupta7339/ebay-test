@@ -1,24 +1,24 @@
 package org.ebay_project.ebaytester.model;
 
 public class User {
-	private int user_id;
+    private int user_id;
 	private String user_fname;
 	private String user_lname;
 	private String user_email;
-	private String user_password;
+    private String user_password;
 	private String user_country;
-	private String user_address;
-	private String user_city;
-	private String user_state;
-	private int user_pincode;
-	private String user_phone;
+    private String user_address;
+    private String user_city;
+    private String user_state;
+    private int user_pincode;
+    private String user_phone;
+    private double wallet_balance;
 
-	public User() {
-	}
+	public User() {}
 
 	public User(int user_id, String user_fname, String user_lname, String user_email, String user_password,
 			String user_country, String user_address, String user_city, String user_state, int user_pincode,
-			String user_phone) {
+			String user_phone, double wallet_balance) {
 		super();
 		this.user_id = user_id;
 		this.user_fname = user_fname;
@@ -31,6 +31,7 @@ public class User {
 		this.user_state = user_state;
 		this.user_pincode = user_pincode;
 		this.user_phone = user_phone;
+		this.wallet_balance = wallet_balance;
 	}
 
 	public int getUser_id() {
@@ -44,7 +45,7 @@ public class User {
 	public String getUser_fname() {
 		return user_fname;
 	}
-
+	
 	public void setUser_fname(String user_fname) {
 		this.user_fname = user_fname;
 	}
@@ -119,5 +120,13 @@ public class User {
 
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
+	}
+
+	public double getWallet_balance() {
+		return wallet_balance;
+	}
+
+	public void setWallet_balance(double wallet_balance) {
+		this.wallet_balance = wallet_balance;
 	}
 }

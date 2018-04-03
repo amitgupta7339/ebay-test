@@ -2,6 +2,7 @@ package org.ebay_project.ebaytester.resource;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -43,6 +44,13 @@ public class UserResource {
 			@FormParam("emailid") String emailid, @FormParam("mobile") String mobile) {
 		UserService addService = new UserService();
 		return addService.updateAddress(user_email, country, address, state, pincode, emailid, mobile);
+	}
+// =========================================GET WALLET BALANCE OF USER BASES ON USER ID===========================//	
+	@GET // (written by Bhavuk)
+	@Path("/wallet/{user_id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User userWalletBalance(@PathParam("user_id") int user_id){
+		return userService.getWalletBalance(user_id);
 	}
 }
 // =================================================END OF CODE===================================================//

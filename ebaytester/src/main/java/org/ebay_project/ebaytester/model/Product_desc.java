@@ -39,7 +39,9 @@ public class Product_desc {
 	private String Style;
 	private String Warranty_Type;
 	private String Card_Class;
-	public Product_desc() {}
+	
+	public Product_desc() {};
+	
 	public Product_desc(int product_id, int sub_category_id, int category_id, int seller_id, String seller_name,
 			String seller_country, String seller_state, String seller_city,String seller_address,String seller_email, String seller_contact, String product_name,
 			int product_price, int product_discount, String product_condition, String product_shipping,
