@@ -49,3 +49,15 @@ function searchfunction(){
         window.location="http://localhost:5224/ebaytester/prod_list_1.html";
      }
 };
+
+function cart(){
+    localStorage.cart="cart";
+	  if(localStorage.user_Id!=null)
+		  {
+		  window.location="http://localhost:5224/ebaytester/cart.html";
+		  }
+	  else
+		  {
+		  window.location="http://localhost:5224/ebaytester/login.html";
+		  }
+  };

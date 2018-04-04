@@ -25,6 +25,10 @@ $('#login')
 											{
 											 window.location = "http://localhost:5224/ebaytester/orderReview.html";
 											}
+											else if(localStorage.cart!=null)
+											{
+												window.location = "http://localhost:5224/ebaytester/cart.html";
+											}
 										else {
 											window.location = "http://localhost:5224/ebaytester/home.html";
 										}
