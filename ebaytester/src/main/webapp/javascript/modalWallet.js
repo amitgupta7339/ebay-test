@@ -21,6 +21,18 @@ $('#myPaisaPay').on('click',function(){
 $('#walletModal_user_name').html(localStorage.fName+" "+localStorage.lName);
 
 
+
+// var amt = document.getElementById('enterMoney').value;
+// function addMoney(){
+//   var amt = $("#enterAmount").val();
+//   alert("entered amt is :"+ amt);
+//
+//   localStorage.amt = amt;
+//   alert(localStorage.amt);
+//   window.location="http://localhost:5224/ebaytester/Paymentmethod.html";
+//
+// };
+
 $('#addMoney').click(function(e){
   e.preventDefault();
   var amt = $("#enterAmount").val();
@@ -29,7 +41,7 @@ $('#addMoney').click(function(e){
   localStorage.amt = amt;
   // alert(localStorage.amt);
   if(localStorage.amt > 0){
-    window.location="http://localhost:5224/ebaytester/Paymentmethod.html";
+    window.location="http://localhost:5224/ebaytester/Paymentmethod_wallet.html";
   }
   else {
     alert("Enter a valid amount");

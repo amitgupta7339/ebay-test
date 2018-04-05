@@ -1,7 +1,7 @@
 /*
  * Author : Pulkit Agarwal(MT2017085)
  * Email : pulkitgarg2493@gmail.com
- * 
+ *
  */
 //GLOBAL CONSTANTS
 var sub_category = localStorage.sub_category_name;

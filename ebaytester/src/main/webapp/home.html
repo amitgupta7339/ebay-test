@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>HOME|eBay</title>
+  <title>Electronics,Cars,Fashion|eBay</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -135,7 +135,8 @@
              <li><a id="two" href="#">Messages</a></li>
            </ul>
          </li>
-         <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="two" href="#">My PaisaPay</a></li>
+         <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="myPaisaPay" href="#" data-toggle="modal" data-target="#walletModal" data-backdrop="static" data-keyboard="false">My PaisaPay</a></li>
+         <!-- <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="two" href="#">My PaisaPay</a></li> -->
          <li style="width:50px; display:table-cell; text-align:right;"><span style="font-size:18px ;" class="glyphicon glyphicon-bell"></span></li>
          <li style=" width:50px; display:table-cell; text-align:right;" title="your shopping cart is empty"><a id="two"  onclick="cart()" href="#"><span style="font-size:18px;"  class="glyphicon glyphicon-shopping-cart"></span><span id="count"></span></a></li>
        </ul>
@@ -144,7 +145,6 @@
   </div>
 
   <!--===================================================== WALLET MODAL ===================================================== -->
-
   <div class="modal fade walletModal" id="walletModal" tabindex="-1" role="dialog" aria-labelledby="walletModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -167,13 +167,13 @@
               <input type="number" class="form-control" name="enterMoney" id="enterAmount" placeholder="Enter the Amount">
             </div>
 
-            <button type="submit" class="btn btn-danger" id="addMoney"> Add Money </button>
+            <button type="submit" class="btn btn-success" id="addMoney"> Add Money </button>
             <!-- onclick="addMoney()" -->
       </form>
       </div>
     </div>
   </div>
-  </div>
+</div>
   <!--===================================================== WALLET MODAL ===================================================== -->
 
 
@@ -786,5 +786,6 @@ if(localStorage.count!=null)
   $('#count').html(localStorage.count);
 }
 </script>
+<script src="javascript/modalWallet.js"></script>
 </body>
 </html>

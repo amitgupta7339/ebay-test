@@ -29,9 +29,10 @@ $('#login')
 											{
 												window.location = "http://localhost:5224/ebaytester/cart.html";
 											}
-										else {
-											window.location = "http://localhost:5224/ebaytester/home.html";
-										}
+											else 
+											{
+												window.location = "http://localhost:5224/ebaytester/home.html";
+											}
 									} else {
 										alert("enter correct password and username");
 									}
