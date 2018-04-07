@@ -67,8 +67,8 @@ $('#Product_name_list').on('change',function(){
 		       data: $('#Product_name_list').serialize(),
 		       dataType: "JSON",
 		       success: function(response){
+             $('#Item_id').val(response.item_id);
              $('#Product_Name').val(response.product_name);
-
              $('#Price').val(response.product_price);
              $('#Quantity').val(response.product_available_quantity);
              $('#Condition').val(response.product_condition);

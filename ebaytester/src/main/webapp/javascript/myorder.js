@@ -14,13 +14,13 @@ $.ajax({
           dataType:'JSON',
           success: function(response){
           result=response;
-          alert(x);
+          //alert(x);
           if(result[x].deal_id!=0)
-          {alert(result[x].deal_id);
+          {//alert(result[x].deal_id);
             for(i in result)
             {
               if(result[i].deal_id==result[x].deal_id)
-              {alert(result[x].deal_id);
+              {//alert(result[x].deal_id);
                 total_qty=parseInt(total_qty)+parseInt(result[i].quantity);
                 discount_amount=parseInt(parseInt(result[i].amount)*parseInt(result[i].product_discount)/100);
                 discount_amount=parseInt(result[i].amount)-discount_amount;
@@ -33,14 +33,14 @@ $.ajax({
             for(i in result)
             {
               if(result[i].deal_id==result[x].deal_id)
-              {alert(result[x].deal_id);
+              {//alert(result[x].deal_id);
                 MyOrder_list(i);
               }
             }
             MyOrder_product_list+=`</ul>`
           }
           else 
-          {alert("2");
+          {//alert("2");
             DetailInWell(x)
             MyOrder_product_list+=`<ul class="list-group">`
             MyOrder_list(x);
@@ -52,7 +52,7 @@ $.ajax({
         
       }
 function DetailInWell(y){
-	alert("DetailInWell");
+	//alert("DetailInWell");
   MyOrder_product_list+=`<div class="well row">
     <div class="col-sm-4">
       <p><b>Buyer Address:</b></p>
@@ -74,7 +74,7 @@ function DetailInWell(y){
   </div>`
 };
 function MyOrder_list(y){
-	alert("MyOrder_list");
+	//alert("MyOrder_list");
   MyOrder_product_list+=`<li class="list-group-item">
      <div class="row">
       <div class="col-sm-3">

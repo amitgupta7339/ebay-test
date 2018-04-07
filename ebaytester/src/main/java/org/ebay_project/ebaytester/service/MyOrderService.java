@@ -33,7 +33,7 @@ public class MyOrderService {
 		ArrayList<MyOrder> list = new ArrayList<>();
 		PreparedStatement preparedstmnt = null;
 		try {
-			String query = "SELECT t.* , p.product_img_url, p.product_name, d.free_check, d.deal_id,  u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND d.deal_id=t.deal_id AND t.user_id=? ORDER BY order_date DESC";
+			String query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id, d.free_check, d.deal_id,  u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND d.deal_id=t.deal_id AND t.user_id=? ORDER BY order_date DESC";
 			// String query = "select * from transaction where user_id=?";
 			preparedstmnt = connection.prepareStatement(query);
 			preparedstmnt.setInt(1, user_id);
@@ -59,7 +59,7 @@ public class MyOrderService {
 				oo.setUser_address(rs.getString("user_address"));
 				oo.setProduct_deal(rs.getString("product_deal"));
 				oo.setProduct_img_url(rs.getString("product_img_url"));
-				//oo.setItem_id(rs.getString("item_id"));
+				oo.setItem_id(rs.getString("item_id"));
 				oo.setProduct_name(rs.getString("product_name"));
 				oo.setUser_fname(rs.getString("user_fname"));
 				oo.setUser_lname(rs.getString("user_lname"));
@@ -68,7 +68,7 @@ public class MyOrderService {
 
 			}
 
-			query = "SELECT t.* , p.product_img_url, p.product_name,u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND t.user_id=? AND t.deal_id=? ORDER BY order_date DESC";
+			query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id,u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND t.user_id=? AND t.deal_id=? ORDER BY order_date DESC";
 			// String query = "select * from transaction where user_id=?";
 			preparedstmnt = connection.prepareStatement(query);
 			preparedstmnt.setInt(1, user_id);
@@ -95,7 +95,7 @@ public class MyOrderService {
 				oo.setUser_address(rs.getString("user_address"));
 				oo.setProduct_deal(rs.getString("product_deal"));
 				oo.setProduct_img_url(rs.getString("product_img_url"));
-				//oo.setItem_id(rs.getString("item_id"));
+				oo.setItem_id(rs.getString("item_id"));
 				oo.setProduct_name(rs.getString("product_name"));
 				oo.setUser_fname(rs.getString("user_fname"));
 				oo.setUser_lname(rs.getString("user_lname"));

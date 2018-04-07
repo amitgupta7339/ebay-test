@@ -23,7 +23,7 @@ function MyOrder_list(x){
   MyOrder_product_list+=`<li class="list-group-item">
                         <div class="row">
                           <p>Trxn_id: ${result[x].txn_id}</p>
-                          <p>product_id: ${result[x].product_id}</p>
+                          <p>Item id: ${result[x].item_id}</p>
                          <div class="col-sm-3">
                            <table style=" border-collapse: separate; border-spacing: 0px;" >
                              <tr >
@@ -35,7 +35,7 @@ function MyOrder_list(x){
                            <p>${result[x].product_name}</p>
                            <br>
                            <p style="color:grey">Order date: ${result[x].order_date}</p>
-                           <p style="text-align:right" onclick="product_order_detail(${x})">view order details<span class="glyphicon glyphicon-menu-right"></span></p>
+                           <p style="text-align:right"><a href="#" onclick="product_order_detail(${x})">view order details<span class="glyphicon glyphicon-menu-right"></span></a></p>
                          </div>
                         </div>
                       </li>`
