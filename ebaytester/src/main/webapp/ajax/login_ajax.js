@@ -18,6 +18,7 @@ $('#login')
 										localStorage.user_State = response.user_state;
 										localStorage.user_PINCODE = response.user_pincode;
 										localStorage.user_Phone = response.user_phone;
+										localStorage.wallet_balance=response.wallet_balance;
 										if (localStorage.email == 'admin@gmail.com') {
 											window.location = "http://localhost:5224/ebaytester/admin_category.html";
 										}
@@ -29,7 +30,7 @@ $('#login')
 											{
 												window.location = "http://localhost:5224/ebaytester/cart.html";
 											}
-											else 
+											else
 											{
 												window.location = "http://localhost:5224/ebaytester/home.html";
 											}

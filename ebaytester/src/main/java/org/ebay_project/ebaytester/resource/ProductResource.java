@@ -96,7 +96,7 @@ public class ProductResource {
 			@FormParam("Price") int product_price, @FormParam("Quantity") int quantity,
 			@FormParam("Condition") String product_condition, @FormParam("Shipping") String product_shipping,
 			@FormParam("Description") String product_description, @FormParam("Discount") int product_discount,
-			@FormParam("Deal") String deal, @FormParam("Brand") String brand, @FormParam("Color") String color,
+			@FormParam("Item_id") String item_id, @FormParam("Brand") String brand, @FormParam("Color") String color,
 			@FormParam("Screen_size") String screen_size, @FormParam("Processor") String processor,
 			@FormParam("Storage") String storage, @FormParam("Warranty") String warranty,
 			@FormParam("Operating_system") String operating_system, @FormParam("Product_year") int product_year,
@@ -107,7 +107,7 @@ public class ProductResource {
 
 		ProductService productService = new ProductService();
 		Product product = productService.setProductInfo(product_name, category, subcategory, seller_id, product_price,
-				quantity, product_condition, product_shipping, product_description, product_discount, deal, brand,
+				quantity, product_condition, product_shipping, product_description, product_discount, item_id, brand,
 				color, screen_size, processor, storage, warranty, operating_system, product_year, gender, warranty_type,
 				applicable, material, clothing_size, style, card_class);
 		if (product == null) {
@@ -128,7 +128,7 @@ public class ProductResource {
 			@FormParam("Price") int product_price, @FormParam("Quantity") int quantity,
 			@FormParam("Condition") String product_condition, @FormParam("Shipping") String product_shipping,
 			@FormParam("Description") String product_description, @FormParam("Discount") int product_discount,
-			@FormParam("Deal") String deal, @FormParam("Brand") String brand, @FormParam("Color") String color,
+	        @FormParam("Brand") String brand, @FormParam("Color") String color,
 			@FormParam("Screen_size") String screen_size, @FormParam("Processor") String processor,
 			@FormParam("Storage") String storage, @FormParam("Warranty") String warranty,
 			@FormParam("Operating_system") String operating_system, @FormParam("Product_year") int product_year,
@@ -139,7 +139,7 @@ public class ProductResource {
 		System.out.println("helloupdateSellerProduct");
 		ProductService ps = new ProductService();
 		return ps.updateSellerProduct(original_product_name, product_name, user_id, product_price, quantity,
-				product_condition, product_shipping, product_description, product_discount, deal, brand, color,
+				product_condition, product_shipping, product_description, product_discount, brand, color,
 				screen_size, processor, storage, warranty, operating_system, product_year, gender, warranty_type,
 				applicable, material, clothing_size, style, card_class);
 	}

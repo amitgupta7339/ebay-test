@@ -4,9 +4,9 @@ public class Product {
 
 	private int product_id, sub_category_id, category_id, user_id, product_price, product_discount,
 			product_sold_quantity, product_available_quantity, product_rating, product_year;
-	private String product_name, product_condition, product_shipping, product_img_url, product_description, deal, brand,
+	private String product_name, product_condition, product_shipping, product_img_url, product_description,brand,
 			color, screen_size, processor, storage, warranty, operating_system, gender, applicable, material,
-			clothing_size, style, warranty_type, card_class;
+			clothing_size, style, warranty_type, card_class,item_id;
 
 	public Product() {
 	}
@@ -14,7 +14,7 @@ public class Product {
 	public Product(int product_id, int sub_category_id, int category_id, int user_id, int product_price,
 			int product_discount, int product_sold_quantity, int product_available_quantity, int product_rating,
 			int product_year, String product_name, String product_condition, String product_shipping,
-			String product_img_url, String product_description, String deal, String brand, String color,
+			String product_img_url, String product_description,String brand, String color,
 			String screen_size, String processor, String storage, String warranty, String operating_system,
 			String gender, String applicable, String material, String clothing_size, String style, String warranty_type,
 			String card_class) {
@@ -34,7 +34,6 @@ public class Product {
 		this.product_shipping = product_shipping;
 		this.product_img_url = product_img_url;
 		this.product_description = product_description;
-		this.deal = deal;
 		this.brand = brand;
 		this.color = color;
 		this.screen_size = screen_size;
@@ -57,6 +56,14 @@ public class Product {
 
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+
+	public String getItem_id() {
+		return item_id;
+	}
+
+	public void setItem_id(String item_id) {
+		this.item_id = item_id;
 	}
 
 	public int getProduct_id() {
@@ -113,10 +120,6 @@ public class Product {
 
 	public String getProduct_description() {
 		return product_description;
-	}
-
-	public String getDeal() {
-		return deal;
 	}
 
 	public String getBrand() {
@@ -229,10 +232,6 @@ public class Product {
 
 	public void setProduct_description(String product_description) {
 		this.product_description = product_description;
-	}
-
-	public void setDeal(String deal) {
-		this.deal = deal;
 	}
 
 	public void setBrand(String brand) {

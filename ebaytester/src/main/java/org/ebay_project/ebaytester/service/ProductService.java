@@ -15,15 +15,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.validation.ReportAsSingleViolation;
-
-import org.ebay_project.ebaytester.model.Category;
 import org.ebay_project.ebaytester.model.Message;
 import org.ebay_project.ebaytester.model.Product;
 import org.ebay_project.ebaytester.model.Product_desc;
-import org.ebay_project.ebaytester.model.Subcategory;
-
-import com.mysql.jdbc.Statement;
 
 public class ProductService {
 
@@ -48,7 +42,7 @@ public class ProductService {
 			}
 		}
 	}
-	
+//============================================PRODUCT DESCRIPTION PAGE===========================================//	
 	public Product_desc getProductById(int prod_id)
 	{
 		Product_desc product = new Product_desc();
@@ -110,7 +104,7 @@ public class ProductService {
 		}
 		return product;
 	}
-//=================	
+//=============================================GET ALL PRODUCTS==================================================//	
 public List<Product> getAllProducts(){
 		Product p1 ;
 		List<Product> list = new ArrayList<>();
@@ -136,7 +130,7 @@ public List<Product> getAllProducts(){
 				p1.setProduct_available_quantity(rs.getInt(12));
 				p1.setProduct_description(rs.getString(13));
 				p1.setProduct_rating(rs.getInt(14));
-				p1.setDeal(rs.getString(15));
+				p1.setItem_id(rs.getString(15));
 				p1.setBrand(rs.getString(16));
 				p1.setColor(rs.getString(17));
 				p1.setScreen_size(rs.getString(18));
@@ -161,7 +155,7 @@ public List<Product> getAllProducts(){
 		
 		return list;
 	}
-
+//============================================END OF CODE GET ALL PRODUCTS=======================================//
 public List<Product> dealImagesList() {
 	Product p1;
 	List<Product> list = new ArrayList<>();
@@ -186,7 +180,7 @@ public List<Product> dealImagesList() {
 			p1.setProduct_available_quantity(rs.getInt(12));
 			p1.setProduct_description(rs.getString(13));
 			p1.setProduct_rating(rs.getInt(14));
-			p1.setDeal(rs.getString(15));
+			p1.setItem_id(rs.getString(15));
 			p1.setBrand(rs.getString(16));
 			p1.setColor(rs.getString(17));
 			p1.setScreen_size(rs.getString(18));
@@ -211,7 +205,7 @@ public List<Product> dealImagesList() {
 	}
 	return list;
 }
-
+//============================================GET ALL PRODUCT BASES ON SELLER ID=================================//
 	public List<Product> getSellerAllProducts(int user_id){
 		Product p1 ;
 		List<Product> list = new ArrayList<>();
@@ -237,7 +231,7 @@ public List<Product> dealImagesList() {
 				p1.setProduct_available_quantity(rs.getInt(12));
 				p1.setProduct_description(rs.getString(13));
 				p1.setProduct_rating(rs.getInt(14));
-				p1.setDeal(rs.getString(15));
+				p1.setItem_id(rs.getString(15));
 				p1.setBrand(rs.getString(16));
 				p1.setColor(rs.getString(17));
 				p1.setScreen_size(rs.getString(18));
@@ -262,7 +256,10 @@ public List<Product> dealImagesList() {
 		
 		return list;
 	}
+//================================END OF CODE GET ALL PRODUCT BASES ON SELLER ID=================================//
 	
+	
+//===========================================PRODUCT DETAILS ON PRODUCT ID=======================================//	
 	public Product getProductDetail(int product_id) 
 	{
 		Product p1 = new Product();
@@ -286,7 +283,7 @@ public List<Product> dealImagesList() {
 				p1.setProduct_available_quantity(rs.getInt(12));
 				p1.setProduct_description(rs.getString(13));
 				p1.setProduct_rating(rs.getInt(14));
-				p1.setDeal(rs.getString(15));
+				p1.setItem_id(rs.getString(15));
 				p1.setBrand(rs.getString(16));
 				p1.setColor(rs.getString(17));
 				p1.setScreen_size(rs.getString(18));
@@ -309,11 +306,9 @@ public List<Product> dealImagesList() {
 		
 		return p1;
 	}
+//================================END OF CODE OF PRODUCT DETAILS ON PRODUCT ID===================================//	
 	
-	
-	
-	
-	
+//========================================GET SINGLE PRODUCT BY SELLER===========================================//		
 	public Product getSellerProduct(int user_id,String product_name){
 		Product p1 = new Product();
 		PreparedStatement preparedstmnt;
@@ -338,7 +333,7 @@ public List<Product> dealImagesList() {
 				p1.setProduct_available_quantity(rs.getInt(12));
 				p1.setProduct_description(rs.getString(13));
 				p1.setProduct_rating(rs.getInt(14));
-				p1.setDeal(rs.getString(15));
+				p1.setItem_id(rs.getString(15));
 				p1.setBrand(rs.getString(16));
 				p1.setColor(rs.getString(17));
 				p1.setScreen_size(rs.getString(18));
@@ -361,56 +356,8 @@ public List<Product> dealImagesList() {
 		
 		return p1;
 	}
-	
-//	public ArrayList<Product> getAllProducts() {
-//
-//		Product product;
-//		ArrayList<Product> productList = new ArrayList<Product>();
-//		String sql = "select * from product";
-//		PreparedStatement preparedStatement;
-//		try {
-//			preparedStatement = conn.prepareStatement(sql);
-//			
-//		
-//			
-//			 ResultSet rs =  preparedStatement.executeQuery();
-//
-//			while(rs.next()) {
-//				product = new Product();
-//				product.setProduct_id(rs.getInt(1));
-//				product.setCategory_id(rs.getInt(2));
-//				product.setSub_category_id(rs.getInt(3));
-//				product.setProduct_name(rs.getString(4));
-//				product.setProduct_price(rs.getInt(5));
-//				product.setProduct_discount(rs.getInt(6));
-//				product.setProduct_condition(rs.getString(7));
-//				product.setProduct_shipping(rs.getString(8));
-//				product.setProduct_sold_quantity(rs.getInt(9));
-//				product.setProduct_quantity(rs.getInt(10));
-//				product.setProduct_available_quantity(rs.getInt(11));
-//				product.setProduct_img_url(rs.getString(12));
-//				product.setProduct_description(rs.getString(13));
-//				productList.add(product);
-//			}
-//			System.out.println(productList.size());
-//
-//			for (Product l : productList) {
-//				System.out.println(l.getProduct_id() + "  " + l.getProduct_description());
-//			}
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return productList;
-//	
-//	}
-	
-	/*String product_name, String category, String subcategory,int seller_id, int product_price,
-			int product_discount, int product_sold_quantity, int product_available_quantity, int product_rating,
-			int product_year, String product_condition, String product_shipping, String product_img_url,
-			String product_description, String deal, String brand, String color, String screen_size, String processor,
-			String storage, String warranty, String operating_system, String gender, String applicable, String material,
-			String clothing_size, String style, String warranty_type, String card_class)*/
+//===================================END OF CODE GET SINGLE PRODUCT BY SELLER====================================//	
+//==========================================new product upload===================================================//
 	public Product setProductInfo(String product_name,
 			String category,
 			String subcategory,
@@ -421,7 +368,7 @@ public List<Product> dealImagesList() {
 			String product_shipping,
 			String product_description,
 			int product_discount,
-			String deal,
+			String item_id,
 			String brand,
 			String color,
 			String screen_size,
@@ -436,8 +383,7 @@ public List<Product> dealImagesList() {
 			String material,
 			String clothing_size,
 			String style,
-			String card_class)
-	{
+			String card_class){
 		int product_sold_quantity=0,product_available_quantity=quantity,product_rating=0;
 		String product_img_url="";
 		PreparedStatement preparedstmnt;
@@ -457,18 +403,9 @@ public List<Product> dealImagesList() {
 			rs= preparedstmnt.executeQuery();
 			int sub_category_id =0;
 			if(rs.next())
-				sub_category_id=rs.getInt("sub_category_id");
-			
-//			query="select product_available_quantity from product where product_name=? AND user_id=seller_id";
-//			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
-//			preparedstmnt.setString(1,product_name );
-//			preparedstmnt.setInt(2,seller_id );
-//			rs= preparedstmnt.executeQuery();
-//			int product_available_quantity =0;
-//			if(rs.next())
-//				product_available_quantity=rs.getInt("product_available_quantity");
-			
-			query="insert into product(sub_category_id,category_id,user_id,product_name,product_price,product_discount,product_condition,product_shipping, product_sold_quantity, product_img_url, product_available_quantity, product_description,product_rating, deal, brand, color, screen_size,processor, storage, warranty, operating_system, product_year, gender, applicable, material, clothing_size, style, warranty_type, card_class) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+			 sub_category_id=rs.getInt("sub_category_id");
+			item_id=String.valueOf(seller_id)+String.valueOf(category_id)+String.valueOf(sub_category_id)+item_id;
+			query="insert into product(sub_category_id,category_id,user_id,product_name,product_price,product_discount,product_condition,product_shipping, product_sold_quantity, product_img_url, product_available_quantity, product_description,product_rating, item_id, brand, color, screen_size,processor, storage, warranty, operating_system, product_year, gender, applicable, material, clothing_size, style, warranty_type, card_class) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 			preparedstmnt=(PreparedStatement) conn.prepareStatement(query);
 			preparedstmnt.setInt(1, sub_category_id);
 			preparedstmnt.setInt(2, category_id);
@@ -483,7 +420,7 @@ public List<Product> dealImagesList() {
 			preparedstmnt.setInt(11, quantity);
 			preparedstmnt.setString(12, product_description);
 			preparedstmnt.setInt(13, product_rating);
-			preparedstmnt.setString(14, deal);
+			preparedstmnt.setString(14, item_id);
 			preparedstmnt.setString(15, brand);
 			preparedstmnt.setString(16, color);
 			preparedstmnt.setString(17, screen_size);
@@ -514,7 +451,7 @@ public List<Product> dealImagesList() {
 			
 			Product product=new Product(product_id, sub_category_id, sub_category_id,seller_id, product_price, product_discount, product_sold_quantity,
 					product_available_quantity, product_rating, product_year, product_name, product_condition, product_shipping, product_img_url, 
-					product_description, deal, brand, color, screen_size, processor, storage, warranty, operating_system, gender, applicable, material, 
+					product_description,brand, color, screen_size, processor, storage, warranty, operating_system, gender, applicable, material, 
 					clothing_size, style, warranty_type, card_class);
 			System.out.println(product_id);
 			new File(PathSetup.imagePath + "products/" + product_id+ "/images").mkdirs();
@@ -550,8 +487,9 @@ return product;
 		
 		return null;
 	}
-	
+//======================================end code of upload product===============================================//	
 
+//======================================modify product details===================================================//
     public String updateSellerProduct(
     		String original_product_name,
     		String product_name,
@@ -562,7 +500,6 @@ return product;
 			String product_shipping,
 			String product_description,
 			int product_discount,
-			String deal,
 			String brand,
 			String color,
 			String screen_size,
@@ -579,14 +516,14 @@ return product;
 			String style,
 			String card_class) {
 		
-		int status=0;
+//		int status=0;
 		PreparedStatement preparedstmnt;
 		int rs=0;
 		try {
 			String query="UPDATE product set product_name = ? , product_price = ?, "
 					+ "product_available_quantity=?,"
 					+ "product_condition=?,product_shipping=?,product_description=?,"
-					+ "product_discount=?,deal=?,brand=?, color=?, screen_size=?,processor=?,storage=?,warranty=?,"
+					+ "product_discount=?,brand=?, color=?, screen_size=?,processor=?,storage=?,warranty=?,"
 					+ "operating_system=?, product_year=?, gender=?, warranty_type=?,applicable=?,material=?,"
 					+ "clothing_size=?, style=?,card_class=? where user_id = ? and product_name = ?";
 			preparedstmnt=	(PreparedStatement) conn.prepareStatement(query);
@@ -598,7 +535,6 @@ return product;
 			preparedstmnt.setString(5, product_shipping);
 			preparedstmnt.setString(6, product_description);
 			preparedstmnt.setInt(7, product_discount);
-			preparedstmnt.setString(8, deal);
 			preparedstmnt.setString(9, brand);
 			preparedstmnt.setString(10, color);
 			preparedstmnt.setString(11, screen_size);
@@ -617,37 +553,6 @@ return product;
 			preparedstmnt.setInt(24, user_id);
 			preparedstmnt.setString(25, original_product_name);
 			rs= preparedstmnt.executeUpdate();
-//			Statement stmt=(Statement) conn.createStatement();
-//			
-//			String sql = "UPDATE product" +
-//					"Set product_name = "+product_name+","
-//							+ " product_price = "+product_price+","
-//									+ " quantity = "+quantity+","
-//											+ " product_condition = "+product_condition+","
-//													+ " product_shipping = "+product_shipping+","
-//															+ " product_description = "+product_description+","
-//																	+ " product_discount = "+product_discount+","
-//																			+ " deal = "+deal+","
-//																					+ " brand = "+brand+","
-//																							+ " color = "+color+","
-//																									
-//											+ " screen_size = "+screen_size+","
-//										+ " processor = "+processor+","
-//+ " storage = "+storage+","
-//+ " warranty = "+warranty+","
-//+ " operating_system = "+operating_system+","
-//+ " product_year = "+product_year+","
-//+ " gender = "+gender+","
-//+ " warranty_type = "+warranty_type+","
-//+ " applicable = "+applicable+","
-//+ " material = "+material+","
-//+ " clothing_size = "+clothing_size+","
-//+ " style = "+style+""+
-//"where user_id = "+user_id+"and product_name ="+original_product_name;
-//					
-//			
-//			
-//			status = stmt.executeUpdate(sql);
 		
 		} catch (Exception e) {
 		System.out.println(e);
@@ -658,7 +563,9 @@ return product;
 		}
 			return "unsuccessfull";
 	}
+//======================================END OF CODE MODIFY=======================================================//
 
+//=======================================DELETE PRODUCT==========================================================//    
 	public Message DeleteProduct(String product_name, int seller_id)
 	{
 		PreparedStatement preparedstmnt;
@@ -687,111 +594,9 @@ return product;
 		}
 	  return null;
 	}
-	
-//	public Product setProductInfo(String Product_Name,String Category,String Subcategory,int Price,int Quantity,String Condition,String Shipping,String Description,int Discount) {
-//
-//		PreparedStatement preparedstmnt;
-//		PreparedStatement preparedstmnt1;
-//		PreparedStatement preparedstmnt11;
-//		PreparedStatement preparedstmnt12;
-//		Product response = null;
-//		int category_id=0;
-//		int sub_category_id=0;
-//		int pid=0;
-//			try {
-//				
-//				preparedstmnt11=conn.prepareStatement("select category_id from category where category_name = ?");
-//				preparedstmnt11.setString(1,Category);
-//				ResultSet rs11 = preparedstmnt11.executeQuery();
-//				if(rs11.next())
-//				{
-//					category_id=rs11.getInt(1);
-//				}
-//				preparedstmnt12=conn.prepareStatement("select sub_category_id from sub_category where sub_category_name = ?");
-//				preparedstmnt12.setString(1,Subcategory);
-//				ResultSet rs12 = preparedstmnt11.executeQuery();
-//				if(rs12.next())
-//				{
-//					sub_category_id=rs12.getInt(1);
-//				}
-//				 preparedstmnt = conn.prepareStatement(
-//						 "INSERT INTO `product`(`category_id`,`sub_category_id`,`product_name`,`product_price`,`product_discount`,`product_condition`,`product_shipping`,`product_sold_quantity`,`product_quantity`,`product_available_quantity`,`product_img_url`,`product_description`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-//				preparedstmnt.setInt(1,category_id);
-//				preparedstmnt.setInt(2,sub_category_id);
-//				preparedstmnt.setString(3,Product_Name);
-//				preparedstmnt.setInt(4,Price);
-//				preparedstmnt.setInt(5,Discount);
-//				preparedstmnt.setString(6,Condition);
-//				preparedstmnt.setString(7,Shipping);
-//				preparedstmnt.setInt(8,0);
-//				preparedstmnt.setInt(9,Quantity);
-//				preparedstmnt.setInt(10,Quantity);
-//				preparedstmnt.setString(11,"");
-//				preparedstmnt.setString(12,Description);
-//				System.out.println(category_id +" "+sub_category_id );
-//				System.out.println("product upload successful" + preparedstmnt.executeUpdate());
-//				preparedstmnt1 = conn
-//						.prepareStatement("select product_id from product where product_name = ? and sub_category_id = ?");
-//				preparedstmnt1.setString(1,Product_Name);
-//				preparedstmnt1.setInt(2,sub_category_id);
-//				ResultSet rs = preparedstmnt1.executeQuery();
-//				 
-//				
-//				if (rs.next())
-//					{
-//					pid = rs.getInt(1);
-//				
-//					}
-//				
-//				response = new Product();
-//				response.setProduct_id(pid);
-//				response.setCategory_id(category_id);
-//				response.setSub_category_id(sub_category_id);
-//				response.setProduct_name(Product_Name);
-//				response.setProduct_price(Price);
-//				response.setProduct_discount(Discount);
-//				response.setProduct_condition(Condition);
-//				response.setProduct_shipping(Shipping);
-//				response.setProduct_sold_quantity(0);
-//				response.setProduct_quantity(Quantity);
-//				response.setProduct_available_quantity(Quantity);
-//				response.setProduct_img_url("");
-//				response.setProduct_description(Description);
-//				
-//				
-//				
-//				
-//				
-//					System.out.println(response.getProduct_id());
-//					new File(PathSetup.imagePath + "products/" + response.getProduct_id()+ "/images").mkdirs();
-//					//new ProductService().Upload()
-//					
-//					InputStream fileInputStream = null;
-//					OutputStream outputStream = null;
-//					String path = PathSetup.imagePath + "products/" + response.getProduct_id()+ "/";
-//
-//					try {
-//						fileInputStream = new FileInputStream(PathSetup.imagePath + "defaultProductPic.jpg");
-//
-//						outputStream = new FileOutputStream(new File(path + "productPic.jpg"));
-//						int read = 0;
-//						byte[] bytes = new byte[1024];
-//						while ((read = fileInputStream.read(bytes)) != -1) {
-//							outputStream.write(bytes, 0, read);
-//
-//						}
-//						response.setProduct_img_url("productPic.jpg");
-//						outputStream.close();
-//						fileInputStream.close();
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//				
-//			} catch (Exception e) {
-//				System.out.println("Exception raised!!" + e);
-//			}
-//			return response;
-//		}
+//=======================================END OF CODE OF DELETE PRODUCT===========================================//
+
+//=========================================UPLOAD PRODUCT IMAGE==================================================//	
 	@SuppressWarnings("finally")
 	public String uploadProductPic(InputStream fileInputStream,String fileName, int id) {	
 		System.out.println("now uploading the product");
@@ -842,7 +647,9 @@ return product;
 			return null;
 		}			
 	}
+//=================================END OF CODE OF UPLOAD PRODUCT IMAGE===========================================//	
 	
+//===================================CHECK PRODUCT ID VALID OR NOT===============================================//	
 	public int ValidateProductId(int product_id) {
 		try {
 			
@@ -858,7 +665,7 @@ return product;
 		}
 		return 0;
 	}
-	
+//==============================================END OF CODE======================================================//	
 	
 
 }

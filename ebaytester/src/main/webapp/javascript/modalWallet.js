@@ -11,6 +11,7 @@ $('#myPaisaPay').on('click',function(){
         // HERE WALLET BALANCE W.R.T THE USER WILL BE SHOWN
         // walletModal_balance
         $('#walletModal_balance').html(response.wallet_balance);
+        localStorage.wallet_balance=response.wallet_balance;
 
       }
     });
