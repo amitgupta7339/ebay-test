@@ -2,6 +2,7 @@ var MyOrder_product_list="";/*use to show products list*/
 var result;/*use to store response */
 var x;
 MyOrder_list_ajax();
+//===============================================================Ajax call and get ordered item===================================================//
 function MyOrder_list_ajax(){
 $.ajax({
           type :"GET",
@@ -19,6 +20,7 @@ $.ajax({
           }
         });
       }
+//==================================================================Dynamic html code=============================================================//
 function MyOrder_list(x){
   MyOrder_product_list+=`<li class="list-group-item">
                         <div class="row">
@@ -34,13 +36,20 @@ function MyOrder_list(x){
                          <div class="col-sm-9">
                            <p>${result[x].product_name}</p>
                            <br>
-                           <p style="color:grey">Order date: ${result[x].order_date}</p>
-                           <p style="text-align:right"><a href="#" onclick="product_order_detail(${x})">view order details<span class="glyphicon glyphicon-menu-right"></span></a></p>
+                           <p style="color:grey">Order date: ${result[x].order_date}</p>`
+                           if(result[x].status=="recieved")
+                        	 {
+                        	   MyOrder_product_list+=`<p style="color:green">Order Status: ${result[x].status}</p>`
+                        	 }
+                           else{
+                        	   MyOrder_product_list+=`<p style="color:blue">Order Status: ${result[x].status}</p>`
+                           } 
+    MyOrder_product_list+=`<p style="text-align:right"><a href="#" onclick="product_order_detail(${x})">view order details<span class="glyphicon glyphicon-menu-right"></span></a></p>
                          </div>
                         </div>
                       </li>`
                     };
 function product_order_detail(x){
   localStorage.product_list_indexnumber=x;
-  window.location="http://localhost:5224/ebaytester/myorder.html";
+  window.location="http://localhost:5224/ebaytester/Purchase_More_History.html";
 };

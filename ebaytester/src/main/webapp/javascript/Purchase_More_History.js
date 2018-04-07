@@ -7,6 +7,7 @@ var y;
 var total_qty=0;
 var discount_amount=0;
 MyOrder_list_ajax();
+//===============================================ajax call and get all ordered items=============================================================//
 function MyOrder_list_ajax(){
 $.ajax({
           type :"GET",
@@ -28,29 +29,30 @@ $.ajax({
                 total_amount+=parseInt(discount_amount)*parseInt(result[i].quantity);
               }
             }
-            DetailInWell(x);
+            DetailInWell(x);//function call
             MyOrder_product_list+=`<ul class="list-group">`
             for(i in result)
             {
               if(result[i].deal_id==result[x].deal_id)
               {//alert(result[x].deal_id);
-                MyOrder_list(i);
+                MyOrder_list(i);//function call
               }
             }
             MyOrder_product_list+=`</ul>`
           }
-          else 
+          else
           {//alert("2");
-            DetailInWell(x)
+            DetailInWell(x)//function call
             MyOrder_product_list+=`<ul class="list-group">`
-            MyOrder_list(x);
+            MyOrder_list(x);//function call
             MyOrder_product_list+=`</ul>`
           }
           document.getElementById("MyOrder_list").innerHTML=MyOrder_product_list;
           }
         });
-        
+
       }
+//==========================================================dynamic htnl code for well===========================================================//
 function DetailInWell(y){
 	//alert("DetailInWell");
   MyOrder_product_list+=`<div class="well row">
@@ -73,6 +75,7 @@ function DetailInWell(y){
     </div>
   </div>`
 };
+//=====================================================Dynamic html code for list of order product===============================================//
 function MyOrder_list(y){
 	//alert("MyOrder_list");
   MyOrder_product_list+=`<li class="list-group-item">
