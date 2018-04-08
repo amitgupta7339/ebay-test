@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.ebay_project.ebaytester.model.Category;
-import org.ebay_project.ebaytester.model.Product;
 import org.ebay_project.ebaytester.model.Product_list;
 import org.ebay_project.ebaytester.model.Subcategory;
 

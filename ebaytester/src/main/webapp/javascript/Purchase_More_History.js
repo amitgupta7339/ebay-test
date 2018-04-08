@@ -42,6 +42,10 @@ $.ajax({
           }
           else
           {//alert("2");
+        	total_qty=parseInt(total_qty)+parseInt(result[x].quantity);
+        	discount_amount=parseInt(parseInt(result[x].amount)*parseInt(result[x].product_discount)/100);
+            discount_amount=parseInt(result[x].amount)-discount_amount;
+        	total_amount+=parseInt(discount_amount)*parseInt(result[x].quantity);
             DetailInWell(x)//function call
             MyOrder_product_list+=`<ul class="list-group">`
             MyOrder_list(x);//function call
@@ -98,8 +102,8 @@ function MyOrder_list(y){
   MyOrder_product_list+=`</div>
         <div class="col-sm-4">`
         if(result[y].product_discount!=0)
-        {discount_amount=parseInt(parseInt(result[i].amount)*parseInt(result[i].product_discount)/100);
-         discount_amount=parseInt(result[i].amount)-discount_amount;
+        {discount_amount=parseInt(parseInt(result[y].amount)*parseInt(result[y].product_discount)/100);
+         discount_amount=parseInt(result[y].amount)-discount_amount;
           //discount_amount=parseInt(result[i].amount)-parseInt(parseInt(result[i].amount)*parseInt(result[i].product_discount))/100);
           MyOrder_product_list+=`<b>Price:</b> <strike>${result[y].amount}</strike> ${discount_amount}</p>`
         }

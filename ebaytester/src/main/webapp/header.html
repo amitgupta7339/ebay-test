@@ -48,20 +48,55 @@
            <li><a id="two" href="#">Recently Viewed</a></li>
            <li><a id="two" href="#">Bids/Offers</a></li>
            <li><a id="two" href="#">Watch List</a></li>
-           <li><a id="two" href="#">Purchase History</a></li>
+           <li><a id="two" href="http://localhost:5224/ebaytester/Purchase_History.html">Purchase History</a></li>
            <li><a id="two" href="#">Selling</a></li>
            <li><a id="two" href="#">Saved Searches</a></li>
            <li><a id="two" href="#">Saved Sellers</a></li>
            <li><a id="two" href="#">Messages</a></li>
          </ul>
        </li>
-       <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="two" href="#">My PaisaPay</a></li>
+       <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="myPaisaPay" href="#" data-toggle="modal" data-target="#walletModal" data-backdrop="static" data-keyboard="false">My PaisaPay</a></li>
+       <!-- <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center"><a id="two" href="#">My PaisaPay</a></li> -->
        <li style="width:50px; display:table-cell; text-align:right;"><span style="font-size:18px ;" class="glyphicon glyphicon-bell"></span></li>
        <li style=" width:50px; display:table-cell; text-align:right;" title="your shopping cart is empty"><a id="two" onclick="cart()" href="#"><span style="font-size:18px;"  class="glyphicon glyphicon-shopping-cart"></span><span id="count"></span></a></li>
      </ul>
    </div>
  </div>
 </div>
+
+<!--===================================================== WALLET MODAL ===================================================== -->
+<div class="modal fade walletModal" id="walletModal" tabindex="-1" role="dialog" aria-labelledby="walletModal" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title text-muted" id="modalLongTitle"> eBay Wallet</h4>
+    </div>
+    <div class="modal-body">
+      <p>Hi! <span id="walletModal_user_name">User_XYZ</span></p>
+      <p>Your available wallet balance is:</p>
+      <p><h1 class="display-4">Rs. <span id="walletModal_balance"> XXXX.0000  </span> </h1></p>
+    </div>
+    <div class="modal-footer">
+      <form class="form-inline" id="walletForm">
+
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon">Rs.</div>
+            <input type="number" class="form-control" name="enterMoney" id="enterAmount" placeholder="Enter the Amount">
+          </div>
+
+          <button type="submit" class="btn btn-success" id="addMoney"> Add Money </button>
+          <!-- onclick="addMoney()" -->
+    </form>
+    </div>
+  </div>
+</div>
+</div>
+<!--===================================================== WALLET MODAL ===================================================== -->
+
+
 <nav class="navbar navbar-default navbar-expand-lg" >
 <div class="container">
 <!-- end sign in bar code  -->
@@ -191,4 +226,5 @@
         $('#count').html(localStorage.count);
       }
       </script>
+      <script src="javascript/modalWallet.js"></script>
 </div>

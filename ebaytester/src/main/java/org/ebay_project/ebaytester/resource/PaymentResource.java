@@ -10,30 +10,43 @@ import javax.ws.rs.core.MediaType;
 
 import org.ebay_project.ebaytester.service.PaymentService;
 
-@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-@Produces(MediaType.TEXT_PLAIN)
+
 @Path("/payment")
 public class PaymentResource {
-
+	
 	PaymentService payment = new PaymentService();
-// =======================================PAYMENT BASES ON PRODUCT ID AND QUANTITY================================//
-	@POST//(written by Mayank)
-	@Path("/{product_id}/{quantity}")
-	public String PaymentValidation(@PathParam("product_id") int product_id, @PathParam("quantity") int buy_quantity,
-			@FormParam("card_number") String card_number, @FormParam("cvv") String cvv,
-			@FormParam("ex_month") String ex_month, @FormParam("ex_year") String ex_year) {
+	
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("{user_id}/{product_id}/{quantity}")
+	public String PaymentValidation(@PathParam("user_id") int user_id,@PathParam("product_id") int product_id,@PathParam("quantity") int buy_quantity,  
+								  @FormParam("card_number") String card_number, 
+								  @FormParam("cvv")String cvv,
+								  @FormParam("ex_month")String ex_month,
+								  @FormParam("ex_year") String ex_year)
+		{
 		System.out.println("Calling validation");
 		System.out.println(product_id);
 		System.out.println(card_number);
 		System.out.println(cvv);
 		System.out.println(ex_month);
 		System.out.println(ex_year);
-		if (payment.Validation(product_id, buy_quantity, card_number, cvv, ex_month, ex_year))
-			return "true";
-		else {
-			System.out.println(payment.result);
+		if(payment.Validation(user_id,product_id,buy_quantity,card_number,cvv,ex_month,ex_year))
+			return "true"+"TXN000"+payment.result;
+		else
+		{	System.out.println(payment.result);
 			return payment.result;
 		}
-	}
+		}
+	
+	@POST
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("wallet/{user_id}/{product_id}/{quantity}")
+	public String buyWallet(@PathParam("product_id") int product_id,@PathParam("quantity") int buy_quantity,@PathParam("user_id") int user_id)
+		{
+		 return payment.buyWallet(user_id,product_id,buy_quantity);
+		}	
 }
 // ===================================================END OF CODE=================================================//

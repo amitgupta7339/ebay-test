@@ -38,34 +38,29 @@ public class WalletPaymentService {
 	}
 
 	// Validation Logic for Card details checking while adding money to wallet
-	public String Validation(double walletAmount, String card_number, String cvv, String ex_month, String ex_year, int user_id)
-	{
+	public String Validation(double walletAmount, String card_number, String cvv, String ex_month, String ex_year,
+			int user_id) {
 		try {
-			//System.out.println("Inside Validation");
+			// System.out.println("Inside Validation");
 
-			this.walletAmount=walletAmount;
-			String ex_date=ex_month+"/"+ex_year;
-			pay=cardDetailsValidation(card_number,cvv,ex_date);
-			if(pay==null)
-			{
-				result="Invalid card details.";
+			this.walletAmount = walletAmount;
+			String ex_date = ex_month + "/" + ex_year;
+			pay = cardDetailsValidation(card_number, cvv, ex_date);
+			if (pay == null) {
+				result = "Invalid card details.";
 				System.out.println("Invalid card details");
 				return result;
-			}
-			else
-			{
-//				String query = "SELECT * FROM cardDetails"
-				if(pay.getBalance() >= walletAmount)
-				{
+			} else {
+				// String query = "SELECT * FROM cardDetails"
+				if (pay.getBalance() >= walletAmount) {
 					String query = "SELECT wallet_balance FROM user WHERE user_id = ?";
 					PreparedStatement pstmt = con.prepareStatement(query);
 					pstmt.setInt(1, user_id);
 					rs = pstmt.executeQuery();
 
-					if(rs.next())
-					{
+					if (rs.next()) {
 						double updateCardBalance = pay.getBalance() - walletAmount;
-						walletAmount += rs.getDouble("wallet_balance") ;
+						walletAmount += rs.getDouble("wallet_balance");
 						query = "UPDATE user SET wallet_balance = ? WHERE user_id = ?";
 						pstmt = con.prepareStatement(query);
 						pstmt.setDouble(1, walletAmount);
@@ -73,16 +68,14 @@ public class WalletPaymentService {
 
 						int result1 = pstmt.executeUpdate();
 
-						if(result1>0)
-						{
+						if (result1 > 0) {
 							query = "UPDATE cardDetails SET balance = ? WHERE card_number=?";
 							pstmt = con.prepareStatement(query);
 							pstmt.setDouble(1, updateCardBalance);
 							pstmt.setString(2, card_number);
 							result1 = pstmt.executeUpdate();
 
-							if(result1 > 0)
-							{
+							if (result1 > 0) {
 								result = "Successfully added balance to your wallet";
 								return result;
 							}
@@ -92,17 +85,15 @@ public class WalletPaymentService {
 					}
 				}
 			}
-	}
-		catch (SQLException e) 
-		{		 
+		} catch (SQLException e) {
 			e.printStackTrace();
 			result = "Inside line 99 Wallet Payment service";
 			return result;
-	 	}
-	 result = "Failed to add balance to your wallet";
-	 return result;
+		}
+		result = "Failed to add balance to your wallet";
+		return result;
 
-}
+	}
 
 	public Payment cardDetailsValidation(String card_number1, String cvv1, String ex_date1) {
 		try {

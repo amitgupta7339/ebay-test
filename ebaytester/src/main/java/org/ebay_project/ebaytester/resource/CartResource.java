@@ -2,6 +2,8 @@ package org.ebay_project.ebaytester.resource;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -57,5 +59,37 @@ public class CartResource {
 		CartService C1 = new CartService();
 		return C1.addToCart(product_id, user_id, quantity);
 	}
+	
+	 @GET
+	   	@Path("/getallcheckedproduct/{user_id}")
+	   	@Produces(MediaType.APPLICATION_JSON)  
+	    public List<Cart> getCardBuyProductList(@PathParam("user_id")int user_id)
+		{
+			CartService C1=new CartService();
+			return C1.getCartBuyProductList(user_id);
+		}
+	    
+	    @POST
+	    @Path("/buyallcheckedproduct/{user_id}")
+	    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	    @Produces(MediaType.TEXT_PLAIN)
+	    public String buyAllCartItems(@PathParam("user_id") int user_id,@FormParam("card_number") String card_number, 
+				  @FormParam("cvv")String cvv,
+				  @FormParam("ex_month")String ex_month,
+				  @FormParam("ex_year") String ex_year)
+	    {	CartService C1=new CartService();
+	    	return C1.buyCartItems(user_id,card_number,cvv,ex_month,ex_year);
+	    	
+	    }
+	    
+	    @POST
+	    @Path("/buyallcheckedproduct/wallet/{user_id}")
+	    @Produces(MediaType.TEXT_PLAIN)
+	    public String buyCartWallet(@PathParam("user_id") int user_id)
+	    {	CartService C1=new CartService();
+	    	return C1.buyCartWallet(user_id);
+	    	
+	    }
+	    
 }
 // ===============================================END OF CODE=====================================================//

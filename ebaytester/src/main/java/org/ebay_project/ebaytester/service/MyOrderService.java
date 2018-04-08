@@ -33,7 +33,7 @@ public class MyOrderService {
 		ArrayList<MyOrder> list = new ArrayList<>();
 		PreparedStatement preparedstmnt = null;
 		try {
-			String query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id, d.free_check, d.deal_id,  u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND d.deal_id=t.deal_id AND t.user_id=? ORDER BY order_date DESC";
+			String query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id, d.free_check, d.deal_id,  u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND d.deal_id=t.deal_id AND t.user_id=? ORDER BY t.order_date DESC";
 			// String query = "select * from transaction where user_id=?";
 			preparedstmnt = connection.prepareStatement(query);
 			preparedstmnt.setInt(1, user_id);
@@ -68,7 +68,7 @@ public class MyOrderService {
 
 			}
 
-			query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id,u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND t.user_id=? AND t.deal_id=? ORDER BY order_date DESC";
+			query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id,u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND t.user_id=? AND t.deal_id=? ORDER BY t.order_date DESC";
 			// String query = "select * from transaction where user_id=?";
 			preparedstmnt = connection.prepareStatement(query);
 			preparedstmnt.setInt(1, user_id);
@@ -81,7 +81,7 @@ public class MyOrderService {
 				String txnid = "TXN000" + rs.getInt("Txn_id");
 				oo.setTxn_id(txnid);
 				oo.setDeal_id(rs.getInt("deal_id"));
-				oo.setFree_check(rs.getInt("free_check"));
+				//oo.setFree_check(rs.getInt("free_check"));
 				oo.setUser_id(rs.getInt("user_id"));
 				oo.setSeller_id(rs.getInt("seller_id"));
 				oo.setAmount(rs.getInt("amount"));
