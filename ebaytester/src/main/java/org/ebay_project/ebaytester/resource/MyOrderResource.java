@@ -11,8 +11,8 @@ import org.ebay_project.ebaytester.model.MyOrder;
 import org.ebay_project.ebaytester.service.MyOrderService;
 @Path("/MyOrder")
 public class MyOrderResource {
-
-	@GET
+//=============================================LIST OF MY ORDERS==================================================// 
+	@GET//(written by Prakhar)
 	@Path("/list/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<MyOrder> MyOrderList(@PathParam("user_id") int user_id){
@@ -20,3 +20,4 @@ public class MyOrderResource {
 		return os.MyOrderList(user_id);
 	}
 }
+//================================================END OF CODE=====================================================//

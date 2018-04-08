@@ -142,7 +142,7 @@ $('#shop_more').click(function(){
 });
 $('#place_order').click(function(){
 	//localStorage.product_id_buynow=null;
-	alert(localStorage.product_id_buynow);
+	//alert(localStorage.product_id_buynow);
 	window.location="http://localhost:5224/ebaytester/orderReviewCart.html";
 });
 /*==========================================================================END OF CODE==========================================================*/
