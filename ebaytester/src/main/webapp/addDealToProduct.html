@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add New Deal</title>
+<meta charset = "utf-8">
+	<meta name = "viewport" content = "width=device-width , initial scale = 1">
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  	<script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- <script src="bootstrap-select-1.12.4/js/bootstrap-select.js"></script>-->
+     <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="datepicker/css/datepicker.css"></script>
+    <script src="datepicker/js/bootstrap-datepicker.js"></script>
+</head>
+<body>
+	<div class = "container" >
+	     <div class="row">
+        <div class="col-sm-11"><a href="http://localhost:5224/ebaytester/home.html"><img src="images/logo.png" title="eBay"></a></div>
+      </div>
+		<br>
+		<br>
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-6">
+		<label for="Category">Select Deal:</label>
+			<select  name="Deal" id="Deal" style="width:150px;">
+           		<option value="">None</option>
+         	</select>
+		</div>
+		<div class="col-sm-5">
+
+         </div>
+	</div>
+	<div id="deal_fields" >
+	<br>
+	<br>
+		<div class="row">
+			<div class="col-sm-6">
+			<h4 id="paid_tag">Select Paid Products :</h4>
+			<div id="paid">
+			</div>
+			</div>
+			<div class="col-sm-6">
+			<h4 id="free_tag">Select Free Products :</h4>
+			<div id="free">
+			</div>
+			</div>
+
+		</div>
+		<br>
+		<br>
+		<div class="row">
+		<div class="col-sm-6">
+		<h4>Deal Start Date*:</h4>
+		<div class="well span12 main">
+  			<input type="text" id="start_date" class="span2 datepicker" placeholder="Deal will start On" name="start_date"> <br>
+      	</div>
+      	</div>
+      	<div class="col-sm-6">
+      	<h4>Deal End Date*:</h4>
+      	<div class="well span12 main">
+  			<input type="text" id="end_date" class="span2 datepicker" placeholder="Deal will end On" name="end_date"> <br>
+      	</div>
+      	</div>
+      	</div>
+      	<div class="form-group">
+    		<label for="Discount">Overall Discount%<span style="font-size:13px;color:grey;">(if any)</span></label>
+    		<input name="Overall_Discount" id="Overall_Discount" />
+		</div>
+		<button type="button" class="btn btn-primary" id="submit" onclick="addNewDeal()">Submit</button>
+	</div>
+	
+	</div>
+	<script src="javascript/addDealSeller.js"></script>
+</body>
+</html>

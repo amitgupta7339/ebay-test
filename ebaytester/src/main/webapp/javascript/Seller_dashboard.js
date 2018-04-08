@@ -10,3 +10,6 @@ $('#Delete').click(function(){
 $('#change_address').click(function(){
   window.location="http://localhost:5224/ebaytester/address_form_seller.html";
 });
+$('#AddDeal').click(function(){
+	  window.location="http://localhost:5224/ebaytester/addDealToProduct.html";
+	});

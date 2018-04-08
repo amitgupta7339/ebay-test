@@ -38,6 +38,49 @@
         <button type="submit" class="btn btn-danger" id="delete" >Delete</button>
       </form>
 <!--===================================================================FORM END================================================================  -->
+<!--===================================================================Deal Part================================================================  -->
+   <br>
+   <br>
+   <h3>Add New Deals</h3>
+   <hr>
+   <br>
+   <br>
+
+   <form class="form-horizontal" id="admin_deals">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Deal_Name">Deal Name*</label>
+          <div class="col-sm-7">
+            <input type="test" class="form-control" id="Deal_Name" placeholder="Enter Deal Name" name="Deal_Name" value="" required>
+          </div>
+        </div>
+        <br>
+     <div class="form-group">
+          <label class="control-label col-sm-2" for="Paid">Paid Products*</label>
+          <div class="col-sm-7">
+            <input type="number" class="form-control" id="Paid" min="0" placeholder="Enter no of paid products" name="Paid" value="" required>
+       	  </div>
+       </div>
+       <br>
+      <div class="form-group">
+          <label class="control-label col-sm-2" for="Free">Free Products*</label>
+          <div class="col-sm-7">
+            <input type="number" class="form-control" id="Free" min="0" placeholder="Enter no of free products" name="Free" value="" required>
+       	  </div>
+       </div>
+       <br>
+           <div class="form-group">
+          <label class="control-label col-sm-2" for="Discount">Overall Discount(%)*</label>
+          <div class="col-sm-7">
+            <input type="number" class="form-control" id="Discount" min="0" placeholder="Enter total discount on deal in percent" name="Discount" value="" required>
+       	  </div>
+       </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+
+   </form>
     </div>
     <script src="javascript/admin_category.js"></script>
     <script src="ajax/admin_category_ajax.js"></script>

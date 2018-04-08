@@ -38,3 +38,23 @@ $('#admin_category').submit(function(){
    }
 });
 //===============================================================END OF CODE======================================================================//
+$('#admin_deals').submit(function(){
+	//alert("Inside");
+	//alert($('#Free').val())
+	/*alert($('#Paid').val())
+	alert($('#Deal_Name').val())
+	alert($('#Discount').val())
+*/
+    $.ajax({
+        type: "post",
+        url:  "http://localhost:5224/ebaytester/webapi/deal/addNewDeal",
+        data: $('#admin_deals').serialize(),
+        dataType: 'text',
+        complete: function(data){
+     	   console.log(data);
+           //alert(JSON.stringify(data));
+
+        }
+      });
+
+	});

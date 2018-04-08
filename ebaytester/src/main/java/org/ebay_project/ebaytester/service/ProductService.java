@@ -209,6 +209,7 @@ public class ProductService {
 
 			while (rs.next()) {
 				p1 = new Product();
+				p1.setProduct_id(rs.getInt(1));
 				p1.setSub_category_id(rs.getInt(2));
 				p1.setCategory_id(rs.getInt(3));
 				p1.setUser_id(rs.getInt(4));
