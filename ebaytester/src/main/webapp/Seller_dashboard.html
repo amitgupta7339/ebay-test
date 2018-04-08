@@ -1,0 +1,47 @@
+<!-- contribution of AMIT to write this code -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DashBoard|eBay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="myjquery.js"></script>
+    <link rel="icon" href="ebayFav.ico">
+     <script>
+      $(function(){
+        $("#header").load("header.html");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="container">
+          <span class="col-sm-4" >
+            <button type="submit" class="btn btn-success" id="new_product">new_product</button>
+          </span>
+           <span class="col-sm-4">
+            <button type="submit" class="btn btn-warning" id="modify">modify</button>
+          </span>
+          <span class="col-sm-4">
+           <button type="submit" class="btn btn-danger" id="Delete">Delete</button>
+         </span>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+          <span class="col-sm-4" >
+            <button type="submit" class="btn btn-info" id="change_address">change_address</button>
+          </span>
+           <!-- <span class="col-sm-4">
+            <button type="submit" class="btn btn-warning" id="modify">modify</button>
+          </span>
+          <span class="col-sm-4">
+           <button type="submit" class="btn btn-danger" id="Delete">Delete</button>
+         </span> -->
+    </div>
+  <script src="javascript/Seller_dashboard.js">  </script>
+ </body>
+</html>

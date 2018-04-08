@@ -1,0 +1,230 @@
+<!-- contribution of AMIT to write this code -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Modify Product|eBay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="icon" href="ebayFav.ico">
+     <!-- <script>
+      $(function(){
+        $("#header").load("header.html");
+      });
+    </script> -->
+
+  </head>
+  <body>
+    <div id="header"></div>
+<!-- ======================================================== Product_Name-dropdown ================================================== -->
+    <div class="container">
+      <div class="row">
+         <div class="col-sm-11"><a href="http://localhost:5224/ebaytester/home.html"><img src="images/logo.png" title="eBay"></a></div>
+     </div>
+      <form class="form-horizontal" id="Product_name_list">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Products_name">Product Name</label>
+          <div class="col-sm-10">
+            <select  name="Products_name" id="Products_name">
+             <option value="">All Products names bases on seller name</option>
+           </select>
+          </div>
+          <!--<div class="col-sm-3">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-warning">modify</button>
+            </div>
+          </div>-->
+        </div>
+      </form>
+    </div>
+    <br>
+<!-- ==================================================  Product_modify_form ===========================================================  -->
+    <div id="Product_modify_form_upload">
+      <form class="form-horizontal" id="Product_modify_form">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Item_id">Item Id*</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Item_id" placeholder="Enter Item_id" name="Item_id" value="" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Product_Name">Product Name*</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Product_Name" placeholder="Enter Product_Name" name="Product_Name" value="" required>
+          </div>
+        </div>
+        <!--  <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Category*</label>
+          <div class="col-sm-10">
+             <select class="col-sm-3" name="Category" id="Category" required>
+              <option value="">All Category</option>
+            </select>
+            <label class="control-label col-sm-2" for="pwd">Subcategory*</label>
+           <select class="col-sm-3" name="Subcategory" id="Subcategory" required>
+              <option value="">Sub Category</option>
+            </select>
+          </div>
+        </div>-->
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Price">Price*</label>
+          <div class="col-sm-10">
+            <input class="col-sm-5" type="number" class="form-control" id="Price" min="0" placeholder="Enter Price in INR" name="Price" value="" required>
+            <label class="control-label col-sm-2" for="Quantity">Quantity*</label>
+            <input class="col-sm-5" type="number" class="form-control" id="Quantity" min="0" placeholder="Enter no of pieces available" name="Quantity" value="" required>
+          </div>
+        </div>
+        <!-- <div class="form-group">
+          <label class="control-label col-sm-2" for="Condition">Condition*</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Condition" placeholder="Enter Condition"   name="Condition" value="" required>
+          </div>
+        </div> -->
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Shipping">Shipping*</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Shipping" placeholder="Enter delivery mode" name="Shipping" value="" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Description">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Description" placeholder="Add Product Description" name="Description" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Discount">Discount</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="Discount"  max="100" placeholder="Enter Discount" name="Discount" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Condition">Condition</label>
+          <div class="col-sm-10">
+            <select class="col-sm-5" name="Condition" id="Condition">
+              <!-- <option value="">Condition</option> -->
+              <option value="NEW">NEW</option>
+              <option value="USED">USED</option>
+            </select>
+            <label class="control-label col-sm-2" for="Color">Color</label>
+            <select class="col-sm-5" name="Color" id="Color">
+              <option value="">Choose Color</option>
+              <option value="RED">RED</option>
+              <option value="GREEN">GREEN</option>
+              <option value="BLUE">BLUE</option>
+              <option value="PINK">PINK</option>
+              <option value="BLACK">BLACK</option>
+              <option value="WHITE">WHITE</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Brand">Brand</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Brand" placeholder="Enter Brand" name="Brand" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <!-- <div class="form-group">
+          <label class="control-label col-sm-2" for="Color">Color</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Color" placeholder="Enter Color" name="Color" style="text-transform:uppercase" value="">
+          </div>
+        </div> -->
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Screen_size">Screen_size</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Screen_size" placeholder="Enter Screen_size in inch" name="Screen_size" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Processor">Processor</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Processor" placeholder="Enter Processor" name="Processor" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Storage">Storage</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Storage" placeholder="Enter Storage value" name="Storage" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Warranty">Warranty</label>
+          <div class="col-sm-10">
+            <div class="col-sm-11">
+              <input type="text" class="form-control" id="Warranty" placeholder="Enter Warranty in months" name="Warranty" style="text-transform:uppercase" value="">
+            </div>
+               <div class="col-sm-1">
+                   <span >/MONTHS</span>
+               </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Operating_system" >Operating_system</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Operating_system" placeholder="Enter Operating_system" name="Operating_system" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Product_year">Product_year</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="Product_year" placeholder="Enter Product_year" name="Product_year" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Gender">Gender</label>
+          <div class="col-sm-10">
+             <select class="col-sm-5" name="Gender" id="Gender">
+              <option value="">Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+            <label class="control-label col-sm-2" for="Warranty_type">Warranty_type</label>
+            <select class="col-sm-5" name="Warranty_type" id="Warranty_type">
+              <option value="">Warranty_type</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Applicable">Applicable</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Applicable" placeholder="Enter Applicable" name="Applicable" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Material">Material</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Material" placeholder="Enter Material" name="Material" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Clothing_size">Clothing_size</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Clothing_size" placeholder="Enter Clothing_size" name="Clothing_size" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Style">Style</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Style" placeholder="Enter Style" name="Style" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="Card_class">Card_class</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="Card_class" placeholder="Enter Card_class" name="Card_class" style="text-transform:uppercase" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="javascript/product_modify.js"></script>
+    <script src="ajax/product_modify_ajax.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Sign in or Register|eBay</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes ">
+		<link rel="stylesheet" href="register_style.css">
+		
+	</head>
+	<body bgcolor="#F7F7F7">
+			<div id="header">
+				<br>
+				<center><img src="ebay1.png" alt="eBay" align="center" height="48" width="135"></center>
+			</div>
+			<br>
+		<div id="container">
+			
+					<a href="login.html"><img src="signin.png" alt="eBay" align="center" height="48" width="200" id="signin"></a></li>
+					<a href="register.html"><img src="register.png" alt="eBay" align="center" height="48" width="200" id="register"></a></li>
+				
+			<br>
+			<br>
+			<div id="form">
+					<form onsubmit="make_json(this);"> 
+						<br>
+						
+						<p id="p1">First name <span id="tab">Last name</span></p>
+						<input type="text" class="text" name="fname" id="text1">
+						<input type="text" class="text" name="lname" id="text2">
+						<br><br>
+						<p id="p1">Email address</p>
+						<input type="email" class="email" name="email">
+						<br><br>
+						<p id="p1">Password</p>
+						<div>
+							<input type="password" class="password" name="password">
+								<div>
+								<!--<p class="p2"><input type="checkbox" name="show" id="show">Show</input></p> -->
+								</div>
+							</input>
+						</div>
+						<p class="p2">By clicking <b>Register</b>, you agree that you have read and accepted our <a id="a" href="#">User Agreement, User Privacy Notice, Rules and Policies </a>
+						and the <a id="a" href="#">UPaisaPay User Agreement</a>.</p>
+						<input type="submit" value="Register" class="Register" ></input>
+						
+					</form>
+				</div>
+		</div>
+		<script>
+		<!--
+			function make_json(form)
+			{
+			var json ={
+			"first_name" : form.fname.value,
+			"last_name": form.lname.value,
+			"user_email" : form.email.value,
+			"user_password": form.password.value
+			};
+			var html=JSON.stringify(json,0,4);
+			document.getElementById("output").innerHTML=html;
+			return false;
+			}
+			
+		</script>
+	
+	</body>
+	
+</html>
+	
+

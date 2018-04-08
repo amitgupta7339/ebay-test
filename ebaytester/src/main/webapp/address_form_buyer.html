@@ -1,0 +1,93 @@
+<!-- contribution of MAYANK to write this code -->
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="ISO-8859-1">
+  <title>Buyer Address|eBay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="icon" href="ebayFav.ico">
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-5"></div>
+      <div class="col-md-4">
+      <img class="img-responsive" src="images/logo.png" width="120" height="100" align="middle" />
+      </div>
+      </div>
+      <div class="container">
+
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+
+      <div class="panel panel-default">
+      <div class="panel-body">
+      <h4><p align="center">Provide your contact info</p></h4>
+      <form id="Address_From">
+      <div class="form-group">
+        <label for="country"></label>
+        <select class="form-control" id="country" name="country">
+          <option>India</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+      <label for="address"></label>
+      <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" value=""/>
+      </div>
+      <div class="form-group form-inline">
+        <label for="state"></label>
+        <select class="form-control" id="state" style="width:200px" name="state">
+          <option value="MadhyaPradesh">MadhyaPradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Punjab">Punjab</option>
+          <option value="AndhraPradesh">AndhraPradesh</option>
+        </select>
+
+        <label for="pincode"></label>
+      <input type="number" class="form-control" id="pincode" placeholder="Pin Code" style="width:105px" name="pincode" value=""/>
+
+      </div>
+
+      <div class="form-group">
+      <label for="email"></label>
+      <input type="email" class="form-control" id="emailid" placeholder="Enter your email address" name="emailid" value=""/>
+
+      </div>
+
+      <div class="form-group">
+      <label for="mobile"></label>
+      <input type="text" class="form-control" id="mobile" placeholder="Enter your mobile number" name="mobile" value=""/>
+      </div>
+      <div class="form-group">
+      <div class="checkbox">
+          <label><input type="checkbox" id="t&c" name="t&c" required>I agree to all terms and conditions.</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="continue" style="width:320px">Continue</button>
+
+
+      </form>
+      </div>
+      </div>
+      </div>
+    </div>
+    <script>
+      $("#emailid").val(localStorage.email);
+    </script>
+    <script>
+      if(localStorage.user_PINCODE!=8888)
+      {
+        $("#address").val(localStorage.user_Address);
+        $("#state").val(localStorage.user_State);
+        $("#pincode").val(localStorage.user_PINCODE);
+        $("#mobile").val(localStorage.user_Phone);
+      }
+    </script>
+    <script src="ajax/address_form_buyer_ajax.js"></script>
+  </body>
+</html>

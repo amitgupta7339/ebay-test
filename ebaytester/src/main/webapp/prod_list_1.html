@@ -1,0 +1,129 @@
+<!-- contribution of PULKIT to write this code -->
+<!Doctype HTML>
+<html lang="en">
+<head>
+	<title>Product List</title>
+	<meta charset = "utf-8">
+	<meta name = "viewport" content = "width=device-width , initial scale = 1">
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		 <link rel="icon" href="ebayFav.ico">
+  <!--  <script src="bootstrap-select-1.12.4/js/bootstrap-select.js"></script> -->
+
+  	<link rel="stylesheet" href="css/basic.css">
+ </head>
+ <script>
+  $(function(){
+ 	 $("#header").load("header.html");
+  });
+  $('title').html(localStorage.category_name+"|eBay");
+ </script>
+ <body>
+<div id="header"></div>
+ 	<div class = "container" >
+     <!-- <a href="http://localhost:5224/ebaytester/home.html"><img src="images/ebayin logo.JPG" width="140" height="60"/></a> -->
+ 		<div class = "row">
+ 			<div class = "col-sm-2">
+ 			<br>
+ 				<div id = "first_half">
+ 				<div id = "CatSub"><!-- subcategory list division -->
+ 					<p style="font-size:16px"><a id = "category_name" href=""></a> </p>
+ 					<br>
+ 					<div class="row">
+ 						<div class="col-sm-2"></div>
+ 						<div id="subCategory_list" class="col-sm-10"></div>
+ 					</div>
+ 					<br>
+ 				</div>
+ 				<p style="font-size:18px;"><strong> Price</strong></p>
+ 				<div class= "row">
+ 					<div class="col-sm-1"><p style="font-size:12px">Rs.</p></div>
+ 					<div class="col-sm-3"><input type="text" style="width:40px" id="price_text1" name="start_price"></div>
+ 					<div class="col-sm-2"><p style="font-size:12px">to Rs.</p></div>
+ 					<div class="col-sm-3"><input type="text" style="width:40px" id="price_text2" name="end_price"></div>
+ 					<div class="col-sm-3">
+ 						<button type="button" class="btn btn-info" onclick="priceFilter(document.getElementById('price_text1').value,document.getElementById('price_text2').value)">
+      						<span class="glyphicon glyphicon-forward"></span>
+    					</button></div>
+ 				</div>
+ 				<div id = "filters">
+
+ 				</div>
+ 				<!-- <div id= "sort_by_price_div">
+ 				<p style="font-size:18px;"><strong> Sort By Price:</strong></p>
+ 				<select  name="Sort_By_price" id="Sort_By_price">
+ 				 <option value="">Sort By</option>
+ 				 <option value="High_To_Low">High To Low</option>
+ 				 <option value="Low_TO_High">Low To High</option>
+ 				 </select>
+ 				</div>
+ 				<br>
+				<div id= "Deal_div">
+ 				<p style="font-size:18px;"><strong> Deal:</strong></p>
+ 				<select  name="Deal" id="Deal">
+					<option value="">Deals</option>
+ 				 <option value="BUY 1 GET 1">BUY 1 GET 1</option>
+ 				 </select>
+ 				</div>-->
+ 				<br>
+
+ 				</div>
+            </div>
+ 			<div class = "col-sm-8" style="background-color:white;">
+      </br>
+      	<div class = "row">
+         <div class = "col-sm-6">
+         <div class="btn-group">
+          <button type="button" class="btn" onclick="location.href = 'http://localhost:5224/ebaytester/prod_list_1.html';">All Listing</button>
+          <button type="button" class="btn" onclick="location.href = 'http://localhost:5224/ebaytester/construction_page.html';">Auction</button>
+          <button type="button" class="btn" onclick="location.href = 'http://localhost:5224/ebaytester/construction_page.html';">Buy It Now</button>
+          </div>
+          </div>
+          <div class = "col-sm-6">
+          <div class = "row">
+          	<div class = "col-sm-1"></div>
+          	<div class = "col-sm-1"><p style="color:grey;">Sort:</p> </div>
+          	<div class ="col-sm-5">
+          		         <!--   <div class="relativeWrap">
+    	<div class="stickyWrap">-->
+        	<select class="form-control" id="sortFilter" style ="width:140px;height:30px;margin-left:4px;" onchange = "SortFilter(this.value)">
+             		<option value="None">None</option>
+            		<option value="LowToHigh">Low To High</option>
+            		<option value="HighToLow">High To Low</option>
+        	</select>
+    	<!-- </div>
+    	</div>-->
+          	</div>
+
+          	<div class = "col-sm-1"><p style="color:grey;">View:</p> </div>
+            <div class ="col-sm-4">
+		<select class="form-control glyphicon" style ="width:100px;height:30px;margin-left:4px;" onchange = "ChangeView(this.value)">
+    		<option value="list" >&#xe012; List </option>
+    		<option value="grid">&#xe011; Grid </option>
+		</select>
+          	</div>
+          </div>
+          </div>
+        </div>
+      </br>
+      <style>
+$('.dropDown').hover(function(){
+  $('.dropDown', this).trigger('click');
+});
+      </style>
+        <!--  <div class = "row">
+        <div class = "col-sm-10">
+ 				 <!--  <img src="images/f1.jpg" alt="category" style="width:100%">
+         </div>
+        </div>-->
+ 				  <div id= "product_list" class = "row">
+				 </div>
+ 			</div>
+ 			<div class = "col-sm-2">
+ 			</div>
+ 		</div>
+ 	</div>
+  <script src="javascript/Product_list_1.js"> </script>
+ </body>
+ </html>

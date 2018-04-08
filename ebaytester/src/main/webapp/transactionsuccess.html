@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="jquery-3.3.1/jquery.min.js"></script>
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<title>Transaction successful</title>
+
+
+
+
+</head>
+<body>
+<div class="container">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<img src="images/logoebay.jpg" width="200px" height="100px"/>
+<h2><i>Transaction Successful!!</i></h2>
+<p id="transaction_id"></p>
+<h2><i>Thanks for shopping with eBay.</i></h2>
+<div class="form-group">
+  <label for="comment"><h3>Help us improve!! Share your feedback:</h3></label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+  <br/>
+  <a href="http://localhost:5224/ebaytester/home.html"><button class="btn btn-primary">continue</button></a>
+</div>
+
+</div>
+
+
+</div>
+<script>
+document.getElementById("transaction_id").innerHTML="<a href='#'><h3>Your transaction id is "+localStorage.Transactionid+"</h3></a>";
+</script>
+
+</body>
+</html>

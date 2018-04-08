@@ -1,0 +1,59 @@
+<!-- contribution of AMIT and BHAVUK to write this code -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>eBay.in - Shopping Cart|eBay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+   <link rel="icon" href="ebayFav.ico">
+     <script>
+      $(function(){
+        $("#header").load("header.html");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1"></div>
+          <div class="col-sm-10" style="border-style: solid;border-width: 10px;border-color:#ddd">
+           <div class="row" style="padding-bottom:5px;color:grey">
+            <div class="col-sm-5"><h3>Items in your cart</h3></div>
+              <div class="col-sm-offset-3 col-sm-2" style="padding-top:12px"><h4>order total</h4></div>
+              <div class="col-sm-2" style="color:black;padding-top:12px"><h4 id="order_total"><h4></div>
+            </div>
+            <div class="row" style="background-color:#eee ;height:70px">
+              <div class="col-sm-offset-8 col-sm-2" style="padding-top:20px">
+                <button type="button" class="btn btn-default btn-md" style="color:blue" id="shop_more"><b>Shop More</b></button>
+              </div>
+              <div class="col-sm-2" style="padding-top:20px">
+                <button type="button" class="btn btn-primary btn-md" id="place_order">place order</button>
+              </div>
+            </div>
+            <div id="cart"></div>
+            <div class="row" style="background-color:#eee ;height:70px">
+              <div class="col-sm-offset-8 col-sm-2" style="padding-top:20px">
+                <button type="button" class="btn btn-default btn-md" style="color:blue" id="shop_more"><b>Shop More</b></button>
+              </div>
+              <div class="col-sm-2" style="padding-top:20px">
+                <button type="button" class="btn btn-primary btn-md" id="place_order">place order</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-offset-5" style="height:80px;padding-top:20px">
+                <img src="images/eg.png">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+    </div>
+    <script src="javascript/cart.js"></script>
+  </body>
+</html>
