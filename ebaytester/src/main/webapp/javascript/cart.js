@@ -142,8 +142,16 @@ $('#shop_more').click(function(){
 	window.location="http://localhost:5224/ebaytester/home.html";
 });
 $('#place_order').click(function(){
-	//localStorage.product_id_buynow=null;
+	localStorage.product_id_buynow=null;
+	localStorage.place_order="place_order";
 	//alert(localStorage.product_id_buynow);
-	window.location="http://localhost:5224/ebaytester/orderReviewCart.html";
+ if(parseInt(localStorage.user_PINCODE)==8888)
+  {
+    window.location = "http://localhost:5224/ebaytester/address_form_buyer.html";
+  }
+	else{
+		window.location="http://localhost:5224/ebaytester/orderReviewCart.html";
+	}
+
 });
 /*==========================================================================END OF CODE==========================================================*/

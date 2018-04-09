@@ -8,10 +8,15 @@ prod_id = localStorage.getItem("prod_id");
 function buybutton()
 {
   localStorage.product_id_buynow=prod_id;
+  localStorage.place_order=null;
   if(localStorage.user_Id==null)
 	{
 	 window.location = "http://localhost:5224/ebaytester/login.html";
 	}
+  else if(parseInt(localStorage.user_PINCODE)==8888)
+  {
+    window.location = "http://localhost:5224/ebaytester/address_form_buyer.html";
+  }
 else
 	{
 	 window.location = "http://localhost:5224/ebaytester/orderReview.html";
@@ -42,7 +47,7 @@ function addToCartButton() {
 	       success: function(tmp){
 	    	   //tmp=response;
 	    	   //document.write(tmp['category_id']);
-	    	   
+
 	    	 //Adding image to page
 	    	   var img = document.createElement('img');
 	    	   img.setAttribute("src",tmp['product_img_url']);
@@ -54,7 +59,7 @@ function addToCartButton() {
 
 	    	   //Adding top product description
 	    	   var prod_name = document.createElement('p');
-	    	   var mk_bld = document.createElement('b');//making header bold 
+	    	   var mk_bld = document.createElement('b');//making header bold
 	    	   var text_node = document.createTextNode(tmp['product_name']);
 	    	   mk_bld.appendChild(text_node);
 	    	   prod_name.appendChild(mk_bld);
@@ -86,7 +91,7 @@ function addToCartButton() {
 	    	   //Color
 	    	   var col_div ="";
 	    	   if(tmp['product_color'])
-	    	   	
+
 	    	   	{
 	    	   	var col = document.createElement('p');
 	    	   	text_node = document.createTextNode("Color:");
@@ -94,7 +99,7 @@ function addToCartButton() {
 	    	   	col.style.textAlign = "right";
 	    	   	col.style.color = 'grey';
 	    	   	document.getElementById("first").appendChild(col);
-	    	   	
+
 	    	   	col_div = '<select id="color" class="form-control" style="height:30px; width:150px"><option value="">-Select-</option>';
 	    	   	for(i in tmp['product_color'])
 	    	   		{
@@ -103,13 +108,13 @@ function addToCartButton() {
 	    	   		}
 	    	   	col_div += '</select>';
 	    	   	//document.getElementById("second").innerHTML = col_div;
-	    	   	
+
 	    	   	}
 
 	    	   //size
 	    	   var sz_div="";//for line break
 	    	   var t="";
-	    	   if(tmp['product_size'])	
+	    	   if(tmp['product_size'])
 	    	   {
 	    	   	t="";
 	    	   	if(tmp['product_color']){
@@ -161,7 +166,7 @@ function addToCartButton() {
 	    	   		prod_quant += "<p>Not Available</p>";
 	    	   	}
 	    	   else{
-	    	   		prod_quant += '<input id="quantity" style="height:30px; width:30px" type="text" value=1>' 
+	    	   		prod_quant += '<input id="quantity" style="height:30px; width:30px" type="text" value=1>'
 	    	   }
 
 	    	   document.getElementById("second").innerHTML = prod_cond + col_div+t+sz_div + prod_quant;
@@ -193,7 +198,7 @@ function addToCartButton() {
 	    	   	{
 	    	   		if(tmp[k] == "" || k.includes("seller") || k=='category_id' || k=='product_available_quantity' || k=='seller_name' || k=='product_size' || k=='product_color' || k=='product_condition' || k=='product_description' || k=='product_discount' || k=='product_id' || k=='product_img_url' || k=='product_name' || k=='product_sold_quantity' ||k=='product_price' || k=='product_shipping' || k=='sub_category_id')
 	    	   		{
-	    	   			continue;//if product detail is unrelevent to other description then skip the loop 
+	    	   			continue;//if product detail is unrelevent to other description then skip the loop
 	    	   		}
 	    	   		if(sec == 0)
 	    	   		{
@@ -217,13 +222,11 @@ function addToCartButton() {
 	    	   document.getElementById("prod_desc_div").innerHTML = cont;
 
 	    	   document.getElementById("shipp").innerHTML = tmp['product_shipping'];
-	    	      
-	    	   
+
+
 	       }
 	     });
 
-	
+
 
 //var tmp = {"category_id":4,"product_available_quantity":10,"seller_name":"well-biz","product_size":[7,8,12],"product_color":["Red","Blue","Yellow","Black"],"product_condition":"new","product_description":"Branded Metal Body 4 Star","product_discount":0,"product_id":1,"product_img_url":"http://localhost:5224/ebaytester/images/s-l1600.jpg","product_name":"Motorola Cover","product_price":250000,"product_shipping":"free","product_sold_quantity":10,"sub_category_id":7};
-
-

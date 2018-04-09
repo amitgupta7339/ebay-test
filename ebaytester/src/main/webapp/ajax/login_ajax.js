@@ -23,9 +23,25 @@ $('#login')
 											window.location = "http://localhost:5224/ebaytester/admin_category.html";
 										}
 										else if(localStorage.product_id_buynow!=null)
-											{
-											 window.location = "http://localhost:5224/ebaytester/orderReview.html";
+											{if(parseInt(localStorage.user_PINCODE)==8888)
+												{
+													window.location = "http://localhost:5224/ebaytester/address_form_buyer.html";
+												}
+												else{
+													window.location = "http://localhost:5224/ebaytester/orderReview.html";
+												}
+
 											}
+											else if(localStorage.place_order=="place_order")
+												{if(parseInt(localStorage.user_PINCODE)==8888)
+													{
+														window.location = "http://localhost:5224/ebaytester/address_form_buyer.html";
+													}
+													else{
+														window.location="http://localhost:5224/ebaytester/orderReviewCart.html";
+													}
+
+												}
 											else if(localStorage.cart!=null)
 											{
 												window.location = "http://localhost:5224/ebaytester/cart.html";

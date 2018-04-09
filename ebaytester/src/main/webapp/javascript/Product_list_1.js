@@ -519,9 +519,14 @@ function showList()
 	function buybutton(prod_id) {
 		// alert("inside");
 		localStorage.product_id_buynow = prod_id;
+		localStorage.place_order=null;
 		if(localStorage.user_Id==null)
 			{
 			 window.location = "http://localhost:5224/ebaytester/login.html";
+			}
+			else if(parseInt(localStorage.user_PINCODE)==8888)
+			{
+				window.location = "http://localhost:5224/ebaytester/address_form_buyer.html";
 			}
 		else
 			{
