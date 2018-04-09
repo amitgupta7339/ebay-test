@@ -10,13 +10,16 @@ public class Cart {
 	private String product_img_url;
 	private String product_shipping;
 	private int product_user_quantity;
+	private String item_id;
 
 	public Cart() {
 	};
 
+
+
 	public Cart(int product_id, float product_price, int product_available_quantity, String user_fname,
 			String user_lname, String product_name, String product_img_url, String product_shipping,
-			int product_user_quantity) {
+			int product_user_quantity, String item_id) {
 		super();
 		this.product_id = product_id;
 		this.product_price = product_price;
@@ -27,7 +30,10 @@ public class Cart {
 		this.product_img_url = product_img_url;
 		this.product_shipping = product_shipping;
 		this.product_user_quantity = product_user_quantity;
+		this.item_id = item_id;
 	}
+
+
 
 	public int getProduct_id() {
 		return product_id;
@@ -35,6 +41,14 @@ public class Cart {
 
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
+	}
+
+	public String getItem_id() {
+		return item_id;
+	}
+
+	public void setItem_id(String item_id) {
+		this.item_id = item_id;
 	}
 
 	public float getProduct_price() {

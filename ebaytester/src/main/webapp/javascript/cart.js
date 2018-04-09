@@ -42,6 +42,7 @@ function cart_list(x){
      cart_product_list+='<div class="row">'+
                           '<div class=row >'+
                            '<p style="Color:grey;margin-left:20px" ><strong>From </strong>'+result[x].user_fname+' '+result[x].user_lname+'</p>'+
+                           '<p style="Color:grey;margin-left:20px">Item Id: '+result[x].item_id+'</p>'+
                           '</div>'+
                           '<div class=row>'+
                             '<a href="#" onclick="Remove('+x+')">'+
