@@ -74,7 +74,7 @@ public class ProductService {
 			product.setProduct_available_quantity(rs.getInt(12));
 			product.setProduct_description(rs.getString(13));
 			product.setRating(rs.getInt(14));
-			product.setDeal(rs.getString(15));
+			product.setItem_id(rs.getString(15));
 			product.setColor(rs.getString(17));
 			product.setBrand(rs.getString(16));
 			product.setScreen_Size(rs.getString(18));
@@ -422,6 +422,7 @@ public class ProductService {
 					color, screen_size, processor, storage, warranty, operating_system, gender, applicable, material,
 					clothing_size, style, warranty_type, card_class);
 			System.out.println(product_id);
+			product.setItem_id(rs.getString("item_id"));
 			new File(PathSetup.imagePath + "products/" + product_id + "/images").mkdirs();
 			// new ProductService().Upload()
 

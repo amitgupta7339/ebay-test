@@ -31,12 +31,14 @@ public class MyOrderService {
 		PreparedStatement preparedstmnt = null;
 		try {
 // =========================================QUERY FOR DEALS ON PRODUCT===========================================//		
-			String query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id, d.free_check, d.deal_id,  u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND d.deal_id=t.deal_id AND t.user_id=? ORDER BY t.order_date DESC";
+			String query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id, d.free_check,  u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND d.deal_id=t.deal_id AND t.user_id=? ORDER BY t.txn_id DESC";
 			// String query = "select * from transaction where user_id=?";
 			preparedstmnt = connection.prepareStatement(query);
 			preparedstmnt.setInt(1, user_id);
 			ResultSet rs = preparedstmnt.executeQuery();
 			while (rs.next()) {
+				if(rs.getInt("deal_id")!=0)
+				{
 				oo = new MyOrder();
 				oo.setTxn_surr_id(rs.getInt("Txn_surr_id"));
 				String txnid = "TXN000" + rs.getInt("Txn_id");
@@ -62,9 +64,10 @@ public class MyOrderService {
 				oo.setUser_lname(rs.getString("user_lname"));
 				oo.setUser_email(rs.getString("user_email"));
 				list.add(oo);
+				}
 			}
 // =========================================QUERY FOR DEAL ID=0 OR NO DEAL ON PRODUCT============================//
-			query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id,u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u, seller_deal AS d WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND t.user_id=? AND t.deal_id=? ORDER BY t.order_date DESC";
+			query = "SELECT t.* , p.product_img_url, p.product_name,p.item_id,u.user_fname, u.user_lname, u.user_email FROM transaction AS t, product as p, user as u WHERE u.user_id=t.seller_id AND t.product_id=p.product_id AND t.user_id=? AND t.deal_id=? ORDER BY t.txn_id DESC";
 			// String query = "select * from transaction where user_id=?";
 			preparedstmnt = connection.prepareStatement(query);
 			preparedstmnt.setInt(1, user_id);

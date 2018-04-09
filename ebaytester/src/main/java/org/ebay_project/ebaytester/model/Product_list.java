@@ -27,9 +27,10 @@ public class Product_list {
 	private String product_warranty_type;
 	private int product_seller_id;
 	private String product_seller_name;
-	private String product_deal;
+	private String productItemId;
 
-	public Product_list() {};
+	public Product_list() {
+	};
 
 	public Product_list(String product_seller_name, int product_seller_id, int product_id, int sub_category_id,
 			int category_id, String product_name, int product_price, int product_discount, String product_condition,
@@ -37,7 +38,7 @@ public class Product_list {
 			String product_description, int product_rating, String product_brand, String product_color,
 			String product_storage, String product_warranty, String product_os, int product_year, String product_gender,
 			String product_applicable, String product_material, String product_clothing_size,
-			String product_warranty_type) {
+			String product_warranty_type,String productItemId) {
 		this.product_seller_id = product_seller_id;
 		this.product_seller_name = product_seller_name;
 		this.product_id = product_id;
@@ -64,15 +65,16 @@ public class Product_list {
 		this.product_material = product_material;
 		this.product_clothing_size = product_clothing_size;
 		this.product_warranty_type = product_warranty_type;
+		this.productItemId = productItemId;
 
 	};
 
-	public String getProduct_deal() {
-		return product_deal;
+	public String getProductItemId() {
+		return productItemId;
 	}
 
-	public void setProduct_deal(String product_deal) {
-		this.product_deal = product_deal;
+	public void setProductItemId(String productItemId) {
+		this.productItemId = productItemId;
 	}
 
 	public int getSellerId() {

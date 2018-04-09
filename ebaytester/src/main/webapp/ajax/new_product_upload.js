@@ -38,7 +38,7 @@ $('#Category_product').on('change', function() {
 });
 //======================================AJAX CALL ON SUBMIT A PRODUCT DETAIL FORM FOR DATA STORAGE====================================//
 $('#Product_detail_form').submit(function(){
-  alert(""+localStorage.user_Id);
+  alert("seller id: "+localStorage.user_Id);
 	$.ajax({
 		type: "post",
 		url:  "http://localhost:5224/ebaytester/webapi/products/uploadProduct/"+localStorage.user_Id,
@@ -48,7 +48,10 @@ $('#Product_detail_form').submit(function(){
 			         if(response!=null)
 			         {
 			           localStorage.product_id_seller=response.product_id;
-			           alert(localStorage.product_id_seller);
+			           alert("category id: "+response.category_id);
+			           alert("sub_category id: "+response.sub_category_id);
+			           //alert(localStorage.product_id_seller);
+                       alert("item id: "+response.item_id);
 			           window.location="http://localhost:5224/ebaytester/image_upload_form.html";
 			         }
 			       }

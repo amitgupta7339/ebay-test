@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Track Order|eBay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+   <link rel="icon" href="ebayFav.ico">
+  </head>
+  <body>
+  <div>
+  	<div class="col-sm-1"></div>
+   	<div class="col-sm-9" id="product_display"> </div>      
+  </div>
+    
+     <!--===================================================== Rate MODAL ===================================================== -->
+
+  <div class="modal fade rateModal" id="rateModal" tabindex="-1" role="dialog" aria-labelledby="rateModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title text-muted" id="modalLongTitle"> Rate product</h4>
+      </div>
+      <div class="modal-body">
+        <p>Product Name: <span id="rateModal_product_name"></span></p>
+      </div>
+      <div class="modal-footer">
+        <form class="form-inline" id="rateForm">
+        
+	       <label for="sel1">Select :</label>
+	        <select class="form-control" id="rateselecter">
+	          <option>1</option>
+	          <option>2</option>
+	          <option>3</option>
+	          <option>4</option>
+	          <option>5</option>
+	        </select>
+
+            <button type="submit" class="btn btn-danger" id="rateProduct"> Rate Product </button>
+            <!-- onclick="rateProduct()" -->
+      </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--===================================================== Rate MODAL ===================================================== -->
+    
+    
+    <div>
+    	<br>
+      <div class="row">
+        <div class="col-sm-2 col-sm-offset-5">
+          <button type="submit" class="btn btn-primary" id="Reset">Reset</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      $('#Reset').click(function(){
+    	  localStorage.track_order_txn = null;
+        	window.location="http://localhost:5224/ebaytester/track_order.html";
+      });
+    </script>
+    <script src="ajax/track_order_ajax.js"></script>
+  </body>
+</html>

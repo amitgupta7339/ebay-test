@@ -20,7 +20,26 @@ public class Transaction {
 	String seller_address;
 	float seller_rating;
 	float product_rating;
-	
+	// identifing user vs seller only in modal
+	int user_set;
+	String string_txn_id;
+
+	public String getString_txn_id() {
+		return string_txn_id;
+	}
+
+	public void setString_txn_id(String string_txn_id) {
+		this.string_txn_id = string_txn_id;
+	}
+
+	public int getUser_set() {
+		return user_set;
+	}
+
+	public void setUser_set(int user_set) {
+		this.user_set = user_set;
+	}
+
 	public Transaction() {
 		
 	}

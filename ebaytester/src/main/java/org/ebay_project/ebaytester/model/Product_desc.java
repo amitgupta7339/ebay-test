@@ -23,7 +23,7 @@ public class Product_desc {
 	private int product_available_quantity;
 	private String product_description;
 	private int Rating;
-	private String Deal;
+	private String Item_id;
 	private String Brand;
 	private String Color;
 	private String Screen_Size;
@@ -39,14 +39,12 @@ public class Product_desc {
 	private String Style;
 	private String Warranty_Type;
 	private String Card_Class;
-	
-	public Product_desc() {};
-	
+	public Product_desc() {}
 	public Product_desc(int product_id, int sub_category_id, int category_id, int seller_id, String seller_name,
 			String seller_country, String seller_state, String seller_city,String seller_address,String seller_email, String seller_contact, String product_name,
 			int product_price, int product_discount, String product_condition, String product_shipping,
 			int product_sold_quantity, String product_img_url, int product_available_quantity,
-			String product_description, int rating, String deal, String brand, String color, String screen_Size,
+			String product_description, int rating, String item_id, String brand, String color, String screen_Size,
 			String processor, String storage, String warranty, String oS, int year, String gender, String applicable,
 			String material, String size, String style, String warranty_Type, String card_Class) {
 		super();
@@ -71,7 +69,7 @@ public class Product_desc {
 		this.product_available_quantity = product_available_quantity;
 		this.product_description = product_description;
 		Rating = rating;
-		Deal = deal;
+		Item_id = item_id;
 		Brand = brand;
 		Color = color;
 		Screen_Size = screen_Size;
@@ -218,11 +216,11 @@ public class Product_desc {
 	public void setRating(int rating) {
 		Rating = rating;
 	}
-	public String getDeal() {
-		return Deal;
+	public String getItem_id() {
+		return Item_id;
 	}
-	public void setDeal(String deal) {
-		Deal = deal;
+	public void setItem_id(String item_id) {
+		Item_id = item_id;
 	}
 	public String getBrand() {
 		return Brand;

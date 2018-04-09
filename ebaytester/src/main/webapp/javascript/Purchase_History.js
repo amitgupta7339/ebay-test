@@ -37,7 +37,7 @@ function MyOrder_list(x){
                            <p>${result[x].product_name}</p>
                            <br>
                            <p style="color:grey">Order date: ${result[x].order_date}</p>`
-                           if(result[x].status=="recieved")
+                           if(result[x].status=="goods_received")
                         	 {
                         	   MyOrder_product_list+=`<p style="color:green">Order Status: ${result[x].status}</p>`
                         	 }

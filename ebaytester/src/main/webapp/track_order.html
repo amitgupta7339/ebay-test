@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Track Order|eBay</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="jquery-3.3.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+   <link rel="icon" href="ebayFav.ico">
+     <script>
+      $(function(){
+        $("#header").load("header.html");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <br>
+
+    <form class="form-horizontal" id="Transaction_form">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="transaction_id">Enter Transaction Id*</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="transaction_id" placeholder="Enter Transaction Id" name="transaction_id" value="" required>
+        </div>
+        <div class="col-sm-3">
+              <span class="col-sm-4" >
+                <button type="submit" class="btn btn-primary" id="search_transaction">Search</button>
+              </span>
+        </div>
+      </div>
+    </form>
+    <script src="javascript/track_order.js"></script>
+  </body>
+</html>

@@ -75,6 +75,16 @@
   </script>
   <script src="javascript/home.js">
   </script>
+  <!-- track my order function call  -->
+    <script>
+    function TrackOrder(){
+      if(localStorage.user_Id!=null){
+        window.location="http://localhost:5224/ebaytester/track_order.html";
+      }else{
+        window.location="http://localhost:5224/ebaytester/login.html";
+      }
+    }
+    </script>
   <!-- end external script file  -->
   <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
@@ -112,7 +122,7 @@
           <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
           <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Help & Contact</a></li>
           <li style="width:10px; display:table-cell; padding-top:1px;padding-bottom:1px;text-align:center">|</li>
-          <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#">Track My Order</a></li>
+          <li style="width:100px; display:table-cell; padding-top:1px;padding-bottom:1px;"><a id="two" href="#" onclick="TrackOrder()">Track My Order</a></li>
       </ul>
       </div>
       <div class="col-sm-2" >

@@ -3,10 +3,26 @@ package org.ebay_project.ebaytester.model;
 public class Product {
 
 	private int product_id, sub_category_id, category_id, user_id, product_price, product_discount,
-			product_sold_quantity, product_available_quantity, product_rating, product_year;
+			product_sold_quantity, product_available_quantity, product_rating, product_year,a1;
+	public int getA1() {
+		return a1;
+	}
+
+	public void setA1(int a1) {
+		this.a1 = a1;
+	}
+
 	private String product_name, product_condition, product_shipping, product_img_url, product_description,brand,
 			color, screen_size, processor, storage, warranty, operating_system, gender, applicable, material,
-			clothing_size, style, warranty_type, card_class,item_id;
+			clothing_size, style, warranty_type, card_class,item_id,product_status;
+
+	public String getProduct_status() {
+		return product_status;
+	}
+
+	public void setProduct_status(String product_status) {
+		this.product_status = product_status;
+	}
 
 	public Product() {
 	}
