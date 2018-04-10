@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <script src="jquery-3.3.1/jquery.min.js"></script>
   <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <!-- Adding external CSS for social buttons-->
+  <link rel="stylesheet" href="css/bootstrap-social.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <!--Social Buttons CSS-->
   <!-- external script file -->
   <link rel="icon" href="ebayFav.ico">
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -744,6 +748,14 @@
         <tr><td style="border: 1px solid #CCC">image</td></tr>
       </table>
      </div>
+<!--==================================Twitter button for API Call==================================================-->
+     <div class="" id="twitter">
+       <a href="http://localhost:5224/ebaytester/ebayTweets.html" title="Twitter" class="btn btn-twitter btn-lg">
+         <i class="fab fa-twitter"></i> See eBay Tweets
+       </a>
+    </div>
+<!--==================================Twitter button for API Call===================================================-->
+
    </div>
 </div>
 <!--======================================================================Deal Images========================================================  -->
@@ -765,7 +777,8 @@
   </div>
 </div>
 <script src="ajax/dealproductlist_ajax.js"></script>
-<script>
+	  
+<!-- <script>
 $("#Exam_01").click(function(){
 	window.location="http://localhost:5224/ebaytester/Exam_01.html";
 });
@@ -773,7 +786,8 @@ $("#Exam_02").click(function(){
 	window.location="http://localhost:5224/ebaytester/Exam_02.html";
 });
 
-</script>
+</script> -->
+	  
 <script>
 $.ajax({
     type: "get",
